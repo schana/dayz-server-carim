@@ -1,0 +1,336 @@
+	<type name="MSFC_AK74_WHITE">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>	
+	<type name="MSFC_AK74_ATACS_AU">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_ATACS_FG">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_BLUE">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_EMR">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_Flecktarn">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_HEX">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_MARPAT_WD">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_MULTICAM">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_MULTICAM_BLACK">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_MULTICAM_TROPIC">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_SNAKE">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_SNAKE_GREEN">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_SURPAT">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_VIPER_WESTERN">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_Woodland">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_SURPAT_TAN">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_ORANGE">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_RED">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_DARK">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_MATRIX">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_REDBLACKWHITE">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_Honeycomb">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>		
+	<type name="MSFC_AK74_STAR">
+        <nominal>1</nominal>
+        <lifetime>10800</lifetime>
+        <restock>800</restock>
+        <min>2</min>
+        <quantmin>-1</quantmin>
+        <quantmax>-1</quantmax>
+        <cost>100</cost>
+        <flags count_in_cargo="1" count_in_hoarder="1" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+        <category name="weapons"/>
+        <usage name="Military"/>
+		<value name="Tier1"/>
+        <value name="Tier2"/>
+    </type>	

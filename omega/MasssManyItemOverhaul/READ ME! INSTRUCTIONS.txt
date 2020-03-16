@@ -1,0 +1,14 @@
+Hello and thank you for downloading my mod, to get everything working perfectly without any bugs please follow the instuctions below.
+Recommended tools to follow instructions = Notepad++(It's free, PLEASE use it. don't come crying to me if this didn't work because you didn't use it)
+
+TYPES.XML
+Contains the spawning configurations for all of my items. Items currently have vanilla spawn rates (excluding the ghillie boxes which are as rare as coyote bags). To get the items to spawn correctly on your server you need to locate the types.xml file located in your server mission's DB folder, open it and then go back to the types.xml I PROVIDE in my mod, CTRL+A(Copy) The contents and paste it either at the bottom, ABOVE </types> or at the top Below <types>
+
+Example:
+
+<Types>
+PASTE MY TYPES HERE.
+<types name="ACOGOptic">
+(so you'd want to paste it above the acog type and below the <types>
+
+Ignore Vanilla types I use it every time I make a new item and need the default values.

@@ -1,0 +1,64 @@
+BaseBuildToolDamage 1
+BaseDismantleToolDamage 3
+BaseDestroyToolDamage 40
+CombinationLockToolDamage 50
+
+DisableDestroy 0
+DisableDestroySimpleBase 0
+DisableDestroySimpleWall 0
+DisableDestroySimpleHalfWall 0
+DisableDestroySimpleWindow 0
+DisableDestroySimpleDoor 0
+DisableDestroySimpleRoof 0
+DisableDestroySimpleFloor 0
+DisableDestroySimpleStaircase 0
+DisableDestroySimplePillar 0
+DisableDestroySimpleHalfPillar 0
+
+DisableDismantle 0
+DisableDismantleSimpleBase 0
+DisableDismantleSimpleWall 0
+DisableDismantleSimpleHalfWall 0
+DisableDismantleSimpleWindow 0
+DisableDismantleSimpleDoor 0
+DisableDismantleSimpleRoof 0
+DisableDismantleSimpleFloor 0
+DisableDismantleSimpleStaircase 0
+DisableDismantleSimplePillar 0
+DisableDismantleSimpleHalfPillar 0
+
+
+
+
+//Edit the values above. Below is just for reference........................................................................................
+//------------------------------------------------------------------------------------------------------------------------------------------
+//EXAMPLE-----------------------------------DESCRIPTION-------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------
+//BaseBuildToolDamage 1						Damage percentage to tool used for building (1-100). 					| Vanilla default=5
+//BaseDismantleToolDamage 3					Damage percentage to tool used for dismantling (1-100). 				| Vanilla default=5
+//BaseDestroyToolDamage 40					Damage percentage to tool used for destruction (1-100). 				| Vanilla default=20
+//CombinationLockToolDamage 50				Damage percentage to tool used for destroying vanilla locks (1-100). 	| Vanilla default=50
+
+//DisableDestroy 0							0 = Enable Destruction of all base parts. 		1 = Disable Destruction of all base parts (including vanilla).
+//DisableDestroySimpleBase 0				0 = Enable Destruction of simple base parts. 	1 = Disable Destruction of simple base parts.
+//DisableDestroySimpleWall 0				0 = Enable Destruction of Simple Wall. 			1 = Disable Destruction of Simple Wall.
+//DisableDestroySimpleHalfWall 0			0 = Enable Destruction of Simple Half Wall. 	1 = Disable Destruction of Simple Half Wall.
+//DisableDestroySimpleWindow 0				0 = Enable Destruction of Simple Window. 		1 = Disable Destruction of Simple Window.
+//DisableDestroySimpleDoor 0				0 = Enable Destruction of Simple Door. 			1 = Disable Destruction of Simple Door.
+//DisableDestroySimpleRoof 0				0 = Enable Destruction of Simple Roof. 			1 = Disable Destruction of Simple Roof.
+//DisableDestroySimpleFloor 0				0 = Enable Destruction of Simple Floor. 		1 = Disable Destruction of Simple Floor.
+//DisableDestroySimpleStaircase 0			0 = Enable Destruction of Simple Staircase. 	1 = Disable Destruction of Simple Staircase.
+//DisableDestroySimplePillar 0				0 = Enable Destruction of Simple Pillar. 		1 = Disable Destruction of Simple Pillar.
+//DisableDestroySimpleHalfPillar 0			0 = Enable Destruction of Simple Half Pillar. 	1 = Disable Destruction of Simple Half Pillar.
+
+//DisableDismantle 0						0 = Enable Dismantling of all base parts. 		1 = Disable Dismantling of all base parts (including vanilla).
+//DisableDismantleSimpleBase 0				0 = Enable Dismantling of simple base parts. 	1 = Disable Dismantling of simple base parts.
+//DisableDismantleSimpleWall 0				0 = Enable Dismantling of Simple Wall. 			1 = Disable Dismantling of Simple Wall.
+//DisableDismantleSimpleHalfWall 0			0 = Enable Dismantling of Simple Half Wall. 	1 = Disable Dismantling of Simple Half Wall.
+//DisableDismantleSimpleWindow 0			0 = Enable Dismantling of Simple Window. 		1 = Disable Dismantling of Simple Window.
+//DisableDismantleSimpleDoor 0				0 = Enable Dismantling of Simple Door. 			1 = Disable Dismantling of Simple Door.
+//DisableDismantleSimpleRoof 0				0 = Enable Dismantling of Simple Roof. 			1 = Disable Dismantling of Simple Roof.
+//DisableDismantleSimpleFloor 0				0 = Enable Dismantling of Simple Floor. 		1 = Disable Dismantling of Simple Floor.
+//DisableDismantleSimpleStaircase 0			0 = Enable Dismantling of Simple Staircase. 	1 = Disable Dismantling of Simple Staircase.
+//DisableDismantleSimplePillar 0			0 = Enable Dismantling of Simple Pillar. 		1 = Disable Dismantling of Simple Pillar.
+//DisableDismantleSimpleHalfPillar 0		0 = Enable Dismantling of Simple Half Pillar. 	1 = Disable Dismantling of Simple Half Pillar.

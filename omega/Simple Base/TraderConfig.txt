@@ -1,0 +1,17 @@
+
+	<Category> Simple Base
+		Chopper_Step_Ladder_2Kit,						*,		4000,		2000
+		Chopper_PostKit,								*,		50,			25
+		Chopper_Post_HalfKit,							*,		30,			15
+		Chopper_RoofKit,								*,		200,		100
+		Chopper_FloorKit,								*,		200,		100
+		Chopper_WallKit,								*,		200,		100
+		Chopper_Wall_HalfKit,							*,		100,		50
+		Chopper_DoorKit,								*,		300,		150
+		Chopper_WindowKit,								*,		250,		125
+		Chopper_StaircaseKit,							*,		8000,		4000
+		Chopper_Hinge,									*,		100,		50
+		Chopper_Bracket,								*,		350,		175
+		Chopper_Desk_Lamp,								*,		600,		300
+		Chopper_Floor_Lamp,								*,		800,		400
+		Chopper_Xmas_Tree,								*,		400,		200

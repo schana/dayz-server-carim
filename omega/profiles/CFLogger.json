@@ -1,0 +1,10 @@
+{
+    "EnableDebug": 0,
+    "Modes": {
+        "JM_CF_Credits": 0,
+        "JM_CF_Mods": 0,
+        "JM_CF_RPC_Client": 0,
+        "JM_CF_KeyBindings": 0,
+        "JM_CF_RPC": 0
+    }
+}

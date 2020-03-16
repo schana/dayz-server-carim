@@ -1,0 +1,1 @@
+Gasmask no longer mutes the player when attached to the SurvivorBag Courtesy of Cleetus
