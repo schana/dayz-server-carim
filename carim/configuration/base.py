@@ -2,6 +2,7 @@ import functools
 import logging
 import pathlib
 import inspect
+import shutil
 
 from carim.models import outdir, configs
 
@@ -47,4 +48,7 @@ def server(_func=None, *, directory=None):
     return located_config(_func, directory=directory, dir_prefix='servers/0')
 
 
-
+@server
+def server_dz_config(directory):
+    shutil.copyfile('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
+    shutil.copyfile('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
