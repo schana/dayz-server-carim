@@ -1,8 +1,11 @@
 import json
 import pathlib
+import logging
 
 from carim.configuration import base
 from carim.models import auth
+
+log = logging.getLogger(__name__)
 
 
 @base.config(directory='servers/0')
@@ -39,3 +42,13 @@ def omega_manager(directory):
     }
     with open(pathlib.Path(directory, 'manager.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
+
+
+@base.config(directory='servers/0')
+def priority_queue(directory):
+    users = []
+    for priority_user in auth.get().get('priority', []):
+        users.append(priority_user['steam64'])
+        log.info('adding {} to priority queue'.format(priority_user['name']))
+    with open(pathlib.Path(directory, 'priority.txt'), mode='w') as f:
+        f.writelines(user + ';' for user in users)

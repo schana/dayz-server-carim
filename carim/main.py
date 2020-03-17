@@ -7,7 +7,7 @@ import logging
 from carim.models import auth, types, configs
 from carim import configuration
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s - %(message)s')
 log = logging.getLogger(__name__)
 
 
