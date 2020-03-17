@@ -22,29 +22,36 @@ def modify_types(directory):
             process_type(modifications=action.get('modifications', dict()))
 
 
-def remove(matching=None, modifications=None):
-    name_re = re.compile('.*')
-    category_re = re.compile('.*')
-    if matching is not None:
-        name_re = re.compile(matching.get('name', '.*'))
-        category_re = re.compile(matching.get('category', dict()).get('name', '.*'))
+class Match:
+    def __init__(self, matching):
+        self.name_re = re.compile('.*')
+        self.category_re = re.compile('.*')
+        if matching is not None:
+            self.name_re = re.compile(matching.get('name', '.*'))
+            self.category_re = re.compile(matching.get('category', dict()).get('name', '.*'))
 
-    for t in types.get().getroot():
-        if not name_re.match(t.attrib.get('name')):
-            continue
+    def match(self, t):
+        if not self.name_re.match(t.attrib.get('name')):
+            return False
         category = t.find('category')
         if category is None:
-            continue
-        if not category_re.match(category.attrib.get('name')):
-            continue
+            return False
+        if not self.category_re.match(category.attrib.get('name')):
+            return False
+        return True
 
-        log.info('removing ' + t.attrib.get('name'))
+
+def remove(matching=None, modifications=None):
+    match = Match(matching)
+    for t in types.get().getroot():
+        if match.match(t):
+            log.info('removing ' + t.attrib.get('name'))
 
 
 def modify(matching=None, modifications=None):
     if modifications is None:
-        modifications = {}
-    log.info('modifying')
-    pass
-
-
+        return
+    match = Match(matching)
+    for t in types.get().getroot():
+        if match.match(t):
+            log.info('modifying ' + t.attrib.get('name'))

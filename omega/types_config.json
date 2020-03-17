@@ -3,18 +3,7 @@
     "action": "remove",
     "matching": [
       {
-        "name": "MSFC.*BLUE",
-        "category": {
-          "name": "weapons"
-        }
-      },
-      {
-        "name": "MSFC.*RED",
-        "category": {
-          "name": "weapons"
-        }
-      },
-      {
+        "name": "MSFC.*(BLUE|RED)",
         "category": {
           "name": "weapons"
         }
@@ -24,7 +13,7 @@
   {
     "action": "modify",
     "matching": [{
-      "name": "MSFC.*RED",
+      "name": "MSFC.*GREEN",
       "category": {
         "name": "weapons"
       }
