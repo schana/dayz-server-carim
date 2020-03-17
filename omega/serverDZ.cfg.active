@@ -1,0 +1,35 @@
+serverTimeAcceleration = 10;
+instanceId = 1;
+maxPlayers = 60;
+logAverageFps = 10;
+serverNightTimeAcceleration = 1;
+forceSameBuild = 1;
+steamQueryPort = 27016;
+disablePersonalLight = 1;
+multithreadedReplication = 1;
+hostname = "Carim |PvP|Loot+|Guns+|Airdrops|Trader|Base| discord.gg/kdPnVu4";
+serverTime = "SystemTime";
+passwordAdmin = "";
+class Missions
+{
+	class DayZ
+	{
+		template="dayzOffline.chernarusplus";
+	};
+};
+disableVoN = 0;
+vonCodecQuality = 20;
+loginQueueMaxPlayers = 500;
+storageAutoFix = 1;
+disable3rdPerson = 1;
+loginQueueConcurrentPlayers = 5;
+password = "";
+enableWhitelist = 0;
+verifySignatures = 2;
+storeHouseStateDisabled = 1;
+lightingConfig = 0;
+serverTimePersistent = 1;
+enableDebugMonitor = 0;
+disableCrosshair = 0;
+guaranteedUpdates = 1;
+logFile = "serverconsole.log";
