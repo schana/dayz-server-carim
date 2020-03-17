@@ -8,7 +8,7 @@ from carim.models import auth
 log = logging.getLogger(__name__)
 
 
-@base.config(directory='servers/0')
+@base.server
 def omega_config(directory):
     cfg = None
     with open('omega/omega.cfg') as f:
@@ -19,7 +19,7 @@ def omega_config(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.config(directory='servers/0/profiles')
+@base.server(directory='profiles')
 def cf_tools_config(directory):
     cfg = {
         'service_api_key': auth.get()['cf']['service_api_key'],
@@ -29,7 +29,7 @@ def cf_tools_config(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.config(directory='.')
+@base.config
 def omega_manager(directory):
     cfg = None
     with open('omega/manager.cfg') as f:
@@ -44,7 +44,7 @@ def omega_manager(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.config(directory='servers/0')
+@base.server
 def priority_queue(directory):
     users = []
     for priority_user in auth.get().get('priority', []):
