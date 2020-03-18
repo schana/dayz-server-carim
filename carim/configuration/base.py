@@ -51,5 +51,5 @@ def server(_func=None, *, directory='.', register=True):
 
 @server
 def server_dz_config(directory):
-    shutil.copyfile('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
-    shutil.copyfile('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
+    shutil.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
+    shutil.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
