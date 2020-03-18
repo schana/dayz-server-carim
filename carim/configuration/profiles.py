@@ -2,11 +2,11 @@ import itertools
 import json
 import logging
 import pathlib
-import shutil
 from xml.etree import ElementTree
 
 from carim.configuration import base
 from carim.models import auth, types, vpp_map
+from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
@@ -28,8 +28,8 @@ def profile(_func=None, *, directory='.', register=True):
 @profile(directory='Trader')
 def trader_file_and_admins(directory):
     for p in pathlib.Path('omega/Trader').glob('*'):
-        shutil.copy(p, directory)
-    with open(pathlib.Path(directory, 'TraderAdmins.txt'), mode='w') as f:
+        file_writing.copy(p, directory)
+    with file_writing.f_open(pathlib.Path(directory, 'TraderAdmins.txt'), mode='w') as f:
         for superuser in auth.get().get('superusers', []):
             log.info('adding {} as trader admin'.format(superuser['name']))
             f.write(superuser['steam64'] + '\n')
@@ -39,7 +39,7 @@ def trader_file_and_admins(directory):
 @profile(directory='Airdrop')
 def airdrop(directory):
     p = pathlib.Path('omega/Airdrop/AirdropSettings.json')
-    shutil.copy(p, directory)
+    file_writing.copy(p, directory)
 
 
 @profile(directory='SimpleBase')
@@ -54,7 +54,7 @@ def simple_base(directory):
 
 @profile(directory='VPPAdminTools/Permissions/SuperAdmins')
 def vpp_admin_tools_permissions(directory):
-    with open(pathlib.Path(directory, 'SuperAdmins.txt'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'SuperAdmins.txt'), mode='w') as f:
         for superuser in auth.get().get('superusers', []):
             log.info('adding {} as superuser'.format(superuser['name']))
             f.write(superuser['steam64'] + '\n')
@@ -76,7 +76,7 @@ def code_lock(directory):
             }
         })
         log.info('adding {} as code lock admin'.format(superuser['name']))
-    with open(pathlib.Path(directory, 'CodeLockPerms.json'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'CodeLockPerms.json'), mode='w') as f:
         json.dump(users, f, indent=2)
 
 
@@ -121,11 +121,11 @@ def vanilla_plus_plus_map(directory):
             active=True,
             active_3d=True
         ))
-    with open(pathlib.Path(directory, 'VPPMapConfig.json'), 'w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'VPPMapConfig.json'), mode='w') as f:
         json.dump(vpp_map.get_config(), f, indent=2)
 
 
 @profile(directory='VPPAdminTools/ConfigurablePlugins/TeleportManager')
 def vpp_teleports(directory):
-    with open(pathlib.Path(directory, 'TeleportLocation.json'), 'w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'TeleportLocation.json'), mode='w') as f:
         json.dump(vpp_map.get_admin_teleport_config(), f, indent=2)

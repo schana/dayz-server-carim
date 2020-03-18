@@ -2,9 +2,9 @@ import functools
 import inspect
 import logging
 import pathlib
-import shutil
 
 from carim.models import outdir, configs
+from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
@@ -51,5 +51,5 @@ def server(_func=None, *, directory='.', register=True):
 
 @server
 def server_dz_config(directory):
-    shutil.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
-    shutil.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
+    file_writing.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
+    file_writing.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))

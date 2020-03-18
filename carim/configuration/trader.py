@@ -2,6 +2,7 @@ import pathlib
 
 from carim.configuration import profiles
 from carim.models import trader, types
+from carim.util import file_writing
 
 
 @profiles.profile(directory='Trader', register=False)  # Needs to be generated after types are modified
@@ -65,5 +66,5 @@ def trader_items(directory):
     trader_config = trader.Config()
     trader_config.traders = [food_trader, tool_trader, weapon_trader, accessories_trader, clothing_trader,
                              vehicles_trader]
-    with open(pathlib.Path(directory, 'TraderConfig.txt'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'TraderConfig.txt'), mode='w') as f:
         f.write(trader_config.generate())

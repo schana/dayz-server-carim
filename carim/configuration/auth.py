@@ -4,6 +4,7 @@ import pathlib
 
 from carim.configuration import base
 from carim.models import auth
+from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
@@ -30,14 +31,14 @@ def cf_tools_config(directory):
         'service_api_key': auth.get()['cf']['service_api_key'],
         'service_id': auth.get()['cf']['service_id']
     }
-    with open(pathlib.Path(directory, 'cftools.cfg'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'cftools.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
 
 
 @base.config
 def omega_manager(directory):
     cfg = None
-    with open('omega/manager.cfg') as f:
+    with file_writing.f_open('omega/manager.cfg') as f:
         cfg = json.load(f)
     cfg['steam'] = {
         'username': auth.get()['steam']['username'],
@@ -45,7 +46,7 @@ def omega_manager(directory):
         'password': auth.get()['steam']['password'],
         'mobile_authenticator': False
     }
-    with open(pathlib.Path(directory, 'manager.cfg'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'manager.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
 
 
@@ -55,5 +56,5 @@ def priority_queue(directory):
     for priority_user in auth.get().get('priority', []):
         users.append(priority_user['steam64'])
         log.info('adding {} to priority queue'.format(priority_user['name']))
-    with open(pathlib.Path(directory, 'priority.txt'), mode='w') as f:
+    with file_writing.f_open(pathlib.Path(directory, 'priority.txt'), mode='w') as f:
         f.writelines(user + ';' for user in users)

@@ -7,7 +7,7 @@ from xml.etree import ElementTree
 
 from carim import configuration
 from carim.configuration import trader, missions
-from carim.models import auth, types, configs, outdir
+from carim.models import auth, types, configs, outdir, errors
 from carim.util import modify_types
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s - %(message)s')
@@ -33,6 +33,9 @@ def main():
     modify_types.modify_types()
     missions.types_config()
     trader.trader_items()
+    log.info('errors {}'.format(len(errors.get())))
+    for e in errors.get():
+        log.error(e)
     log.info('complete')
 
     inspect_types = False
