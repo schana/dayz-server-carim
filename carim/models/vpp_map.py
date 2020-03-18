@@ -16,6 +16,12 @@ def get_config():
     }
 
 
+def get_admin_teleport_config():
+    return {
+        'm_TeleportLocations': [m.get_admin_teleport_config() for m in _markers]
+    }
+
+
 class Marker:
     def __init__(self, name, icon, color, position, active, active_3d):
         self.name = name
@@ -33,6 +39,16 @@ class Marker:
             'M_POSITION': [self.position.x, 0, self.position.z],
             'M_ISACTIVE': 1 if self.active else 0,
             'M_IS_3D_ACTIVE': 1 if self.active_3d else 0
+        }
+
+    def get_admin_teleport_config(self):
+        return {
+            'm_Name': self.name,
+            'm_Position': [
+                self.position.x,
+                0,
+                self.position.z
+            ]
         }
 
 

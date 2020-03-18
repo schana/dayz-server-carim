@@ -104,7 +104,9 @@ def items_munghards():
 def vanilla_plus_plus_map(directory):
     marks = [
         ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
-        ('Kumyrna Trader', vpp_map.Position(8355, 5986))
+        ('Kumyrna Trader', vpp_map.Position(8355, 5986)),
+        ('Altar Trader', vpp_map.Position(8164, 9113)),
+        ('Zabolotye Black Market Trader', vpp_map.Position(1590, 10437))
     ]
     for m in marks:
         vpp_map.add(vpp_map.Marker(
@@ -117,3 +119,6 @@ def vanilla_plus_plus_map(directory):
         ))
     with open(pathlib.Path(directory, 'VPPMapConfig.json'), 'w') as f:
         json.dump(vpp_map.get_config(), f, indent=2)
+
+    with open(pathlib.Path(directory, 'VPPAdminTools/ConfigurablePlugins/TeleportManager/TeleportLocation.json', 'w')) as f:
+        json.dump(vpp_map.get_admin_teleport_config(), f, indent=2)
