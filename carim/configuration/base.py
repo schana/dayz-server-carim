@@ -32,7 +32,7 @@ def config(_func=None, *, directory='.', register=True):
         return config_decorator(_func)
 
 
-def located_config(_func=None, *, directory=None, dir_prefix=None, register=True):
+def located_config(_func=None, *, directory='.', dir_prefix=None, register=True):
     if _func is None:
         if directory is not None:
             return config(directory=str(pathlib.Path(dir_prefix, directory)), register=register)
@@ -45,7 +45,7 @@ def located_config(_func=None, *, directory=None, dir_prefix=None, register=True
             return config(_func)
 
 
-def server(_func=None, *, directory=None, register=True):
+def server(_func=None, *, directory='.', register=True):
     return located_config(_func, directory=directory, dir_prefix='servers/0', register=register)
 
 
