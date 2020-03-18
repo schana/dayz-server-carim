@@ -15,7 +15,9 @@ marks = [
     ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
     ('Kumyrna Trader', vpp_map.Position(8355, 5986)),
     ('Altar Trader', vpp_map.Position(8164, 9113)),
-    ('Zabolotye Black Market Trader', vpp_map.Position(1590, 10437))
+    ('Zabolotye Black Market Trader', vpp_map.Position(1590, 10437)),
+    ('NWAF', vpp_map.Position(4541, 10289)),
+    ('NEAF', vpp_map.Position(12121, 12521))
 ]
 
 
