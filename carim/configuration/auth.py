@@ -15,6 +15,11 @@ def omega_config(directory):
         cfg = json.load(f)
     cfg['cftools']['service_api_key'] = auth.get()['cf']['service_api_key']
     cfg['cftools']['service_id'] = auth.get()['cf']['service_id']
+    cfg['general']['pre_execution_script'] = {
+        'enabled': True,
+        'execution_time_limit': 10,
+        'path': auth.get()['preexec']['path']
+    }
     with open(pathlib.Path(directory, 'omega.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
 
