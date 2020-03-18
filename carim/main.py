@@ -6,6 +6,7 @@ import shutil
 from xml.etree import ElementTree
 
 from carim import configuration
+from carim.configuration import trader, missions
 from carim.models import auth, types, configs
 from carim.util import modify_types
 
@@ -27,8 +28,9 @@ def main():
     configuration.scan()
     for c in configs.get():
         c()
-    log.info('processing type modifications')
     modify_types.modify_types()
+    missions.types_config()
+    trader.trader_items()
     log.info('complete')
 
     inspect_types = False

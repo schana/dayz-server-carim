@@ -4,7 +4,7 @@ from carim.configuration import profiles
 from carim.models import trader, types
 
 
-@profiles.profile(directory='Trader')
+@profiles.profile(directory='Trader', register=False)  # Needs to be generated after types are modified
 def trader_items(directory):
     food = trader.Category('Food')
     weapons = trader.Category('Weapons')
@@ -19,18 +19,19 @@ def trader_items(directory):
         if cat is not None:
             cat_name = cat.get('name')
             item_name = t.get('name')
-            if cat_name == 'weapons':
-                weapons.items.append(trader.Weapon(item_name, 0, 1))
-            elif cat_name == 'containers':
-                containers.items.append(trader.Singular(item_name, 0, 1))
-            elif cat_name == 'clothes':
-                clothes.items.append(trader.Singular(item_name, 0, 1))
-            elif cat_name == 'explosives':
-                explosives.items.append(trader.Item(item_name, 1, 0, 1))
-            elif cat_name == 'food':
-                food.items.append(trader.Item(item_name, 1, 0, 1))
-            elif cat_name == 'tools':
-                tools.items.append(trader.Singular(item_name, 0, 1))
+            if t.find('nominal').text != '0':
+                if cat_name == 'weapons':
+                    weapons.items.append(trader.Weapon(item_name, 0, 1))
+                elif cat_name == 'containers':
+                    containers.items.append(trader.Singular(item_name, 0, 1))
+                elif cat_name == 'clothes':
+                    clothes.items.append(trader.Singular(item_name, 0, 1))
+                elif cat_name == 'explosives':
+                    explosives.items.append(trader.Item(item_name, 1, 0, 1))
+                elif cat_name == 'food':
+                    food.items.append(trader.Item(item_name, 1, 0, 1))
+                elif cat_name == 'tools':
+                    tools.items.append(trader.Singular(item_name, 0, 1))
 
     for v in ('OffroadHatchback',
               'OffroadHatchback_Blue',

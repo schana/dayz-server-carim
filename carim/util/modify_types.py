@@ -3,7 +3,7 @@ import logging
 import re
 
 from carim.configuration import base
-from carim.models import types
+from carim.models import types, item_type
 
 log = logging.getLogger(__name__)
 
@@ -17,9 +17,9 @@ def modify_types(directory):
         process_type = remove if action['action'] == 'remove' else modify
         if len(matching) > 0:
             for m in matching:
-                process_type(matching=m, modifications=action.get('modifications', dict()))
+                process_type(matching=m, modification=action.get('modification', dict()))
         else:
-            process_type(modifications=action.get('modifications', dict()))
+            process_type(modification=action.get('modification', dict()))
 
 
 class Match:
@@ -41,17 +41,56 @@ class Match:
         return True
 
 
-def remove(matching=None, modifications=None):
+_MAX_TIME = 3888000
+_REMOVE_MODIFICATION = {
+    "nominal": 0,
+    "lifetime": 0,
+    "restock": _MAX_TIME,
+    "min": 0,
+    "cost": 0,
+    "flags": [
+        {
+            "name": "count_in_cargo",
+            "value": True
+        },
+        {
+            "name": "count_in_hoarder",
+            "value": True
+        },
+        {
+            "name": "count_in_map",
+            "value": True
+        },
+        {
+            "name": "count_in_player",
+            "value": True
+        }
+    ],
+    "value": []
+}
+
+
+def remove(matching=None, modification=None):
     match = Match(matching)
     for t in types.get().getroot():
         if match.match(t):
             log.info('removing ' + t.attrib.get('name'))
+            apply_modification(t, _REMOVE_MODIFICATION)
 
 
-def modify(matching=None, modifications=None):
-    if modifications is None:
+def modify(matching=None, modification=None):
+    if modification is None:
         return
     match = Match(matching)
     for t in types.get().getroot():
         if match.match(t):
             log.info('modifying ' + t.attrib.get('name'))
+            apply_modification(t, modification)
+
+
+def apply_modification(item_element, modification):
+    template = item_type.modification_template
+    text_fields = [k for k in template.keys() if template.get(k) == 1]
+    for field in text_fields:
+        if modification.get(field) is not None:
+            item_element.find(field).text = str(modification.get(field))

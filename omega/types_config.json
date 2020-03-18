@@ -3,7 +3,7 @@
     "action": "remove",
     "matching": [
       {
-        "name": "MSFC.*(BLUE|RED)",
+        "name": "MSFC.*(Gray|HELL|WOODLAND|Woodland|Tan|Western|BLUE|RED|GREEN|WHITE|SNAKE|VIPER|Desert|Green|ATACS_AU|ATACS_FG|DARK|EMR|Flecktarn|HEX|Honeycomb|MARPAT_WD|MATRIX|ORANGE|STAR|SURPAT|White|Kryptek|Multicam|MULTICAM).*",
         "category": {
           "name": "weapons"
         }
@@ -13,12 +13,12 @@
   {
     "action": "modify",
     "matching": [{
-      "name": "MSFC.*GREEN",
+      "name": "don't match anything",
       "category": {
         "name": "weapons"
       }
     }],
-    "modifications": {
+    "modification": {
       "nominal": 0,
       "lifetime": 0,
       "min": 0,

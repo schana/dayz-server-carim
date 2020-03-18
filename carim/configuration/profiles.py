@@ -10,9 +10,17 @@ from carim.models import auth, types, vpp_map
 
 log = logging.getLogger(__name__)
 
+# TODO: move this to separate config file
+marks = [
+    ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
+    ('Kumyrna Trader', vpp_map.Position(8355, 5986)),
+    ('Altar Trader', vpp_map.Position(8164, 9113)),
+    ('Zabolotye Black Market Trader', vpp_map.Position(1590, 10437))
+]
 
-def profile(_func=None, *, directory='.'):
-    return base.located_config(_func, directory=directory, dir_prefix='servers/0/profiles')
+
+def profile(_func=None, *, directory='.', register=True):
+    return base.located_config(_func, directory=directory, dir_prefix='servers/0/profiles', register=register)
 
 
 @profile(directory='Trader')
@@ -102,12 +110,6 @@ def items_munghards():
 
 @profile
 def vanilla_plus_plus_map(directory):
-    marks = [
-        ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
-        ('Kumyrna Trader', vpp_map.Position(8355, 5986)),
-        ('Altar Trader', vpp_map.Position(8164, 9113)),
-        ('Zabolotye Black Market Trader', vpp_map.Position(1590, 10437))
-    ]
     for m in marks:
         vpp_map.add(vpp_map.Marker(
             name=m[0],
@@ -120,5 +122,8 @@ def vanilla_plus_plus_map(directory):
     with open(pathlib.Path(directory, 'VPPMapConfig.json'), 'w') as f:
         json.dump(vpp_map.get_config(), f, indent=2)
 
-    with open(pathlib.Path(directory, 'VPPAdminTools/ConfigurablePlugins/TeleportManager/TeleportLocation.json', 'w')) as f:
+
+@profile(directory='VPPAdminTools/ConfigurablePlugins/TeleportManager')
+def vpp_teleports(directory):
+    with open(pathlib.Path(directory, 'TeleportLocation.json'), 'w') as f:
         json.dump(vpp_map.get_admin_teleport_config(), f, indent=2)
