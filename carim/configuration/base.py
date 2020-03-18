@@ -1,7 +1,7 @@
 import functools
+import inspect
 import logging
 import pathlib
-import inspect
 import shutil
 
 from carim.models import outdir, configs

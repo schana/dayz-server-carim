@@ -1,5 +1,6 @@
-import xml.etree.ElementTree as ET
 import math
+import xml.etree.ElementTree as ET
+
 
 def zone_rates(ratio, file_in, file_out):
     tree = ET.parse(file_in)
@@ -32,7 +33,7 @@ def type_rates(ratio):
     root = tree.getroot()
     for child in root:
         if 'Zmb' not in child.get('name'):
-            #print(child.get('name'))
+            # print(child.get('name'))
             if change_min:
                 min_element = child.find('min')
                 if min_element is not None:

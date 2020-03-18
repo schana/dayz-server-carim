@@ -1,17 +1,17 @@
 import itertools
 import json
+import logging
 import pathlib
 import shutil
-import logging
 from xml.etree import ElementTree
 
 from carim.configuration import base
-from carim.models import auth, types
+from carim.models import auth, types, vpp_map
 
 log = logging.getLogger(__name__)
 
 
-def profile(_func=None, *, directory=None):
+def profile(_func=None, *, directory='.'):
     return base.located_config(_func, directory=directory, dir_prefix='servers/0/profiles')
 
 
@@ -101,6 +101,19 @@ def items_munghards():
 
 
 @profile
-def vanilla_plus_plus_map():
-    # map config
-    pass
+def vanilla_plus_plus_map(directory):
+    marks = [
+        ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
+        ('Kumyrna Trader', vpp_map.Position(8355, 5986))
+    ]
+    for m in marks:
+        vpp_map.add(vpp_map.Marker(
+            name=m[0],
+            icon=vpp_map.Icon.DEFAULT,
+            color=vpp_map.WHITE,
+            position=m[1],
+            active=True,
+            active_3d=True
+        ))
+    with open(pathlib.Path(directory, 'VPPMapConfig.json'), 'w') as f:
+        json.dump(vpp_map.get_config(), f, indent=2)

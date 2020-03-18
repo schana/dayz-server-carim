@@ -68,6 +68,7 @@ class Vehicle(Item):
     def __init__(self, name, buy, sell):
         super().__init__(name, 'V', buy, sell)
 
+
 '''
 // Item Classname, Quantity, Buyvalue, Sellvalue
 
@@ -79,9 +80,3 @@ K means Key Duplication
 Buyvalue -1 means it can not be bought
 Sellvalue -1 means it can not be sold
 '''
-
-
-
-
-
-

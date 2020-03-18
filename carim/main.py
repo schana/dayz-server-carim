@@ -1,11 +1,12 @@
 import argparse
+import json
+import logging
 import pathlib
 import shutil
-import json
 from xml.etree import ElementTree
-import logging
-from carim.models import auth, types, configs
+
 from carim import configuration
+from carim.models import auth, types, configs
 from carim.util import modify_types
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s - %(message)s')

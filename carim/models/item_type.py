@@ -30,23 +30,23 @@ modification_template = {
             "name": "count_in_cargo",
             "value": False
         },
-{
+        {
             "name": "count_in_hoarder",
             "value": False
         },
-{
+        {
             "name": "count_in_map",
             "value": False
         },
-{
+        {
             "name": "count_in_player",
             "value": False
         },
-{
+        {
             "name": "crafted",
             "value": False
         },
-{
+        {
             "name": "deloot",
             "value": False
         }

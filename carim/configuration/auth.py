@@ -1,6 +1,6 @@
 import json
-import pathlib
 import logging
+import pathlib
 
 from carim.configuration import base
 from carim.models import auth
