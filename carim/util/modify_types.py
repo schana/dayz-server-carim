@@ -10,7 +10,7 @@ log = logging.getLogger(__name__)
 
 @base.server(directory='mpmissions/dayzOffline.chernarusplus/db', register=False)
 def modify_types(directory):
-    with open('omega/types_config.json') as f:
+    with open('resources/modifications/types_config.json') as f:
         type_config = json.load(f)
     for action in type_config:
         matching = action.get('matching', list())

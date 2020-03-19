@@ -5,7 +5,7 @@ import pathlib
 from xml.etree import ElementTree
 
 from carim.configuration import base
-from carim.models import auth, types, vpp_map
+from carim.models import auth, types, vpp_map, simple_base
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -27,7 +27,7 @@ def profile(_func=None, *, directory='.', register=True):
 
 @profile(directory='Trader')
 def trader_file_and_admins(directory):
-    for p in pathlib.Path('omega/Trader').glob('*'):
+    for p in pathlib.Path('resources/original-mod-files/Trader').glob('*'):
         file_writing.copy(p, directory)
     with file_writing.f_open(pathlib.Path(directory, 'TraderAdmins.txt'), mode='w') as f:
         for superuser in auth.get().get('superusers', []):
@@ -38,17 +38,26 @@ def trader_file_and_admins(directory):
 
 @profile(directory='Airdrop')
 def airdrop(directory):
-    p = pathlib.Path('omega/Airdrop/AirdropSettings.json')
+    p = pathlib.Path('resources/original-mod-files/Airdrop/AirdropSettings.json')
     file_writing.copy(p, directory)
 
 
 @profile(directory='SimpleBase')
-def simple_base(directory):
-    with open('omega/Simple Base/types.xml') as f:
+def simple_base_profile(directory):
+    with open('resources/original-mod-files/Simple Base/types.xml') as f:
         it = itertools.chain('<type>', f, '</type>')
         new_types = ElementTree.fromstringlist(it)
     types.get().getroot().extend(new_types)
-    # profile config
+    with open('resources/original-mod-files/Simple Base/ServerProfileFolder/SimpleBase/config.txt') as f:
+        lines = f.readlines()
+    config = simple_base.Config()
+    config.parse_defaults(lines)
+    with open('resources/modifications/simple_base.json') as f:
+        changes = json.load(f)
+    for k, v in changes.items():
+        config.set(k, v)
+    with file_writing.f_open(pathlib.Path(directory, 'config.txt'), mode='w') as f:
+        f.write(config.generate())
     # destruction config
 
 
@@ -62,7 +71,7 @@ def vpp_admin_tools_permissions(directory):
 
 @profile(directory='CodeLock')
 def code_lock(directory):
-    new_type = ElementTree.parse('omega/Code Lock/types.xml')
+    new_type = ElementTree.parse('resources/original-mod-files/Code Lock/types.xml')
     types.get().getroot().append(new_type.getroot())
     # config
     users = []
@@ -82,7 +91,7 @@ def code_lock(directory):
 
 @profile
 def items_clouds():
-    with open('omega/Cl0uds/Types V9.1 only.xml') as f:
+    with open('resources/original-mod-files/Cl0uds/Types V9.1 only.xml') as f:
         it = itertools.chain('<type>', f, '</type>')
         new_types = ElementTree.fromstringlist(it)
     types.get().getroot().extend(new_types)
@@ -90,7 +99,7 @@ def items_clouds():
 
 @profile
 def items_mass():
-    new_types = ElementTree.parse('omega/MasssManyItemOverhaul/types(NOT A REPLACER).xml')
+    new_types = ElementTree.parse('resources/original-mod-files/MasssManyItemOverhaul/types(NOT A REPLACER).xml')
     types.get().getroot().extend(new_types.getroot())
 
 
@@ -105,7 +114,7 @@ def items_msfc():
 
 @profile
 def items_munghards():
-    for p in pathlib.Path('omega/MunghardsItemPack/types').glob('*.xml'):
+    for p in pathlib.Path('resources/original-mod-files/MunghardsItemPack/types').glob('*.xml'):
         new_types = ElementTree.parse(p)
         types.get().getroot().extend(new_types.getroot())
 

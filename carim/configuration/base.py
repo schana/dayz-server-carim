@@ -51,5 +51,5 @@ def server(_func=None, *, directory='.', register=True):
 
 @server
 def server_dz_config(directory):
-    file_writing.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
-    file_writing.copy('omega/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
+    file_writing.copy('resources/server/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
+    file_writing.copy('resources/server/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
