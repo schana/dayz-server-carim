@@ -10,16 +10,6 @@ from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
-# TODO: move this to separate config file
-marks = [
-    ('Green Mountain Trader', vpp_map.Position(3727, 6007)),
-    ('Kumyrna Trader', vpp_map.Position(8355, 5986)),
-    ('Altar Trader', vpp_map.Position(8164, 9113)),
-    ('Zabolotye Black Market Trader', vpp_map.Position(1602.85, 10413.2)),
-    ('NWAF', vpp_map.Position(4541, 10289)),
-    ('NEAF', vpp_map.Position(12121, 12521))
-]
-
 
 def profile(_func=None, *, directory='.', register=True):
     return base.located_config(_func, directory=directory, dir_prefix='servers/0/profiles', register=register)
@@ -93,7 +83,7 @@ def code_lock(directory):
 
 @profile
 def items_clouds():
-    with open('resources/original-mod-files/Cl0uds/Types V9.1 only.xml') as f:
+    with open('resources/original-mod-files/Cl0uds/Types V9.1 - sorted by camos.xml') as f:
         it = itertools.chain('<type>', f, '</type>')
         new_types = ElementTree.fromstringlist(it)
     types.get().getroot().extend(new_types)
@@ -123,15 +113,6 @@ def items_munghards():
 
 @profile
 def vanilla_plus_plus_map(directory):
-    for m in marks:
-        vpp_map.add(vpp_map.Marker(
-            name=m[0],
-            icon=vpp_map.Icon.DEFAULT,
-            color=vpp_map.WHITE,
-            position=m[1],
-            active=True,
-            active_3d=True
-        ))
     with file_writing.f_open(pathlib.Path(directory, 'VPPMapConfig.json'), mode='w') as f:
         json.dump(vpp_map.get_config(), f, indent=2)
 

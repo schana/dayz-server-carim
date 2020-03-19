@@ -7,7 +7,7 @@ from xml.etree import ElementTree
 
 from carim import configuration
 from carim.configuration import trader, missions
-from carim.models import auth, types, configs, outdir, errors
+from carim.models import auth, types, configs, outdir, errors, vpp_map
 from carim.util import modify_types
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s - %(message)s')
@@ -27,6 +27,7 @@ def main():
     outdir.set(args.output)
     types.set(ElementTree.parse(pathlib.Path(args.deploy, 'mpmissions/dayzOffline.chernarusplus/db/types.xml')))
     auth.set(json.load(open(args.auth)))
+    vpp_map.initialize()
     configuration.scan()
     for c in configs.get():
         c()

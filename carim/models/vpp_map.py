@@ -3,6 +3,27 @@ from collections import namedtuple
 _markers = []
 
 
+def initialize():
+    # TODO: move this to separate config file
+    marks = [
+        ('Green Mountain Trader', Position(3727, 6007)),
+        ('Kumyrna Trader', Position(8355, 5986)),
+        ('Altar Trader', Position(8164, 9113)),
+        ('Zabolotye Black Market Trader', Position(1602.85, 10413.2)),
+        ('NWAF', Position(4541, 10289)),
+        ('NEAF', Position(12121, 12521))
+    ]
+    for m in marks:
+        add(Marker(
+            name=m[0],
+            icon=Icon.DEFAULT,
+            color=WHITE,
+            position=m[1],
+            active=True,
+            active_3d=True
+        ))
+
+
 def add(marker):
     _markers.append(marker)
 
