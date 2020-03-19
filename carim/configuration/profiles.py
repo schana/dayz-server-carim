@@ -27,7 +27,9 @@ def profile(_func=None, *, directory='.', register=True):
 
 @profile(directory='Trader')
 def trader_file_and_admins(directory):
-    for p in pathlib.Path('resources/original-mod-files/Trader').glob('*'):
+    files = ['TraderVariables.txt', 'TraderVehicleParts.txt']
+    for file in files:
+        p = pathlib.Path('resources/original-mod-files/Trader', file)
         file_writing.copy(p, directory)
     with file_writing.f_open(pathlib.Path(directory, 'TraderAdmins.txt'), mode='w') as f:
         for superuser in auth.get().get('superusers', []):
@@ -105,7 +107,7 @@ def items_mass():
 
 @profile
 def items_msfc():
-    for p in pathlib.Path('omega/MSF-C').glob('*.xml'):
+    for p in pathlib.Path('resources/original-mod-files/MSF-C').glob('*.xml'):
         with open(p) as f:
             it = itertools.chain('<type>', f, '</type>')
             new_types = ElementTree.fromstringlist(it)

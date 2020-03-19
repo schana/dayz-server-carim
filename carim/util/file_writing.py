@@ -1,7 +1,7 @@
+import io
 import logging
 import shutil
 import time
-import io
 
 from carim.models import errors
 
