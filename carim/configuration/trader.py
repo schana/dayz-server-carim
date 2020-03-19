@@ -1,8 +1,12 @@
+import json
+import logging
 import pathlib
 
 from carim.configuration import profiles
-from carim.models import trader, types
+from carim.models import trader, types, trader_objects
 from carim.util import file_writing
+
+log = logging.getLogger(__name__)
 
 
 @profiles.profile(directory='Trader', register=False)  # Needs to be generated after types are modified
@@ -64,7 +68,32 @@ def trader_items(directory):
     vehicles_trader.categories = [containers, vehicles]
 
     trader_config = trader.Config()
-    trader_config.traders = [food_trader, tool_trader, weapon_trader, accessories_trader, clothing_trader,
-                             vehicles_trader]
+    # Order of traders must match markers in trader_locations.json
+    trader_config.traders = [vehicles_trader, clothing_trader, food_trader, weapon_trader, accessories_trader,
+                             tool_trader]
     with file_writing.f_open(pathlib.Path(directory, 'TraderConfig.txt'), mode='w') as f:
         f.write(trader_config.generate())
+
+
+@profiles.profile(directory='Trader')
+def trader_objects_config(directory):
+    to = trader_objects.Config()
+    with open('resources/modifications/trader_locations.json') as f:
+        locations = json.load(f)
+    with open('resources/modifications/trader_outfits.json') as f:
+        outfits = json.load(f)
+    for name, config in locations.items():
+        log.info('processing {}'.format(name))
+        for trader_name, t in config.items():
+            new_trader = trader_objects.Trader(t.get('marker'), t.get('location'), t.get('safezone', 200))
+            new_object = trader_objects.Object(outfits.get(trader_name).get('class'), t.get('location'), t.get('o'))
+            for attachment in outfits.get(trader_name).get('attachments'):
+                new_object.attachments.append(trader_objects.Attachment(attachment))
+            if 'vehicle' in t:
+                raw_vehicle = t.get('vehicle')
+                new_trader.set_vehicle(trader_objects.Vehicle(raw_vehicle.get('location'), raw_vehicle.get('o')))
+            to.traders.append(new_trader)
+            to.objects.append(new_object)
+
+    with file_writing.f_open(pathlib.Path(directory, 'TraderObjects.txt'), mode='w') as f:
+        f.write(to.generate())

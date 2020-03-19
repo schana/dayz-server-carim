@@ -1,0 +1,77 @@
+{
+  "auto": {
+    "class": "SurvivorM_Peter",
+    "attachments": [
+      "LugWrench",
+      "WorkingGloves_Black",
+      "ReflexVest",
+      "JumpsuitJacket_Blue",
+      "JumpsuitPants_Blue",
+      "HikingBootsLow_Blue"
+    ]
+  },
+  "clothing": {
+    "class": "SurvivorF_Frida",
+    "attachments": [
+      "ThickFramesGlasses",
+      "WomanSuit_Black",
+      "SlacksPants_Black",
+      "DressShoes_Black"
+    ]
+  },
+  "food": {
+    "class": "SurvivorF_Irena",
+    "attachments": [
+      "BoxCerealCrunchin",
+      "SurgicalGloves_White",
+      "Bandana_Polkapattern",
+      "MiniDress_PinkChecker",
+      "DressShoes_White"
+    ]
+  },
+  "weapons": {
+    "class": "SurvivorM_Seth",
+    "attachments": [
+      "MSFC_Barret50BMG_Black",
+      "MSFC_Barret_10rnd_Mag",
+      "MSFC_BarretOptic",
+      "MSFCBoonieHatMulticamBlack",
+      "MSFCTShirtMulticamBlack",
+      "MSFCPantsMulticamBlack",
+      "MSFCBootsMulticamBlack"
+    ]
+  },
+  "accessories": {
+    "class": "SurvivorM_Taiki",
+    "attachments": [
+      "MassM110",
+      "MassSuppressor308",
+      "Mass308STANAG",
+      "MassScope",
+      "FNP45_MRDSOptic",
+      "UniversalLight",
+      "MSFCGlovesMulticam",
+      "MSFCBootsMulticam",
+      "MSFCPlateCarrierVestMulticam",
+      "MSFCPlateHolsterMulticam",
+      "MSFCMulticamMask",
+      "MSFCMich2001Multicam",
+      "MSFCPlatePouchesMulticam",
+      "MSFC_TacticalBelt_Multicam",
+      "MSFCM65Multicam",
+      "MSFCPantsMulticam"
+    ]
+  },
+  "tools": {
+    "class": "SurvivorF_Keiko",
+    "attachments": [
+      "Wrench",
+      "SledgeHammer",
+      "WorkingGloves_Brown",
+      "ConstructionHelmet_White",
+      "Shirt_BlueCheck",
+      "CanvasPants_Blue",
+      "WorkingBoots_Grey"
+    ]
+  }
+}
