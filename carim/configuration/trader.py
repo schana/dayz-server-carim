@@ -9,7 +9,7 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
-@profiles.profile(directory='Trader')
+@profiles.profile(directory='Trader', register=False)  # run after type modifications
 def trader_items(directory):
     with open('resources/modifications/trader_inventory.json') as f:
         inventory = json.load(f)
@@ -39,8 +39,35 @@ def trader_items(directory):
                 new_item = item_type(item.get('name'), item.get('buy'), item.get('sell'))
                 new_category.items.append(new_item)
 
+    clothing_trader = traders_config.traders[1]
+    add_cl0ud_clothes(clothing_trader)
     with file_writing.f_open(pathlib.Path(directory, 'TraderConfig.txt'), mode='w') as f:
         f.write(traders_config.generate())
+
+
+def add_cl0ud_clothes(clothing_trader):
+    cl0ud_clothes = {}
+    for t in types.get().getroot():
+        cat = t.find('category')
+        if cat is not None:
+            cat_name = cat.get('name')
+            item_name = t.get('name')
+            if t.find('nominal').text != '0':
+                if cat_name == 'clothes':
+                    if item_name.startswith('MilitaryGear'):
+                        parts = item_name.split('_')
+                        color = '_'.join(parts[2:])
+                        if color not in ('Black', 'Brown', 'Olive', 'Tan'):
+                            if color not in cl0ud_clothes:
+                                cl0ud_clothes[color] = list()
+                            buy, sell = 100, 50
+                            if 'PlateCarrier' in item_name:
+                                buy, sell = 1000, 500
+                            cl0ud_clothes.get(color).append(trader.Singular(item_name, buy, sell))
+    for k, items in cl0ud_clothes.items():
+        new_category = trader.Category('Cl0uds {}'.format(k))
+        new_category.items = items
+        clothing_trader.categories.append(new_category)
 
 
 @profiles.profile(directory='Trader')
