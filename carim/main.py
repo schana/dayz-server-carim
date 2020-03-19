@@ -32,7 +32,6 @@ def main():
         c()
     modify_types.modify_types()
     missions.types_config()
-    trader.trader_items()
     log.info('errors {}'.format(len(errors.get())))
     for e in errors.get():
         log.error(e)
