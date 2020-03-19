@@ -1,0 +1,5 @@
+{
+  "BaseDestroyToolDamage": 100,
+  "CombinationLockToolDamage": 100,
+  "DisableDestroy": 1
+}
