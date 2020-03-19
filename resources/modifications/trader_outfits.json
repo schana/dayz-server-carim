@@ -73,5 +73,17 @@
       "CanvasPants_Blue",
       "WorkingBoots_Grey"
     ]
+  },
+  "bm": {
+    "class": "SurvivorF_Judy",
+    "attachments": [
+      "MilitaryGear_BoonieHat_Splinter_Dark",
+      "MSFCMulticamBlackMask",
+      "MilitaryGear_PlateCarrier_Splinter_Dark",
+      "MSFCGlovesMulticamBlack",
+      "MSFCBootsMulticamBlack",
+      "MilitaryGear_TacticalPants_Splinter_Dark",
+      "MilitaryGear_TacticalShirt_Splinter_Dark"
+    ]
   }
 }

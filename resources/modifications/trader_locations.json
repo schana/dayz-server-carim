@@ -41,5 +41,99 @@
       "o": 136.25,
       "desc": "porch of guard shack"
     }
+  },
+  "Altar": {
+    "auto": {
+      "marker": 0,
+      "location": [8169.64, 475.594, 9129.45],
+      "o": 62,
+      "desc": "left of warehouse",
+      "vehicle": {
+        "location": [8165.23, 475.589, 9126.95],
+        "o": 62,
+        "desc": "left of warehouse"
+      }
+    },
+    "clothing": {
+      "marker": 1,
+      "location": [8174.99, 475.782, 9107.45],
+      "o": 62,
+      "desc": "far right porch"
+    },
+    "food": {
+      "marker": 2,
+      "location": [8173.29, 475.782, 9110.72],
+      "o": 62,
+      "desc": "mid right porch"
+    },
+    "weapons": {
+      "marker": 3,
+      "location": [8150.79, 474.978, 9090.61],
+      "o": 242,
+      "desc": "left tower base"
+    },
+    "accessories": {
+      "marker": 4,
+      "location": [8140.72, 475.404, 9110.19],
+      "o": 242,
+      "desc": "right tower base"
+    },
+    "tools": {
+      "marker": 5,
+      "location": [8171.42, 475.782, 9114.59],
+      "o": 62,
+      "desc": "close right porch"
+    }
+  },
+  "Kumyrna": {
+    "auto": {
+      "marker": 0,
+      "location": [8356.77, 292.936, 5978.37],
+      "o": -174,
+      "desc": "left of church",
+      "vehicle": {
+        "location": [8357.14, 292.854, 5982.84],
+        "o": -174,
+        "desc": "left of church"
+      }
+    },
+    "clothing": {
+      "marker": 1,
+      "location": [8367.32, 292.934, 5980.34],
+      "o": -174,
+      "desc": "front of building left of church"
+    },
+    "food": {
+      "marker": 2,
+      "location": [8348.26, 292.934, 5980.14],
+      "o": -174,
+      "desc": "left church"
+    },
+    "weapons": {
+      "marker": 3,
+      "location": [8355.47, 292.99, 5996.6],
+      "o": 0,
+      "desc": "left opposite church"
+    },
+    "accessories": {
+      "marker": 4,
+      "location": [8361.53, 293.023, 5996.13],
+      "o": 0,
+      "desc": "right opposite church"
+    },
+    "tools": {
+      "marker": 5,
+      "location": [8329.52, 292.932, 5982.73],
+      "o": -174,
+      "desc": "right church"
+    }
+  },
+  "Zabolotye": {
+    "bm": {
+      "marker": 6,
+      "location": [1602.85, 261.496, 10413.2],
+      "o": 79,
+      "desc": "inside big barn"
+    }
   }
 }
