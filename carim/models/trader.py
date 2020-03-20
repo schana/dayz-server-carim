@@ -28,7 +28,7 @@ class Category:
         self.items = list()
 
     def generate(self):
-        self.items.sort(key=lambda i: (i.buy, i.name))
+        self.items.sort(key=lambda i: (i.name, i.buy))
         result = '<Category> {}\n'.format(self.name) + '\n'.join(i.generate() for i in self.items)
         return result
 

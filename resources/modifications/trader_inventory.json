@@ -1,0 +1,69 @@
+{
+  "classes": [
+    "vehicle",
+    "magazine",
+    "weapon",
+    "steak",
+    "max"
+  ],
+  "item_template": {
+    "name": "",
+    "class": "",
+    "buy": 0,
+    "sell": 0
+  },
+  "auto": [
+    {
+      "category": "Vehicles",
+      "items": [
+        {
+          "name": "CrSk_BMW_525i_E34_black",
+          "class": "vehicle",
+          "buy": 50000,
+          "sell": 40000
+        }
+      ]
+    },
+    {
+      "category": "Parts",
+      "items": [
+        {
+          "name": "HeadlightH7_Box",
+          "class": "max",
+          "buy": 10,
+          "sell": 5
+        },
+        {
+          "name": "SparkPlug",
+          "class": "max",
+          "buy": 10,
+          "sell": 5
+        },
+        {
+          "name": "CarBattery",
+          "class": "max",
+          "buy": 70,
+          "sell": 35
+        },
+        {
+          "name": "CarRadiator",
+          "class": "max",
+          "buy": 200,
+          "sell": 100
+        },
+        {
+          "name": "TireRepairKit",
+          "class": "max",
+          "buy": 10,
+          "sell": 5
+        }
+      ]
+    }
+  ],
+  "clothing": [],
+  "food": [],
+  "weapons": [],
+  "accessories": [],
+  "tools": [],
+  "bm": []
+}
