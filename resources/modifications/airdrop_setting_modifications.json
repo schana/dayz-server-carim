@@ -1,0 +1,325 @@
+{
+  "Controls": {
+    "Interval": 30,
+    "Mode": 1
+  },
+  "Messages": {
+    "Mode": 1,
+    "Duration": 30,
+    "Proximity": 1000
+  },
+  "Container": {
+    "FallRate": 1,
+    "Lifespan": 45
+  },
+  "DropZoneDefaults": {
+    "DropType": "RANDOM",
+    "Zombies": 20,
+    "Radius": 50,
+    "DropAccuracy": 100
+  },
+  "DropZones": [
+    {
+      "Title": "Balota Airstrip",
+      "Location": "Military",
+      "X": 5025,
+      "Z": 2455
+    },
+    {
+      "Title": "Berezino",
+      "Location": "Industrial",
+      "X": 12450,
+      "Z": 9250
+    },
+    {
+      "Title": "Chernogorsk",
+      "Location": "Industrial",
+      "X": 7400,
+      "Z": 3500
+    },
+    {
+      "Title": "Elektrozavodsk",
+      "Location": "City",
+      "X": 10050,
+      "Z": 2450
+    },
+    {
+      "Title": "Gorka",
+      "Location": "Wolfpack",
+      "X": 8775,
+      "Z": 9200
+    },
+    {
+      "Title": "Krasnostav Airstrip",
+      "Location": "Military",
+      "X": 12160,
+      "Z": 12645
+    },
+    {
+      "Title": "Myshkino",
+      "Location": "Country",
+      "X": 1900,
+      "Z": 7600
+    },
+    {
+      "Title": "Northwest Airfield",
+      "Location": "Military",
+      "X": 4500,
+      "Z": 10350
+    },
+    {
+      "Title": "Novaya Petrovka",
+      "Location": "City",
+      "X": 3100,
+      "Z": 12840
+    },
+    {
+      "Title": "Novodmitrovsk",
+      "Location": "City",
+      "X": 11475,
+      "Z": 14356
+    },
+    {
+      "Title": "Skalisty Island",
+      "Location": "Country",
+      "X": 13575,
+      "Z": 3055
+    },
+    {
+      "Title": "Soverograd",
+      "Location": "City",
+      "X": 8566,
+      "Z": 12755
+    },
+    {
+      "Title": "Stary/Novy ",
+      "Location": "Military",
+      "X": 6600,
+      "Z": 7800
+    },
+    {
+      "Title": "Veresnik",
+      "Location": "Country",
+      "X": 4000,
+      "Z": 7850
+    },
+    {
+      "Title": "Zelenogorks",
+      "Location": "Country",
+      "X": 1875,
+      "Z": 5210
+    }
+  ],
+  "DropTypeDefaults": {
+    "Container": "AirdropContainer",
+    "Quantity": 20,
+    "AddFlare": 0,
+    "SpawnMin": 1,
+    "SpawnMax": 3,
+    "SpawnOffset": 0.001
+  },
+  "DropTypes": [
+    {
+      "Title": "Misc. Food",
+      "Items": [
+        "Apple",
+        "BakedBeansCan",
+        "BoxCerealCrunchin",
+        "CaninaBerry",
+        "Canteen",
+        "GreenBellPepper",
+        "Lard",
+        "PeachesCan",
+        "Pear",
+        "Plum",
+        "Potato",
+        "PowderedMilk",
+        "Pumpkin",
+        "Rice",
+        "SambucusBerry",
+        "SardinesCan",
+        "SodaCan_Cola",
+        "SodaCan_Kvass",
+        "SodaCan_Pipsi",
+        "SodaCan_Spite",
+        "SpaghettiCan",
+        "TacticalBaconCan",
+        "Tomato",
+        "TunaCan",
+        "WaterBottle",
+        "Zucchini"
+      ]
+    },
+    {
+      "Title": "Misc. Tools",
+      "Items": [
+        "BaseRadio",
+        "Battery9V",
+        "BatteryCharger",
+        "Binoculars",
+        "CableReel",
+        "CanOpener",
+        "Chemlight_Blue",
+        "Chemlight_Green",
+        "Chemlight_Red",
+        "Chemlight_White",
+        "Chemlight_Yellow",
+        "ChernarusMap",
+        "CombatKnife",
+        "Compass",
+        "Crowbar",
+        "ElectronicRepairKit",
+        "FirefighterAxe",
+        "Flashlight",
+        "Hacksaw",
+        "Hammer",
+        "Hatchet",
+        "Headtorch_Black",
+        "Headtorch_Grey",
+        "Heatpack",
+        "HuntingKnife",
+        "KitchenKnife",
+        "LeatherSewingKit",
+        "Lockpick",
+        "LugWrench",
+        "Machete",
+        "Matchbox",
+        "Megaphone",
+        "OrienteeringCompass",
+        "PersonalRadio",
+        "Pickaxe",
+        "Pliers",
+        "PortableGasLamp",
+        "PortableGasStove",
+        "Rangefinder",
+        "Roadflare",
+        "Screwdriver",
+        "SewingKit",
+        "Shovel",
+        "SledgeHammer",
+        "Spotlight",
+        "SteakKnife",
+        "WeaponCleaningKit",
+        "Whetstone",
+        "WoodAxe",
+        "Wrench"
+      ]
+    },
+    {
+      "Title": "Medical",
+      "Items": [
+        "BandageDressing",
+        "BloodBagEmpty",
+        "BloodBagIV",
+        "BloodSyringe",
+        "BloodTestKit",
+        "CharcolaTablets",
+        "DisinfectantAlcohol",
+        "DisinfectantSpray",
+        "Epinephrine",
+        "Heatpack",
+        "MedicalScrubsHat_Blue",
+        "MedicalScrubsHat_Green",
+        "MedicalScrubsHat_White",
+        "MedicalScrubShirt_White",
+        "MedicalScrubsPants_Blue",
+        "MedicalScrubsPants_Green",
+        "MedicalScrubsPants_White",
+        "MedicalScrubsShirt_Blue",
+        "MedicalScrubsShirt_Green",
+        "Morphine",
+        "PainkillerTablets",
+        "PurificationTablets",
+        "Rag",
+        "SalineBag",
+        "SalineBagIV",
+        "SurgicalGloves_Blue",
+        "SurgicalGloves_Green",
+        "SurgicalGloves_LightBlue",
+        "SurgicalGloves_White",
+        "SurgicalMask",
+        "TetracyclineAntibiotics",
+        "VitaminBottle",
+        "WaterBottle"
+      ]
+    },
+    {
+      "Title": "Military East",
+      "Items": [
+        "AKM",
+        "AK_Bayonet",
+        "AK_PlasticBttstck",
+        "AK_RailHndgrd",
+        "AK_Suppressor",
+        "AmmoBox_762x39_20Rnd",
+        "Battery9V",
+        "Binoculars",
+        "CanOpener",
+        "Canteen",
+        "GorkaEJacket_Autumn",
+        "GorkaEJacket_Flat",
+        "GorkaEJacket_PautRev",
+        "GorkaEJacket_Summer",
+        "GorkaPants_Autumn",
+        "GorkaPants_Flat",
+        "GorkaPants_PautRev",
+        "GorkaPants_Summer",
+        "Mag_AKM_30Rnd",
+        "TacticalBaconCan",
+        "TacticalGloves_Beige",
+        "TacticalGloves_Black",
+        "TacticalGloves_Green",
+        "TacticalGoggles",
+        "TTsKOJacket_Camo",
+        "TTSKOPants",
+        "UniversalLight",
+        "WeaponCleaningKit"
+      ]
+    },
+    {
+      "Title": "Military West",
+      "Items": [
+        "AmmoBox_45ACP_25Rnd",
+        "AmmoBox_556x45_20Rnd",
+        "AssaultBag_Black",
+        "AssaultBag_Green",
+        "AssaultBag_Ttsko",
+        "Battery9V",
+        "Binoculars",
+        "CanOpener",
+        "Canteen",
+        "CombatKnife",
+        "FNX45",
+        "M4A1",
+        "M4_CQBBttstck",
+        "M4_RISHndgrd",
+        "M4_Suppressor",
+        "M4_T3NrdSOptic",
+        "M9A1_Bayonet",
+        "Mag_FNX45_15Rnd",
+        "Mag_STANAG_30Rnd",
+        "MilitaryBoots_Beige",
+        "MilitaryBoots_Black",
+        "MilitaryBoots_Bluerock",
+        "MilitaryBoots_Brown",
+        "PistolSuppressor",
+        "Rangefinder",
+        "TacticalBaconCan",
+        "TacticalGloves_Beige",
+        "TacticalGloves_Black",
+        "TacticalGloves_Green",
+        "TacticalGoggles",
+        "UKAssVest_Black",
+        "UKAssVest_Camo",
+        "UKAssVest_Khaki",
+        "UKAssVest_Olive",
+        "UniversalLight",
+        "USMCJacket_Desert",
+        "USMCJacket_Woodland",
+        "USMCPants_Desert",
+        "USMCPants_Woodland",
+        "WeaponCleaningKit"
+      ]
+    }
+  ]
+}
