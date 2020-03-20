@@ -56,13 +56,13 @@
     },
     "clothing": {
       "marker": 1,
-      "location": [8174.99, 475.782, 9107.45],
+      "location": [8173.96, 475.024, 9106.87],
       "o": -118,
       "desc": "far right porch"
     },
     "food": {
       "marker": 2,
-      "location": [8173.29, 475.782, 9110.72],
+      "location": [8172.29, 475.024, 9110.14],
       "o": -118,
       "desc": "mid right porch"
     },
@@ -80,7 +80,7 @@
     },
     "tools": {
       "marker": 5,
-      "location": [8171.42, 475.782, 9114.59],
+      "location": [8170.01, 475.024, 9113.83],
       "o": -118,
       "desc": "close right porch"
     }
