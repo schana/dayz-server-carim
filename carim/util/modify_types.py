@@ -1,6 +1,7 @@
 import json
 import logging
 import re
+from xml.etree import ElementTree
 
 from carim.configuration import base
 from carim.models import types, item_type
@@ -88,9 +89,33 @@ def modify(matching=None, modification=None):
             apply_modification(t, modification)
 
 
-def apply_modification(item_element, modification):
+def apply_modification(item_element: ElementTree.Element, modification):
     template = item_type.modification_template
+
     text_fields = [k for k in template.keys() if template.get(k) == 1]
     for field in text_fields:
         if modification.get(field) is not None:
             item_element.find(field).text = str(modification.get(field))
+
+    array_fields = [k for k in template.keys() if k != 'flags' and isinstance(template.get(k), list)]
+    for field in array_fields:
+        if modification.get(field) is not None:
+            for child in item_element.findall(field):
+                item_element.remove(child)
+            values = modification.get(field)
+            for value in values:
+                ElementTree.SubElement(item_element, field, attrib=value)
+
+    attribute_fields = [k for k in template.keys() if k != 'flags' and isinstance(template.get(k), dict)]
+    for field in attribute_fields:
+        if modification.get(field) is not None:
+            for child in item_element.findall(field):
+                item_element.remove(child)
+            if not modification.get(field).isempty():
+                ElementTree.SubElement(item_element, field, attrib=modification.get(field))
+
+    field = 'flags'
+    if modification.get(field) is not None:
+        for child in item_element.findall(field):
+            for flag in modification.get(field):
+                child.set(flag.get('name'), "1" if flag.get('value') else "0")

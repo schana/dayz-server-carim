@@ -12,18 +12,17 @@
   },
   {
     "action": "modify",
-    "matching": [{
-      "name": "don't match anything",
-      "category": {
-        "name": "weapons"
+    "matching": [
+      {
+        "name": "csmcmillan_mung"
       }
-    }],
+    ],
     "modification": {
-      "nominal": 0,
-      "lifetime": 0,
-      "min": 0,
-      "quantmin": 0,
-      "quantmax": 0
+      "value": [
+        {
+          "name": "Tier4"
+        }
+      ]
     }
   }
 ]
