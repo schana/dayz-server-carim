@@ -1,10 +1,12 @@
 from collections import namedtuple
 
 _markers = []
+marks = list()
 
 
 def initialize():
     # TODO: move this to separate config file
+    global marks
     marks = [
         ('Green Mountain Trader', Position(3727, 6007)),
         ('Kumyrna Trader', Position(8355, 5986)),
@@ -74,6 +76,12 @@ class Marker:
 
 
 Position = namedtuple('Position', ('x', 'z'))
+
+
+def overlaps(position, p_r, x, z, r):
+    return (r - p_r) ** 2 <= (x - position.x) ** 2 + (z - position.z) ** 2 <= (r + p_r) ** 2
+
+
 Color = namedtuple('Color', ('r', 'g', 'b'))
 
 WHITE = Color(255, 255, 255)
