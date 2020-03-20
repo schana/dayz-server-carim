@@ -63,9 +63,15 @@ def vpp_admin_tools_permissions(directory):
 
 @profile(directory='CodeLock')
 def code_lock(directory):
-    new_type = ElementTree.parse('resources/original-mod-files/Code Lock/types.xml')
+    new_type = ElementTree.parse('resources/original-mod-files/Code lock/types.xml')
     types.get().getroot().append(new_type.getroot())
-    # config
+
+    with open('resources/original-mod-files/Code lock/CodeLockConfig.json') as f:
+        code_lock_config = json.load(f)
+    code_lock_config['CanAttachToTents'] = 'true'
+    code_lock_config['DestroyTool'] = 'true'
+    with file_writing.f_open(pathlib.Path(directory, 'CodeLockConfig.json'), mode='w') as f:
+        json.dump(code_lock_config, f, indent=2)
     users = []
     for superuser in auth.get().get('superusers', []):
         users.append({
