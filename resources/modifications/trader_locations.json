@@ -133,7 +133,8 @@
       "marker": 6,
       "location": [1602.85, 261.496, 10413.2],
       "o": -101,
-      "desc": "inside big barn"
+      "desc": "inside big barn",
+      "safezone": 0
     }
   }
 }
