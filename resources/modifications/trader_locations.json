@@ -1,7 +1,7 @@
 {
   "Green Mountain": {
     "auto": {
-      "marker": 0,
+      "marker": 7,
       "location": [3689.06, 402.012, 5991.34],
       "o": 69.82,
       "desc": "right of prison door",
@@ -12,31 +12,31 @@
       }
     },
     "clothing": {
-      "marker": 1,
+      "marker": 8,
       "location": [3692.15, 402.012, 5981.49],
       "o": 69.82,
       "desc": "left of prison door"
     },
     "food": {
-      "marker": 2,
+      "marker": 9,
       "location": [3696, 402.012, 5971.43],
       "o": 70,
       "desc": "far left of prison door"
     },
     "weapons": {
-      "marker": 3,
+      "marker": 10,
       "location": [3713.59, 402.012, 5963.75],
       "o": 341.5,
       "desc": "left of barracks door"
     },
     "accessories": {
-      "marker": 4,
+      "marker": 11,
       "location": [3705.38, 402.012, 5957.73],
       "o": 341.5,
       "desc": "right of barracks door"
     },
     "tools": {
-      "marker": 5,
+      "marker": 12,
       "location": [3705.35, 402.332, 6003.35],
       "o": 136.25,
       "desc": "porch of guard shack"
