@@ -12,10 +12,19 @@
         "name": "GiftBox.*"
       },
       {
-        "name": ".*(victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses).*_[Mm]ung"
+        "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden).*_[Mm]ung.*"
       },
       {
         "name": "Mass.*Fedora.*"
+      },
+      {
+        "name": "(melee|rifle)sling.*_mung"
+      },
+      {
+        "name": "MSFC(?!Canteen).*",
+        "category": {
+          "name": "food"
+        }
       }
     ]
   },
@@ -41,7 +50,7 @@
     "action": "modify",
     "matching": [
       {
-        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*)"
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*Tent)"
       }
     ],
     "modification": {

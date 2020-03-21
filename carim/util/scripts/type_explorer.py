@@ -6,8 +6,9 @@ types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.che
 
 def get_functions_to_run():
     return [
-        describe_xml,
-        get_class_names_by_tier
+        # describe_xml,
+        # get_class_names_by_tier,
+        get_names_by_cat
 
     ]
 
@@ -15,6 +16,15 @@ def get_functions_to_run():
 def main():
     for f in get_functions_to_run():
         f()
+
+
+def get_names_by_cat():
+    for t in types.getroot():
+        cat = t.find('category')
+        if cat is not None:
+            if cat.get('name') == 'tools':
+                if t.find('nominal').text != '0':
+                    print(t.get('name'))
 
 
 def get_class_names_by_tier():
