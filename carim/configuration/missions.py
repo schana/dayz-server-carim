@@ -36,7 +36,7 @@ def map_config(directory):
 @mission(directory='env')
 def remove_territories_near_traders(directory):
     for p in pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/env').glob('*.xml'):
-        log.info(p)
+        count = 0
         territory = ElementTree.parse(p).getroot()
         for zone in territory.findall('.//zone'):
             raw = (zone.get('x'), zone.get('z'), zone.get('r'))
@@ -50,9 +50,12 @@ def remove_territories_near_traders(directory):
                     parents = territory.findall(find_string)
                     for parent in parents:
                         if zone in parent:
+                            count += 1
                             parent.remove(zone)
-                            log.info('removed zone {}, {}, {}'.format(*raw))
+                            log.debug('removed zone {}, {}, {}'.format(*raw))
                     break
+        if count > 0:
+            log.info('removed {} zones from {}'.format(count, p.name))
         rough_string = ElementTree.tostring(territory, encoding='unicode')
         spaces = re.compile(r'>\s*<', flags=re.DOTALL)
         rough_string = re.sub(spaces, '>\n<', rough_string)

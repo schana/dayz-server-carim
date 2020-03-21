@@ -6,17 +6,16 @@ import pathlib
 from carim.models import outdir, configs
 from carim.util import file_writing
 
-log = logging.getLogger(__name__)
-
 
 def config(_func=None, *, directory='.', register=True):
     def config_decorator(func):
         @functools.wraps(func)
         def config_wrapper(*args, **kwargs):
+            log = logging.getLogger(func.__module__)
             log.info('processing {}'.format(func.__name__))
             p = pathlib.Path(outdir.get(), directory)
             p.mkdir(parents=True, exist_ok=True)
-            log.info('created directory {}'.format(directory))
+            log.debug('created directory {}'.format(directory))
             if 'directory' in inspect.signature(func).parameters:
                 return func(*args, **kwargs, directory=str(p))
             else:

@@ -73,20 +73,26 @@ _REMOVE_MODIFICATION = {
 
 def remove(matching=None, modification=None):
     match = Match(matching)
+    count = 0
     for t in types.get().getroot():
         if match.match(t):
-            log.info('removing ' + t.attrib.get('name'))
+            count += 1
+            log.debug('removing ' + t.attrib.get('name'))
             apply_modification(t, _REMOVE_MODIFICATION)
+    log.info('removed {} items matching {}'.format(count, matching))
 
 
 def modify(matching=None, modification=None):
     if modification is None:
         return
     match = Match(matching)
+    count = 0
     for t in types.get().getroot():
         if match.match(t):
-            log.info('modifying ' + t.attrib.get('name'))
+            count += 1
+            log.debug('modifying ' + t.attrib.get('name'))
             apply_modification(t, modification)
+    log.info('modified {} items matching {} with {}'.format(count, matching, json.dumps(modification)))
 
 
 def apply_modification(item_element: ElementTree.Element, modification):

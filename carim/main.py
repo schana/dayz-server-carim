@@ -43,27 +43,6 @@ def main():
         log.error(e)
     log.info('complete')
 
-    inspect_types = False
-    if inspect_types:
-        cats = set()
-        type_spec = {}
-        for t in types.get().getroot():
-            seen_tags = set()
-            for child in t:
-                if child.tag in seen_tags and child.tag not in ('value', 'usage'):
-                    print(ElementTree.tostring(t))
-                seen_tags.add(child.tag)
-                values = set(type_spec.get(child.tag, list()))
-                values.update(child.attrib.keys())
-                # if child.text is not None:
-                #     values.add(child.text)
-                type_spec[child.tag] = sorted(list(values))
-            c = t.find('category')
-            if c is not None:
-                cats.add(c.get('name'))
-        print(cats)
-        print(json.dumps(type_spec, indent=2))
-
 
 def clean():
     log.info('removing old generated')
