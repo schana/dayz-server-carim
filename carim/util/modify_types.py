@@ -74,7 +74,7 @@ class Match:
 _MAX_TIME = 3888000
 _REMOVE_MODIFICATION = {
     "nominal": 0,
-    "lifetime": 0,
+    "lifetime": 1,
     "restock": _MAX_TIME,
     "min": 0,
     "cost": 0,
