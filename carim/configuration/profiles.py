@@ -147,3 +147,8 @@ def vanilla_plus_plus_map(directory):
 def vpp_teleports(directory):
     with file_writing.f_open(pathlib.Path(directory, 'TeleportLocation.json'), mode='w') as f:
         json.dump(vpp_map.get_admin_teleport_config(), f, indent=2)
+
+
+@profile(directory='ServerPanel')
+def server_panel_coniguration(directory):
+    file_writing.copy('resources/modifications/server_panel_config.json', pathlib.Path(directory, 'ServerPanel.json'))
