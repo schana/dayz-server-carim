@@ -10,9 +10,6 @@ from carim.configuration import trader, missions
 from carim.models import auth, types, configs, outdir, errors, vpp_map, deploydir
 from carim.util import modify_types
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(name)s - %(message)s')
-log = logging.getLogger(__name__)
-
 
 def main():
     parser = argparse.ArgumentParser(description='Automate configuration')
@@ -21,7 +18,15 @@ def main():
                         help='deploy directory containing the original dayz server files')
     parser.add_argument('-a', dest='auth', required=True, help='auth config file')
     parser.add_argument('-o', dest='output', help='output destination directory', default=outdir.get())
+    parser.add_argument('-v', dest='verbosity', help='verbosity of the output', action='count', default=0)
     args = parser.parse_args()
+
+    log_level = logging.INFO
+    if args.verbosity > 0:
+        log_level = logging.DEBUG
+    logging.basicConfig(level=log_level, format='%(asctime)s %(levelname)s %(name)s - %(message)s')
+    log = logging.getLogger(__name__)
+
     if args.clean:
         clean()
 
@@ -45,6 +50,7 @@ def main():
 
 
 def clean():
+    log = logging.getLogger(__name__)
     log.info('removing old generated')
     for p in pathlib.Path('.').glob('generated-*'):
         log.info('removing {}'.format(p))

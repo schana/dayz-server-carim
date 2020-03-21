@@ -6,7 +6,9 @@ types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.che
 
 def get_functions_to_run():
     return [
+        describe_xml,
         get_class_names_by_tier
+
     ]
 
 
@@ -16,21 +18,25 @@ def main():
 
 
 def get_class_names_by_tier():
-    results = {}
+    results = {'none': set()}
+    for i in range(1, 5):
+        results['Tier{}'.format(i)] = set()
     for t in types.getroot():
         values = t.findall('value')
-        for v in values:
-            name = v.get('name')
-            if name not in results:
-                results[name] = set()
-            results[name].add(t.get('name'))
+        if len(values) > 0:
+            for v in values:
+                name = v.get('name')
+                results[name].add(t.get('name'))
+        else:
+            results['none'].add(t.get('name'))
     for i in range(4, 0, -1):
         tier = 'Tier{}'.format(i)
-        print(tier)
-        results[tier] = sorted(
-            list(results[tier].difference(*(results['Tier{}'.format(j)] for j in range(i - 1, 0, -1)))))
-    print(json.dumps(results, indent=2))
-    print(results.keys())
+        if tier in results:
+            results[tier] = sorted(
+                list(results[tier].difference(*(results['Tier{}'.format(j)] for j in range(i - 1, 0, -1)))),
+                key=lambda item: item.lower()
+            )
+    print(json.dumps({k: len(results.get(k)) for k in results}, indent=2))
 
 
 def describe_xml():
@@ -50,6 +56,8 @@ def describe_xml():
         c = t.find('category')
         if c is not None:
             cats.add(c.get('name'))
+        else:
+            print(t.get('name'))
     print(cats)
     print(json.dumps(type_spec, indent=2))
 

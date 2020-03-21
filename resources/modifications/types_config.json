@@ -7,6 +7,15 @@
         "category": {
           "name": "weapons"
         }
+      },
+      {
+        "name": "GiftBox.*"
+      },
+      {
+        "name": ".*(victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses).*_[Mm]ung"
+      },
+      {
+        "name": "Mass.*Fedora.*"
       }
     ]
   },
@@ -14,7 +23,25 @@
     "action": "modify",
     "matching": [
       {
-        "name": "csmcmillan_mung"
+        "name": "(MSFC|MilitaryGear|Mass).*"
+      }
+    ],
+    "modification": {
+      "value": [
+        {
+          "name": "Tier4"
+        },
+        {
+          "name": "Tier3"
+        }
+      ]
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*)"
       }
     ],
     "modification": {
