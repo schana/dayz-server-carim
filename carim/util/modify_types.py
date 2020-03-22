@@ -147,7 +147,7 @@ def apply_modification(item_element: ElementTree.Element, modification):
         if modification.get(field) is not None:
             for child in item_element.findall(field):
                 item_element.remove(child)
-            if not modification.get(field).isempty():
+            if modification.get(field):
                 ElementTree.SubElement(item_element, field, attrib=modification.get(field))
 
     field = 'flags'

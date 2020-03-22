@@ -1,34 +1,5 @@
 [
   {
-    "action": "remove",
-    "matching": [
-      {
-        "name": "MSFC.*(Gray|HELL|WOODLAND|Woodland|Tan|Western|BLUE|RED|GREEN|WHITE|SNAKE|VIPER|Desert|Green|ATACS_AU|ATACS_FG|DARK|EMR|Flecktarn|HEX|Honeycomb|MARPAT_WD|MATRIX|ORANGE|STAR|SURPAT|White|Kryptek|Multicam|MULTICAM).*",
-        "category": {
-          "name": "weapons"
-        }
-      },
-      {
-        "name": "GiftBox.*"
-      },
-      {
-        "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden).*_[Mm]ung.*"
-      },
-      {
-        "name": "Mass.*Fedora.*"
-      },
-      {
-        "name": "(melee|rifle)sling.*_mung"
-      },
-      {
-        "name": "MSFC(?!Canteen).*",
-        "category": {
-          "name": "food"
-        }
-      }
-    ]
-  },
-  {
     "action": "modify",
     "matching": [
       {
@@ -50,7 +21,7 @@
     "action": "modify",
     "matching": [
       {
-        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*Tent)"
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*Tent|MSFC_GPNVG18.*)"
       }
     ],
     "modification": {
@@ -60,5 +31,70 @@
         }
       ]
     }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "MSFC.*(ORSIS_T5000|OSV|P250|L96A1|Barret|AR15|Suppressor|PP19|Tomahawk|Knife).*",
+        "category": {
+          "name": "clothes"
+        }
+      }
+    ],
+    "modification": {
+      "category": {
+        "name": "weapons"
+      }
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "MSFC.*",
+        "category": {
+          "name": "clothes"
+        }
+      }
+    ],
+    "modification": {
+      "nominal": 1
+    }
+  },
+  {
+    "action": "remove",
+    "matching": [
+      {
+        "name": "MSFC.*(Gray|HELL|WOODLAND|Woodland|Tan|Western|BLUE|RED|GREEN|WHITE|SNAKE|VIPER|Desert|Green|ATACS_AU|ATACS_FG|DARK|EMR|Flecktarn|HEX|Honeycomb|MARPAT_WD|MATRIX|ORANGE|STAR|SURPAT|White|Kryptek|Multicam|MULTICAM).*",
+        "category": {
+          "name": "weapons"
+        }
+      },
+      {
+        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas).*"
+      },
+      {
+        "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden|hardigg|carrierrig).*_[Mm]ung.*"
+      },
+      {
+        "name": "Mass.*(Fedora|CatEars).*"
+      },
+      {
+        "name": "(melee|rifle)sling.*_mung"
+      },
+      {
+        "name": "(jesterhat).*mung"
+      },
+      {
+        "name": "MSFC(?!Canteen).*",
+        "category": {
+          "name": "food"
+        }
+      },
+      {
+        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|HelmetPatch|CombatHeadphones).*"
+      }
+    ]
   }
 ]

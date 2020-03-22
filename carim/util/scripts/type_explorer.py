@@ -22,7 +22,7 @@ def get_names_by_cat():
     for t in types.getroot():
         cat = t.find('category')
         if cat is not None:
-            if cat.get('name') == 'tools':
+            if cat.get('name') == 'clothes':
                 if t.find('nominal').text != '0':
                     print(t.get('name'))
 
