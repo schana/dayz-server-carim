@@ -59,20 +59,81 @@
       }
     ],
     "modification": {
-      "nominal": 1
+      "nominal": 1,
+      "min": 2
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+        "category": {
+            "name": "weapons"
+        },
+        "value": [
+            {
+                "name": "Tier4"
+            }
+        ]
+      }
+    ],
+    "modification": {
+      "nominal": 4,
+      "min": 5
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+        "category": {
+            "name": "weapons"
+        },
+        "value": [
+            {
+                "name": "Tier3"
+            }
+        ]
+      }
+    ],
+    "modification": {
+      "nominal": 10,
+      "min": 11
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+        "category": {
+            "name": "weapons"
+        },
+        "value": [
+            {
+                "name": "Tier2"
+            }
+        ]
+      }
+    ],
+    "modification": {
+      "nominal": 15,
+      "min": 16
     }
   },
   {
     "action": "remove",
     "matching": [
       {
-        "name": "MSFC.*(Gray|HELL|WOODLAND|Woodland|Tan|Western|BLUE|RED|GREEN|WHITE|SNAKE|VIPER|Desert|Green|ATACS_AU|ATACS_FG|DARK|EMR|Flecktarn|HEX|Honeycomb|MARPAT_WD|MATRIX|ORANGE|STAR|SURPAT|White|Kryptek|Multicam|MULTICAM).*",
+        "name": "MSFC.*(Golden|Gray|HELL|WOODLAND|Woodland|Tan|Western|BLUE|RED|GREEN|WHITE|SNAKE|VIPER|Desert|Green|ATACS_AU|ATACS_FG|DARK|EMR|Flecktarn|HEX|Honeycomb|MARPAT_WD|MATRIX|ORANGE|STAR|SURPAT|White|Kryptek|Multicam|MULTICAM).*",
         "category": {
           "name": "weapons"
         }
       },
       {
-        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas).*"
+        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas|Paper).*"
       },
       {
         "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden|hardigg|carrierrig).*[Mm]ung.*"

@@ -94,6 +94,10 @@ _REMOVE_MODIFICATION = {
         {
             "name": "count_in_player",
             "value": True
+        },
+        {
+            "name": "deloot",
+            "value": True
         }
     ],
     "value": []

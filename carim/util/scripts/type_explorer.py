@@ -1,6 +1,8 @@
 import json
 from xml.etree import ElementTree
 
+from carim.util import modify_types
+
 types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
 
 
@@ -8,14 +10,32 @@ def get_functions_to_run():
     return [
         # describe_xml,
         # get_class_names_by_tier,
-        get_names_by_cat
-
+        # get_names_by_cat
+        get_names_by_match
     ]
 
 
 def main():
     for f in get_functions_to_run():
         f()
+
+
+def get_names_by_match():
+    matching = {
+        "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+        "category": {
+            "name": "weapons"
+        },
+        "value": [
+            {
+                "name": "Tier4"
+            }
+        ]
+    }
+    match = modify_types.Match(matching)
+    for t in types.getroot():
+        if match.match(t):
+            print(t.get('name'))
 
 
 def get_names_by_cat():
