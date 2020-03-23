@@ -4,9 +4,19 @@ import pathlib
 
 from carim.configuration import profiles
 from carim.models import trader, types, trader_objects
-from carim.util import file_writing
+from carim.util import file_writing, modify_types
 
 log = logging.getLogger(__name__)
+
+
+class TraderName:
+    AUTO = 'auto'
+    CLOTHING = 'clothing'
+    FOOD = 'food'
+    WEAPONS = 'weapons'
+    ACCESSORIES = 'accessories'
+    TOOLS = 'tools'
+    BM = 'bm'
 
 
 @profiles.profile(directory='Trader', register=False)  # run after type modifications
@@ -15,19 +25,29 @@ def trader_items(directory):
         inventory = json.load(f)
 
     traders_config = trader.Config()
-    traders = ['auto', 'clothing', 'food', 'weapons', 'accessories', 'tools', 'bm']
+    trader_names = [
+        TraderName.AUTO,
+        TraderName.CLOTHING,
+        TraderName.FOOD,
+        TraderName.WEAPONS,
+        TraderName.ACCESSORIES,
+        TraderName.TOOLS,
+        TraderName.BM
+    ]
+    traders = {}
 
-    for trader_name in traders:
+    for trader_name in trader_names:
         categories = inventory.get(trader_name, list())
         current_trader = trader.Trader(trader_name)
+        traders[trader_name] = current_trader
         traders_config.traders.append(current_trader)
         for category in categories:
             new_category = trader.Category(category.get('category'))
             current_trader.categories.append(new_category)
             build_category(new_category, category)
 
-    clothing_trader = traders_config.traders[1]
-    add_cl0ud_clothes(clothing_trader)
+    add_cl0ud_clothes(traders.get(TraderName.CLOTHING))
+    add_ammo(traders.get(TraderName.ACCESSORIES))
 
     build_green_mountain_free_traders(traders_config)
 
@@ -115,27 +135,62 @@ def build_category(new_category, category_config):
 
 def add_cl0ud_clothes(clothing_trader):
     cl0ud_clothes = {}
+
+    matching = {
+        "name": "MilitaryGear.*",
+        "category": {
+            "name": "clothes"
+        }
+    }
+    match = modify_types.Match(matching)
+
     for t in types.get().getroot():
-        cat = t.find('category')
-        if cat is not None:
-            cat_name = cat.get('name')
+        if match.match(t) and t.find('nominal').text != '0':
             item_name = t.get('name')
-            if t.find('nominal').text != '0':
-                if cat_name == 'clothes':
-                    if item_name.startswith('MilitaryGear'):
-                        parts = item_name.split('_')
-                        color = '_'.join(parts[2:])
-                        if color not in ('Black', 'Brown', 'Olive', 'Tan'):
-                            if color not in cl0ud_clothes:
-                                cl0ud_clothes[color] = list()
-                            buy, sell = 100, 50
-                            if 'PlateCarrier' in item_name:
-                                buy, sell = 1000, 500
-                            cl0ud_clothes.get(color).append(trader.Singular(item_name, buy, sell))
+            parts = item_name.split('_')
+            color = '_'.join(parts[2:])
+            if color not in ('Black', 'Brown', 'Olive', 'Tan'):
+                if color not in cl0ud_clothes:
+                    cl0ud_clothes[color] = list()
+                buy, sell = 100, 50
+                if 'PlateCarrier' in item_name:
+                    buy, sell = 1000, 500
+                cl0ud_clothes.get(color).append(trader.Singular(item_name, buy, sell))
     for k, items in cl0ud_clothes.items():
         new_category = trader.Category('Cl0uds {}'.format(k))
         new_category.items = items
         clothing_trader.categories.append(new_category)
+
+
+def add_ammo(ammo_trader):
+    ammos = []
+
+    matching = {
+        "name": ".*Ammo_.*"
+    }
+    match = modify_types.Match(matching)
+
+    for t in types.get().getroot():
+        if match.match(t) and t.find('nominal').text != '0':
+            ammos.append(t.get('name'))
+
+    expensive = ['MSFC_Ammo_127x108', 'MSFC_Ammo_50BMG', 'Ammo_408Chey', 'Ammo_338']
+    moderate = ['Ammo_308Win', 'Ammo_308WinTracer', 'Ammo_762x54', 'Ammo_762x54Tracer']
+    expensive_price = 3
+    moderate_price = 2
+    default_price = 1
+    stacks = trader.Category('Ammo stacks')
+    singular = trader.Category('Ammo singular')
+    for ammo in ammos:
+        price = default_price
+        if ammo in expensive:
+            price = expensive_price
+        elif ammo in moderate:
+            price = moderate_price
+        stacks.items.append(trader.Item(ammo, 10, price * 10 * 2, price * 10))
+        singular.items.append(trader.Singular(ammo, price * 2, price))
+    ammo_trader.categories.append(stacks)
+    ammo_trader.categories.append(singular)
 
 
 @profiles.profile(directory='Trader')
