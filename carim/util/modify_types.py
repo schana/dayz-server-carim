@@ -42,33 +42,52 @@ class Match:
             self.fields[Fields.OPERATOR] = any if matching.get(Fields.OPERATOR).lower() == 'any' else all
 
     def match(self, t):
-        interim_results = []
+        match_result = MatchResult(self.fields[Fields.OPERATOR])
         if Fields.NAME in self.fields:
-            if self.fields[Fields.NAME].match(t.attrib.get(Fields.NAME)):
-                interim_results.append(True)
-            else:
-                interim_results.append(False)
+            match_result.add_interim(self.fields[Fields.NAME].match(t.attrib.get(Fields.NAME)))
         if Fields.CATEGORY in self.fields:
             category = t.find(Fields.CATEGORY)
             if category is None:
-                interim_results.append(False)
-            elif not self.fields[Fields.CATEGORY].match(category.attrib.get('name')):
-                interim_results.append(False)
+                match_result.add_interim(False)
             else:
-                interim_results.append(True)
+                match_result.add_interim(self.fields[Fields.CATEGORY].match(category.attrib.get('name')))
         if Fields.VALUE in self.fields:
             if len(self.fields[Fields.VALUE]) == 0:
                 if t.find(Fields.VALUE) is None:
-                    interim_results.append(True)
+                    match_result.add_interim(True)
                 else:
-                    interim_results.append(False)
+                    match_result.add_interim(False)
             for value_match in self.fields[Fields.VALUE]:
                 r = False
                 for value in t.findall(Fields.VALUE):
-                    if value_match.match(value.attrib.get('name')):
+                    m = value_match.match(value.attrib.get('name'))
+                    if m:
                         r = True
-                interim_results.append(r)
-        return self.fields[Fields.OPERATOR](interim_results)
+                        match_result.add_interim(m)
+                if not r:
+                    match_result.add_interim(r)
+        return match_result
+
+
+class MatchResult:
+    def __init__(self, operator):
+        self.groups = dict()
+        self.interim_results = list()
+        self.operator = operator
+
+    def add_interim(self, result):
+        if result:
+            self.interim_results.append(bool(result))
+            if isinstance(result, re.Match) and result.groupdict():
+                self.groups = dict(**self.groups, **result.groupdict())
+        else:
+            self.interim_results.append(False)
+
+    def get_result(self):
+        return self.operator(self.interim_results)
+
+    def __bool__(self):
+        return self.get_result()
 
 
 _MAX_TIME = 3888000

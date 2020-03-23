@@ -1,0 +1,30 @@
+[
+  {
+    "trader": "clothing",
+    "category": "Cl0uds {captured}",
+    "items": [
+      {
+        "matching": {
+          "name": "MilitaryGear(?!.*(Black|Brown|Olive|Tan|PlateCarrier))_[^_]*_(?P<captured>.*)",
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 100,
+        "sell": 50,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "MilitaryGear(?!.*(Black|Brown|Olive|Tan))_PlateCarrier_(?P<captured>.*)",
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 1000,
+        "sell": 500,
+        "item_class": "max"
+      }
+    ]
+  }
+]

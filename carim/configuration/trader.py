@@ -46,8 +46,8 @@ def trader_items(directory):
             current_trader.categories.append(new_category)
             build_category(new_category, category)
 
-    add_cl0ud_clothes(traders.get(TraderName.CLOTHING))
     add_ammo(traders.get(TraderName.ACCESSORIES))
+    add_dynamic(traders)
 
     build_green_mountain_free_traders(traders_config)
 
@@ -119,18 +119,56 @@ def build_green_mountain_free_traders(traders_config):
 def build_category(new_category, category_config):
     for item in category_config.get('items', list()):
         item_class = item.get("class", "max")
-        if item_class == "vehicle":
-            item_type = trader.Vehicle
-        elif item_class == "magazine":
-            item_type = trader.Magazine
-        elif item_class == "weapon":
-            item_type = trader.Weapon
-        elif item_class == "steak":
-            item_type = trader.Steak
-        else:
-            item_type = trader.Singular
+        item_type = get_item_type_for_name(item_class)
         new_item = item_type(item.get('name'), item.get('buy'), item.get('sell'))
         new_category.items.append(new_item)
+
+
+def get_item_type_for_name(name):
+    if name == "vehicle":
+        return trader.Vehicle
+    elif name == "magazine":
+        return trader.Magazine
+    elif name == "weapon":
+        return trader.Weapon
+    elif name == "steak":
+        return trader.Steak
+    else:
+        return trader.Singular
+
+
+def add_dynamic(traders):
+    with open('resources/modifications/trader_inventory_dynamic.json') as f:
+        trader_config = json.load(f)
+    temp_traders = {}
+    for entry in trader_config:
+        trader_name = entry.get('trader')
+        if trader_name not in temp_traders:
+            temp_traders[trader_name] = list()
+        category_name = entry.get('category')
+        categories = {}
+        temp_traders[trader_name].append(categories)
+        for item in entry.get('items'):
+            expanded = {}
+            matching = item.get('matching')
+            buy = item.get('buy')
+            sell = item.get('sell')
+            item_type = get_item_type_for_name(item.get('item_class'))
+            match = modify_types.Match(matching)
+            for t in types.get().getroot():
+                result = match.match(t)
+                if result:
+                    items = expanded.get(result.groups.get('captured'), list())
+                    items.append(trader.Singular(t.get('name'), item.get('buy'), item.get('sell')))
+                    expanded[result.groups.get('captured')] = items
+            for key in expanded:
+                current_cat_name = category_name.format(captured=key)
+                current_cat = categories.get(current_cat_name, trader.Category(current_cat_name))
+                current_cat.items += [item_type(i.name, buy, sell) for i in expanded[key]]
+                categories[current_cat_name] = current_cat
+    for key in temp_traders:
+        for cat_set in temp_traders[key]:
+            traders[key].categories += cat_set.values()
 
 
 def add_cl0ud_clothes(clothing_trader):
