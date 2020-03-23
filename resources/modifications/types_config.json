@@ -83,6 +83,20 @@
     "action": "modify",
     "matching": [
       {
+        "category": {
+          "name": "clothes"
+        }
+      }
+    ],
+    "modification": {
+      "nominal": 2,
+      "min": 3
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
         "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
         "category": {
             "name": "weapons"
