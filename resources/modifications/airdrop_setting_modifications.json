@@ -62,10 +62,28 @@
       "Z": 7600
     },
     {
+      "Title": "Myshkino Military",
+      "Location": "Military",
+      "X": 1237,
+      "Z": 7231
+    },
+    {
       "Title": "Northwest Airfield",
       "Location": "Military",
       "X": 4500,
       "Z": 10350
+    },
+    {
+      "Title": "NWAF Construction",
+      "Location": "Military",
+      "X": 5329,
+      "Z": 9690
+    },
+    {
+      "Title": "NWAF Tents",
+      "Location": "Military",
+      "X": 4060,
+      "Z": 11000
     },
     {
       "Title": "Novaya Petrovka",
@@ -92,10 +110,16 @@
       "Z": 12755
     },
     {
-      "Title": "Stary/Novy ",
+      "Title": "Novy Sobor",
       "Location": "Military",
-      "X": 6600,
-      "Z": 7800
+      "X": 7080,
+      "Z": 7849
+    },
+    {
+      "Title": "Stary Sobor",
+      "Location": "Military",
+      "X": 6394,
+      "Z": 7842
     },
     {
       "Title": "Veresnik",
@@ -104,10 +128,28 @@
       "Z": 7850
     },
     {
-      "Title": "Zelenogorks",
+      "Title": "Zelenogorsk",
       "Location": "Country",
-      "X": 1875,
-      "Z": 5210
+      "X": 2452,
+      "Z": 5452
+    },
+    {
+      "Title": "Zelenogorsk Military",
+      "Location": "Military",
+      "X": 2366,
+      "Z": 5000
+    },
+    {
+      "Title": "Northeast Airfield",
+      "Location": "Military",
+      "X": 11963,
+      "Z": 12570
+    },
+    {
+      "Title": "Devil's Castle",
+      "Location": "Military",
+      "X": 6775,
+      "Z": 11375
     }
   ],
   "DropTypeDefaults": {
@@ -122,21 +164,14 @@
     {
       "Title": "Misc. Food",
       "Items": [
-        "Apple",
         "BakedBeansCan",
         "BoxCerealCrunchin",
-        "CaninaBerry",
         "Canteen",
-        "GreenBellPepper",
         "Lard",
         "PeachesCan",
-        "Pear",
-        "Plum",
         "Potato",
         "PowderedMilk",
-        "Pumpkin",
         "Rice",
-        "SambucusBerry",
         "SardinesCan",
         "SodaCan_Cola",
         "SodaCan_Kvass",
@@ -144,7 +179,6 @@
         "SodaCan_Spite",
         "SpaghettiCan",
         "TacticalBaconCan",
-        "Tomato",
         "TunaCan",
         "WaterBottle",
         "Zucchini"
@@ -153,9 +187,7 @@
     {
       "Title": "Misc. Tools",
       "Items": [
-        "BaseRadio",
         "Battery9V",
-        "BatteryCharger",
         "Binoculars",
         "CableReel",
         "CanOpener",
@@ -164,11 +196,9 @@
         "Chemlight_Red",
         "Chemlight_White",
         "Chemlight_Yellow",
-        "ChernarusMap",
         "CombatKnife",
         "Compass",
         "Crowbar",
-        "ElectronicRepairKit",
         "FirefighterAxe",
         "Flashlight",
         "Hacksaw",
@@ -176,33 +206,21 @@
         "Hatchet",
         "Headtorch_Black",
         "Headtorch_Grey",
-        "Heatpack",
         "HuntingKnife",
-        "KitchenKnife",
         "LeatherSewingKit",
         "Lockpick",
-        "LugWrench",
-        "Machete",
         "Matchbox",
-        "Megaphone",
         "OrienteeringCompass",
-        "PersonalRadio",
         "Pickaxe",
         "Pliers",
-        "PortableGasLamp",
-        "PortableGasStove",
         "Rangefinder",
         "Roadflare",
-        "Screwdriver",
         "SewingKit",
         "Shovel",
         "SledgeHammer",
-        "Spotlight",
-        "SteakKnife",
         "WeaponCleaningKit",
         "Whetstone",
-        "WoodAxe",
-        "Wrench"
+        "WoodAxe"
       ]
     },
     {
@@ -211,33 +229,13 @@
         "BandageDressing",
         "BloodBagEmpty",
         "BloodBagIV",
-        "BloodSyringe",
-        "BloodTestKit",
         "CharcolaTablets",
-        "DisinfectantAlcohol",
-        "DisinfectantSpray",
         "Epinephrine",
-        "Heatpack",
-        "MedicalScrubsHat_Blue",
-        "MedicalScrubsHat_Green",
-        "MedicalScrubsHat_White",
-        "MedicalScrubShirt_White",
-        "MedicalScrubsPants_Blue",
-        "MedicalScrubsPants_Green",
-        "MedicalScrubsPants_White",
-        "MedicalScrubsShirt_Blue",
-        "MedicalScrubsShirt_Green",
         "Morphine",
         "PainkillerTablets",
         "PurificationTablets",
-        "Rag",
         "SalineBag",
         "SalineBagIV",
-        "SurgicalGloves_Blue",
-        "SurgicalGloves_Green",
-        "SurgicalGloves_LightBlue",
-        "SurgicalGloves_White",
-        "SurgicalMask",
         "TetracyclineAntibiotics",
         "VitaminBottle",
         "WaterBottle"
@@ -247,32 +245,12 @@
       "Title": "Military East",
       "Items": [
         "AKM",
-        "AK_Bayonet",
-        "AK_PlasticBttstck",
-        "AK_RailHndgrd",
         "AK_Suppressor",
         "AmmoBox_762x39_20Rnd",
         "Battery9V",
-        "Binoculars",
-        "CanOpener",
         "Canteen",
-        "GorkaEJacket_Autumn",
-        "GorkaEJacket_Flat",
-        "GorkaEJacket_PautRev",
-        "GorkaEJacket_Summer",
-        "GorkaPants_Autumn",
-        "GorkaPants_Flat",
-        "GorkaPants_PautRev",
-        "GorkaPants_Summer",
         "Mag_AKM_30Rnd",
         "TacticalBaconCan",
-        "TacticalGloves_Beige",
-        "TacticalGloves_Black",
-        "TacticalGloves_Green",
-        "TacticalGoggles",
-        "TTsKOJacket_Camo",
-        "TTSKOPants",
-        "UniversalLight",
         "WeaponCleaningKit"
       ]
     },
@@ -281,12 +259,7 @@
       "Items": [
         "AmmoBox_45ACP_25Rnd",
         "AmmoBox_556x45_20Rnd",
-        "AssaultBag_Black",
-        "AssaultBag_Green",
-        "AssaultBag_Ttsko",
         "Battery9V",
-        "Binoculars",
-        "CanOpener",
         "Canteen",
         "CombatKnife",
         "FNX45",
@@ -295,29 +268,12 @@
         "M4_RISHndgrd",
         "M4_Suppressor",
         "M4_T3NrdSOptic",
-        "M9A1_Bayonet",
         "Mag_FNX45_15Rnd",
         "Mag_STANAG_30Rnd",
-        "MilitaryBoots_Beige",
-        "MilitaryBoots_Black",
-        "MilitaryBoots_Bluerock",
-        "MilitaryBoots_Brown",
         "PistolSuppressor",
         "Rangefinder",
         "TacticalBaconCan",
-        "TacticalGloves_Beige",
-        "TacticalGloves_Black",
-        "TacticalGloves_Green",
-        "TacticalGoggles",
-        "UKAssVest_Black",
-        "UKAssVest_Camo",
-        "UKAssVest_Khaki",
-        "UKAssVest_Olive",
         "UniversalLight",
-        "USMCJacket_Desert",
-        "USMCJacket_Woodland",
-        "USMCPants_Desert",
-        "USMCPants_Woodland",
         "WeaponCleaningKit"
       ]
     }

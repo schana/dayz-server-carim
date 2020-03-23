@@ -21,6 +21,22 @@
     "action": "modify",
     "matching": [
       {
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*)"
+      }
+    ],
+    "modification": {
+      "flags": [
+        {
+          "name": "deloot",
+          "value": true
+        }
+      ]
+    }
+  },
+  {
+    "action": "modify",
+    "matching": [
+      {
         "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*Tent|MSFC_GPNVG18.*)"
       }
     ],
