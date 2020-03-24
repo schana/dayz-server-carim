@@ -1,7 +1,7 @@
 {
   "Controls": {
     "Interval": 30,
-    "Mode": 1
+    "Mode": 3
   },
   "Messages": {
     "Mode": 1,
@@ -19,6 +19,12 @@
     "DropAccuracy": 100
   },
   "DropZones": [
+    {
+      "Title": "Player Called",
+      "Location": "RANDOM",
+      "X": 0,
+      "Z": 0
+    },
     {
       "Title": "Balota Airstrip",
       "Location": "Military",
