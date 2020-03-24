@@ -21,21 +21,36 @@ def main():
 
 
 def get_names_by_match():
-    matching = {
-        "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
-        "category": {
-            "name": "weapons"
+    matching = [
+        {
+            "name": "(?!.*(Bu?ttsto?ck|Light|Bayonet|Hndgrd|Knife|Compensator|LRS|Scope|Muzzle|Holo|Binocs|STANAG|Mushroom).*)",
+            "category": {
+                "name": "weapons"
+            },
+            "value": [
+                {
+                    "name": "Tier4"
+                }
+            ],
+            "flags": [
+                {
+                    "name": "deloot",
+                    "value": False
+                }
+            ]
         },
-        "value": [
-            {
-                "name": "Tier4"
-            }
-        ]
-    }
-    match = modify_types.Match(matching)
-    for t in types.getroot():
-        if match.match(t):
-            print(t.get('name'))
+        {
+            "name": ".*(CodeLock|Tent|Ghillie.*Woodland|NVG).*"
+        },
+        {
+            "name": "(csmcmillan_mung|MSFC_Barret50BMG_Black|MSFC_OSV96)"
+        }
+    ]
+    for match in matching:
+        m = modify_types.Match(match)
+        for t in types.getroot():
+            if m.match(t):
+                print('"' + t.get('name') + '",')
 
 
 def get_names_by_cat():

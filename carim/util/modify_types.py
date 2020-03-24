@@ -24,6 +24,7 @@ class Fields:
     NAME = 'name'
     CATEGORY = 'category'
     VALUE = 'value'
+    FLAGS = 'flags'
     OPERATOR = 'operator'
 
 
@@ -38,6 +39,10 @@ class Match:
             self.fields[Fields.VALUE] = []
             for value in matching.get(Fields.VALUE):
                 self.fields[Fields.VALUE].append(re.compile(value.get('name')))
+        if Fields.FLAGS in matching:
+            self.fields[Fields.FLAGS] = {}
+            for flag in matching.get(Fields.FLAGS):
+                self.fields[Fields.FLAGS][flag.get('name')] = flag.get('value')
         if Fields.OPERATOR in matching:
             self.fields[Fields.OPERATOR] = any if matching.get(Fields.OPERATOR).lower() == 'any' else all
 
@@ -66,6 +71,19 @@ class Match:
                         match_result.add_interim(m)
                 if not r:
                     match_result.add_interim(r)
+        if Fields.FLAGS in self.fields:
+            type_flags = t.find(Fields.FLAGS)
+            if len(self.fields[Fields.FLAGS]) == 0:
+                if type_flags is None:
+                    match_result.add_interim(True)
+                else:
+                    match_result.add_interim(False)
+            for flag_name, flag_value in self.fields[Fields.FLAGS].items():
+                expected_flag = '1' if flag_value else '0'
+                if type_flags.get(flag_name) == expected_flag:
+                    match_result.add_interim(True)
+                else:
+                    match_result.add_interim(False)
         return match_result
 
 
