@@ -79,7 +79,7 @@ Position = namedtuple('Position', ('x', 'z'))
 
 
 def overlaps(position, p_r, x, z, r):
-    return (r - p_r) ** 2 <= (x - position.x) ** 2 + (z - position.z) ** 2 <= (r + p_r) ** 2
+    return (x - position.x) ** 2 + (z - position.z) ** 2 <= (r + p_r) ** 2
 
 
 Color = namedtuple('Color', ('r', 'g', 'b'))

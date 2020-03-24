@@ -62,3 +62,33 @@ def remove_territories_near_traders(directory):
         reparsed = minidom.parseString(rough_string)
         with file_writing.f_open(pathlib.Path(directory, p.name), mode='w') as f:
             f.write(reparsed.toprettyxml(indent='  ', newl=''))
+
+
+@mission
+def remove_building_spawns_near_traders(directory):
+    p = pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/mapgrouppos.xml')
+    count = 0
+    mapgroups = ElementTree.parse(p).getroot()
+    for group in mapgroups.findall('.//group'):
+        raw = group.get('pos')
+        # log.info('{} {}'.format(group.get('name'), raw))
+        x, y, z = (float(i) for i in raw.split(' '))
+        clean_traders = (mark[1] for mark in vpp_map.marks[:4])
+        for position in clean_traders:
+            if vpp_map.overlaps(position, 200, x, z, 1):
+                find_string = './/group[@pos="{}"]...'.format(raw)
+                parents = mapgroups.findall(find_string)
+                for parent in parents:
+                    if group in parent:
+                        count += 1
+                        parent.remove(group)
+                        log.debug('removed group {}, {}, {}'.format(group.get('name'), x, z))
+                break
+    if count > 0:
+        log.info('removed {} groups from {}'.format(count, p.name))
+    rough_string = ElementTree.tostring(mapgroups, encoding='unicode')
+    spaces = re.compile(r'>\s*<', flags=re.DOTALL)
+    rough_string = re.sub(spaces, '>\n<', rough_string)
+    reparsed = minidom.parseString(rough_string)
+    with file_writing.f_open(pathlib.Path(directory, p.name), mode='w') as f:
+        f.write(reparsed.toprettyxml(indent='  ', newl=''))

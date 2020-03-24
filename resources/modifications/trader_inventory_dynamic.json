@@ -297,7 +297,7 @@
       },
       {
         "matching": {
-          "name": "(PileOfWoodenPlanks|MetalWire|MetalPlate|BarbedWire)"
+          "name": "(WoodenPlank|MetalWire|MetalPlate|BarbedWire)$"
         },
         "buy": 10,
         "sell": 5,
@@ -306,7 +306,7 @@
       },
       {
         "matching": {
-          "name": "(Binoculars|CableReel|Compass|DisinfectantAlcohol|DisinfectantSpray|OrienteeringCompass|Pot|Roadflare|Rope)"
+          "name": "(Binoculars|CableReel|Compass|DisinfectantAlcohol|DisinfectantSpray|OrienteeringCompass|Pot|Roadflare|Rope)$"
         },
         "buy": 40,
         "sell": 20,
