@@ -13,8 +13,10 @@
     "DISPLAYPLAYERINFO": 1,
     "DISPLAYPLAYERTAB": 1,
     "sServerTab0": [
-        "Currently, the server is still being built out and should be considered in a testing phase.",
-        "While this is the case, every item is available at the Green Mountain Trader for free."
+        "This server was created as a platform to develop an open source configuration tool for DayZ servers.",
+        "Building a working economy and configuring mods takes time and effort, but with this tool, ",
+        "anyone should be able to stand up and modify a DayZ server with ease.",
+        "All the configuration and utilities to generate it are available at https://github.com/schana/dayz-server-carim"
     ],
     "sServerTab1": [
         "Rules will be developed as the community grows"
