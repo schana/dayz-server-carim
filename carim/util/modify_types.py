@@ -78,7 +78,7 @@ class MatchResult:
     def add_interim(self, result):
         if result:
             self.interim_results.append(bool(result))
-            if isinstance(result, re.Match) and result.groupdict():
+            if not isinstance(result, bool) and result.groupdict():
                 self.groups = dict(**self.groups, **result.groupdict())
         else:
             self.interim_results.append(False)

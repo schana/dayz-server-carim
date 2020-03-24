@@ -32,9 +32,12 @@ class Category:
         result = '<Category> {}\n'.format(self.name) + '\n'.join(i.generate() for i in self.items)
         return result
 
+    def __contains__(self, item):
+        return item in self.items
+
 
 class Item:
-    def __init__(self, name, quantity, buy, sell):
+    def __init__(self, name, buy, sell, quantity):
         self.name = name
         self.quantity = quantity
         self.buy = buy
@@ -43,30 +46,35 @@ class Item:
     def generate(self):
         return ','.join(str(s) for s in (self.name, self.quantity, self.buy, self.sell))
 
+    def __eq__(self, other):
+        if isinstance(other, Item):
+            return other.name == self.name
+        return False
+
 
 class Weapon(Item):
-    def __init__(self, name, buy, sell):
-        super().__init__(name, 'W', buy, sell)
+    def __init__(self, name, buy, sell, quantity='W'):
+        super().__init__(name, buy, sell, quantity)
 
 
 class Magazine(Item):
-    def __init__(self, name, buy, sell):
-        super().__init__(name, 'M', buy, sell)
+    def __init__(self, name, buy, sell, quantity='M'):
+        super().__init__(name, buy, sell, quantity)
 
 
 class Steak(Item):
-    def __init__(self, name, buy, sell):
-        super().__init__(name, 'S', buy, sell)
+    def __init__(self, name, buy, sell, quantity='S'):
+        super().__init__(name, buy, sell, quantity)
 
 
 class Singular(Item):
-    def __init__(self, name, buy, sell):
-        super().__init__(name, '*', buy, sell)
+    def __init__(self, name, buy, sell, quantity='*'):
+        super().__init__(name, buy, sell, quantity)
 
 
 class Vehicle(Item):
-    def __init__(self, name, buy, sell):
-        super().__init__(name, 'V', buy, sell)
+    def __init__(self, name, buy, sell, quantity='V'):
+        super().__init__(name, buy, sell, quantity)
 
 
 '''

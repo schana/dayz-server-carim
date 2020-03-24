@@ -1,5 +1,6 @@
 [
   {
+    "description": "Make mod gear at least tier 3",
     "action": "modify",
     "matching": [
       {
@@ -18,13 +19,16 @@
     }
   },
   {
+    "description": "deloot fancy snipers, patches",
     "action": "modify",
     "matching": [
       {
-        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*)"
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*HelmetPatch.*|MSFC_OSV96)"
       }
     ],
     "modification": {
+      "nominal": 0,
+      "min": 0,
       "flags": [
         {
           "name": "deloot",
@@ -34,10 +38,11 @@
     }
   },
   {
+    "description": "make tents and nvgs tier 4",
     "action": "modify",
     "matching": [
       {
-        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*Tent|MSFC_GPNVG18.*)"
+        "name": "(.*Tent|MSFC_GPNVG18.*)"
       }
     ],
     "modification": {
@@ -49,6 +54,7 @@
     }
   },
   {
+    "description": "fix msfc categories for weapons marked as clothes",
     "action": "modify",
     "matching": [
       {
@@ -65,6 +71,22 @@
     }
   },
   {
+    "description": "lower all clothes spawn rates",
+    "action": "modify",
+    "matching": [
+      {
+        "category": {
+          "name": "clothes"
+        }
+      }
+    ],
+    "modification": {
+      "nominal": 2,
+      "min": 3
+    }
+  },
+  {
+    "description": "lower msfc clothes spawn rates",
     "action": "modify",
     "matching": [
       {
@@ -80,20 +102,7 @@
     }
   },
   {
-    "action": "modify",
-    "matching": [
-      {
-        "category": {
-          "name": "clothes"
-        }
-      }
-    ],
-    "modification": {
-      "nominal": 2,
-      "min": 3
-    }
-  },
-  {
+    "description": "set tier 4 weapons spawn rates",
     "action": "modify",
     "matching": [
       {
@@ -114,6 +123,7 @@
     }
   },
   {
+    "description": "set tier 3 weapons spawn rates",
     "action": "modify",
     "matching": [
       {
@@ -134,6 +144,7 @@
     }
   },
   {
+    "description": "set tier 2 weapons spawn rates",
     "action": "modify",
     "matching": [
       {
@@ -154,6 +165,7 @@
     }
   },
   {
+    "description": "remove items that shouldn't spawn",
     "action": "remove",
     "matching": [
       {
@@ -172,10 +184,7 @@
         "name": "Mass.*(Fedora|CatEars).*"
       },
       {
-        "name": "(melee|rifle)sling.*_mung"
-      },
-      {
-        "name": "(jesterhat).*mung"
+        "name": "(jesterhat|(melee|rifle)sling).*_mung"
       },
       {
         "name": "MSFC(?!Canteen).*",
@@ -184,7 +193,7 @@
         }
       },
       {
-        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|HelmetPatch|CombatHeadphones).*"
+        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle).*"
       }
     ]
   }
