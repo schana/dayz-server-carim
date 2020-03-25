@@ -19,11 +19,49 @@
     }
   },
   {
+    "description": "enable all tier 4 spawns with default rates",
+    "action": "modify",
+    "matching": [
+      {
+        "value": [
+          {
+            "name": "Tier4"
+          }
+        ]
+      }
+    ],
+    "modification": {
+      "flags": [
+        {
+          "name": "deloot",
+          "value": false
+        },
+        {
+          "name": "count_in_cargo",
+          "value": false
+        },
+        {
+          "name": "count_in_hoarder",
+          "value": false
+        },
+        {
+          "name": "count_in_player",
+          "value": false
+        }
+      ],
+      "nominal": 5,
+      "min": 3
+    }
+  },
+  {
     "description": "deloot fancy snipers, patches",
     "action": "modify",
     "matching": [
       {
-        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|.*HelmetPatch.*|MSFC_OSV96)"
+        "name": "(csmcmillan_mung|MSFC_Barret50BMG.*|MSFC_OSV96)"
+      },
+      {
+        "name": ".*HelmetPatch.*"
       }
     ],
     "modification": {
@@ -95,12 +133,12 @@
       }
     ],
     "modification": {
-      "nominal": 2,
-      "min": 3
+      "nominal": 3,
+      "min": 2
     }
   },
   {
-    "description": "lower msfc clothes spawn rates",
+    "description": "lower msfc clothes and canteen spawn rates",
     "action": "modify",
     "matching": [
       {
@@ -108,11 +146,14 @@
         "category": {
           "name": "clothes"
         }
+      },
+      {
+        "name": "MSFCCanteen.*"
       }
     ],
     "modification": {
-      "nominal": 1,
-      "min": 2
+      "nominal": 2,
+      "min": 1
     }
   },
   {
@@ -132,8 +173,8 @@
       }
     ],
     "modification": {
-      "nominal": 4,
-      "min": 5
+      "nominal": 5,
+      "min": 3
     }
   },
   {
@@ -154,7 +195,7 @@
     ],
     "modification": {
       "nominal": 10,
-      "min": 11
+      "min": 6
     }
   },
   {
@@ -175,7 +216,48 @@
     ],
     "modification": {
       "nominal": 15,
-      "min": 16
+      "min": 10
+    }
+  },
+  {
+    "description": "increase battery9v rate",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "Battery9V"
+      }
+    ],
+    "modification": {
+      "nominal": 200,
+      "min": 140,
+      "usage": [
+        {
+          "name": "Industrial"
+        },
+        {
+          "name": "Village"
+        },
+        {
+          "name": "Town"
+        },
+        {
+          "name": "Farm"
+        }
+      ]
+    }
+  },
+  {
+    "description": "make smoking spawns rare",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(cigar|joint|sherlockpipe).*mung"
+      }
+    ],
+    "modification": {
+      "nominal": 2,
+      "min": 1,
+      "restock": 600
     }
   },
   {
@@ -198,7 +280,7 @@
         "name": "Mass.*(Fedora|CatEars|Meth).*"
       },
       {
-        "name": "(jesterhat|(melee|rifle)sling).*_mung"
+        "name": "(jesterhat|(melee|rifle)sling|SAK).*_[Mm]ung"
       },
       {
         "name": "MSFC(?!Canteen).*",

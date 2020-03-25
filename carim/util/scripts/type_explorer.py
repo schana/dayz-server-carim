@@ -11,9 +11,9 @@ def get_functions_to_run():
         # describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
-        # get_names_by_match,
+        get_names_by_match,
         # convert_mass_weapon_names_to_regex
-        get_items_for_airdrop
+        # get_items_for_airdrop
     ]
 
 
@@ -65,14 +65,10 @@ def get_items_for_airdrop():
 def get_names_by_match():
     matching = [
         {
+            "name": ".*[Mm]ung",
             "category": {
-                "name": "weapons"
-            },
-            "value": [
-                {
-                    "name": "Tier4"
-                }
-            ]
+                "name": "tools"
+            }
         }
     ]
     for match in matching:
