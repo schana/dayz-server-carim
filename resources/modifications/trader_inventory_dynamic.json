@@ -265,8 +265,8 @@
             "name": "weapons"
           }
         },
-        "buy": 80,
-        "sell": 40,
+        "buy": 200,
+        "sell": 100,
         "item_class": "max"
       },
       {
@@ -516,12 +516,28 @@
           },
           "value": [
             {
+              "name": "Tier3"
+            }
+          ]
+        },
+        "buy": 2000,
+        "sell": 1000,
+        "item_class": "weapon"
+      },
+      {
+        "matching": {
+          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "category": {
+            "name": "weapons"
+          },
+          "value": [
+            {
               "name": "Tier4"
             }
           ]
         },
-        "buy": 5000,
-        "sell": 2000,
+        "buy": 10000,
+        "sell": 5000,
         "item_class": "weapon"
       }
     ]
@@ -673,8 +689,8 @@
             "name": "weapons"
           }
         },
-        "buy": 80,
-        "sell": 40,
+        "buy": 200,
+        "sell": 100,
         "item_class": "max"
       },
       {
