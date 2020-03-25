@@ -185,6 +185,117 @@
     ]
   },
   {
+    "trader": "accessories",
+    "category": "Magazines",
+    "items": [
+      {
+        "matching": {
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "lifetime": "(?!^1$)",
+          "value": [
+            {
+              "name": "Tier4"
+            }
+          ]
+        },
+        "buy": 100,
+        "sell": 50,
+        "item_class": "magazine"
+      },
+      {
+        "matching": {
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "lifetime": "(?!^1$)",
+          "value": [
+            {
+              "name": "Tier3"
+            }
+          ]
+        },
+        "buy": 50,
+        "sell": 25,
+        "item_class": "magazine"
+      },
+      {
+        "matching": {
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "lifetime": "(?!^1$)",
+          "value": [
+            {
+              "name": "Tier2"
+            }
+          ]
+        },
+        "buy": 30,
+        "sell": 15,
+        "item_class": "magazine"
+      },
+      {
+        "matching": {
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "lifetime": "(?!^1$)"
+        },
+        "buy": 20,
+        "sell": 10,
+        "item_class": "magazine"
+      }
+    ]
+  },
+  {
+    "trader": "accessories",
+    "category": "Weapon accessories",
+    "items": [
+      {
+        "matching": {
+          "name": ".*(Bu?ttsto?ck|Light|Hndgrd).*",
+          "lifetime": "(?!^1$)",
+          "category": {
+            "name": "weapons"
+          }
+        },
+        "buy": 20,
+        "sell": 10,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*(Optic|LRS|Scope|Holo).*",
+          "lifetime": "(?!^1$)",
+          "category": {
+            "name": "weapons"
+          }
+        },
+        "buy": 80,
+        "sell": 40,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*(Bayonet|Compensator|Muzzle).*",
+          "lifetime": "(?!^1$)",
+          "category": {
+            "name": "weapons"
+          }
+        },
+        "buy": 100,
+        "sell": 50,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*Suppressor.*",
+          "lifetime": "(?!^1$)",
+          "category": {
+            "name": "weapons"
+          }
+        },
+        "buy": 500,
+        "sell": 250,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
     "trader": "food",
     "category": "Food",
     "items": [
