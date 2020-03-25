@@ -60,6 +60,17 @@
         "buy": 1000,
         "sell": 500,
         "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "MilitaryGear(?!.*(Black|Brown|Olive|Tan))_[^_]*_(?P<captured>.*)",
+          "category": {
+            "name": "containers"
+          }
+        },
+        "buy": 400,
+        "sell": 200,
+        "item_class": "max"
       }
     ]
   },
@@ -78,8 +89,38 @@
     ]
   },
   {
+    "trader": "clothing",
+    "category": "Backpacks",
+    "items": [
+      {
+        "matching": {
+          "name": "(simplebackpack|ChildBag).*",
+          "category": {
+            "name": "containers"
+          },
+          "lifetime": "(?!1)"
+        },
+        "buy": 100,
+        "sell": 50,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "(MountainBag|WaterproofBag).*",
+          "category": {
+            "name": "containers"
+          },
+          "lifetime": "(?!1)"
+        },
+        "buy": 200,
+        "sell": 100,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
     "trader": "accessories",
-    "category": "Ammo stacks",
+    "category": "Ammo stacks of 10",
     "items": [
       {
         "matching": {
@@ -213,6 +254,20 @@
         },
         "buy": 20,
         "sell": 10,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "food",
+    "category": "Keepsakes",
+    "items": [
+      {
+        "matching": {
+          "name": ".*(SeedsPack|Bear_|(cigar|joint|sherlockpipe).*mung).*"
+        },
+        "buy": 400,
+        "sell": 200,
         "item_class": "max"
       }
     ]
