@@ -21,6 +21,30 @@
           "class": "vehicle",
           "buy": 50000,
           "sell": 40000
+        },
+        {
+          "name": "OffroadHatchback",
+          "class": "vehicle",
+          "buy": 40000,
+          "sell": 30000
+        },
+        {
+          "name": "Hatchback_02",
+          "class": "vehicle",
+          "buy": 30000,
+          "sell": 20000
+        },
+        {
+          "name": "CivilianSedan",
+          "class": "vehicle",
+          "buy": 30000,
+          "sell": 20000
+        },
+        {
+          "name": "Sedan_02",
+          "class": "vehicle",
+          "buy": 20000,
+          "sell": 10000
         }
       ]
     },
