@@ -271,7 +271,7 @@
         }
       },
       {
-        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas|Paper).*"
+        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas|Paper|Zippo).*"
       },
       {
         "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden|hardigg|carrierrig).*[Mm]ung.*"
@@ -280,7 +280,7 @@
         "name": "Mass.*(Fedora|CatEars|Meth).*"
       },
       {
-        "name": "(jesterhat|(melee|rifle)sling|SAK).*_[Mm]ung"
+        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe).*_[Mm]ung"
       },
       {
         "name": "MSFC(?!Canteen).*",
@@ -289,7 +289,7 @@
         }
       },
       {
-        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle).*"
+        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle|BottlePouch).*"
       }
     ]
   }
