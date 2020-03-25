@@ -1,6 +1,8 @@
 **Carim PvP|Loot+|Guns+|Airdrops|Trader|SimpleBase|Autorun**
 91.66.218.249:2302
 
+Full mod list: https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973
+
 This server was created as a platform to develop an open source configuration tool for DayZ servers. Building a working economy and configuring mods takes time and effort, but with this tool, anyone should be able to stand up and modify a DayZ server with ease. All the configuration and utilities to generate it are available at https://github.com/schana/dayz-server-carim.
 
 It is also the platform for developing the following open source mods:
