@@ -11,8 +11,9 @@ def get_functions_to_run():
         # describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
-        get_names_by_match,
+        # get_names_by_match,
         # convert_mass_weapon_names_to_regex
+        get_items_for_airdrop
     ]
 
 
@@ -28,12 +29,44 @@ def convert_mass_weapon_names_to_regex():
     print(result)
 
 
+def get_items_for_airdrop():
+    matching = [
+        {
+            "name": "(?!.*(Bu?ttsto?ck|Light|Bayonet|Hndgrd|Knife|Compensator|LRS|Scope|Muzzle|Holo|Binocs|STANAG|Mushroom).*)",
+            "category": {
+                "name": "weapons"
+            },
+            "value": [
+                {
+                    "name": "Tier4"
+                }
+            ],
+            "flags": [
+                {
+                    "name": "deloot",
+                    "value": False
+                }
+            ]
+        },
+        {
+            "name": ".*(CodeLock|Tent|GhillieSuitBox(?!Winter)|NVG(?!Headstrap)).*"
+        },
+        {
+            "name": "(csmcmillan_mung|MSFC_Barret50BMG_Black|MSFC_OSV96)"
+        }
+    ]
+    for match in matching:
+        m = modify_types.Match(match)
+        for t in types.getroot():
+            if m.match(t):
+                print('"' + t.get('name') + '",')
+
+
 def get_names_by_match():
     matching = [
         {
-            "name": "(?!.*(Helmet|Sweater|Ushanka|Jacket|[Cc]oat|Vest|Shirt|Pants|Mask|Respirator|Plate|Bag|Hood|Pouch|CPCU5|Multicam|Boots|Gorka|Canteen|Gloves|Balaclava|Bandana|Beanie|Boonie|Backpack|Visor|Belt|Goggles|Cap|BACKPACK|NVG|Knee|Mask|Mack|Beret|Case|6B[24]).*)",
             "category": {
-                "name": "(?!weapons)"
+                "name": "weapons"
             },
             "value": [
                 {
@@ -46,8 +79,8 @@ def get_names_by_match():
         m = modify_types.Match(match)
         for t in types.getroot():
             if m.match(t) and t.find('nominal') is not None and t.find('flags').get('deloot') == '0':
-                # print('"' + t.get('name') + '",')
-                print(t.find('nominal').text, t.find('min').text, t.get('name'), sep='\t')
+                print('"' + t.get('name') + '",')
+                #print(t.find('nominal').text, t.find('min').text, t.get('name'), sep='\t')
 
 
 def get_names_by_cat():
