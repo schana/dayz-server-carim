@@ -26,6 +26,7 @@ class Fields:
     VALUE = 'value'
     FLAGS = 'flags'
     OPERATOR = 'operator'
+    LIFETIME = 'lifetime'
 
 
 class Match:
@@ -33,6 +34,8 @@ class Match:
         self.fields = {Fields.OPERATOR: all}
         if Fields.NAME in matching:
             self.fields[Fields.NAME] = re.compile(matching.get(Fields.NAME))
+        if Fields.LIFETIME in matching:
+            self.fields[Fields.LIFETIME] = re.compile(matching.get(Fields.LIFETIME))
         if Fields.CATEGORY in matching:
             self.fields[Fields.CATEGORY] = re.compile(matching.get(Fields.CATEGORY).get('name'))
         if Fields.VALUE in matching:
@@ -50,6 +53,12 @@ class Match:
         match_result = MatchResult(self.fields[Fields.OPERATOR])
         if Fields.NAME in self.fields:
             match_result.add_interim(self.fields[Fields.NAME].match(t.attrib.get(Fields.NAME)))
+        if Fields.LIFETIME in self.fields:
+            lifetime = t.find(Fields.LIFETIME)
+            if lifetime is None:
+                match_result.add_interim(False)
+            else:
+                match_result.add_interim(self.fields[Fields.LIFETIME].match(lifetime.text))
         if Fields.CATEGORY in self.fields:
             category = t.find(Fields.CATEGORY)
             if category is None:
