@@ -53,8 +53,9 @@ def events_config(directory):
         for event in events_xml.getroot():
             if name_re.match(event.get('name')):
                 event.find('active').text = '1'
-                nominal = event.find('nominal')
-                nominal.text = str(math.floor(max(1, int(nominal.text)) * mod.get('ratio')))
+                for item in ('nominal',):
+                    i = event.find(item)
+                    i.text = str(math.floor(max(1, int(i.text)) * mod.get('ratio')))
     with file_writing.f_open(pathlib.Path(directory, 'events.xml'), mode='w') as f:
         f.write(file_writing.convert_to_string(events_xml.getroot()))
 
@@ -66,34 +67,45 @@ def map_config(directory):
 
 
 @mission(directory='env')
-def remove_territories_near_traders(directory):
+def territory_config(directory):
+    with open('resources/modifications/territories.json') as f:
+        territories_modifications = json.load(f)
     for p in pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/env').glob('*.xml'):
-        count = 0
+        filename = p.name
         territory = ElementTree.parse(p).getroot()
-        for zone in territory.findall('.//zone'):
-            raw = (zone.get('x'), zone.get('z'), zone.get('r'))
-            x = float(raw[0])
-            z = float(raw[1])
-            r = float(raw[2])
-            clean_traders = (mark[1] for mark in vpp_map.marks[:3])
-            for position in clean_traders:
-                if vpp_map.overlaps(position, 500, x, z, r):
-                    find_string = './/zone[@x="{}"][@z="{}"][@r="{}"]...'.format(*raw)
-                    parents = territory.findall(find_string)
-                    for parent in parents:
-                        if zone in parent:
-                            count += 1
-                            parent.remove(zone)
-                            log.debug('removed zone {}, {}, {}'.format(*raw))
-                    break
-        if count > 0:
-            log.info('removed {} zones from {}'.format(count, p.name))
-        rough_string = ElementTree.tostring(territory, encoding='unicode')
-        spaces = re.compile(r'>\s*<', flags=re.DOTALL)
-        rough_string = re.sub(spaces, '>\n<', rough_string)
-        reparsed = minidom.parseString(rough_string)
-        with file_writing.f_open(pathlib.Path(directory, p.name), mode='w') as f:
-            f.write(reparsed.toprettyxml(indent='  ', newl=''))
+        remove_zones_if_near_traders(territory, filename)
+        if filename in territories_modifications:
+            ratio = territories_modifications.get(filename)
+            log.info('applying ratio of {} to {}'.format(ratio, filename))
+            for zone in territory.findall('.//zone'):
+                dmin = zone.get('dmin')
+                dmax = zone.get('dmax')
+                zone.set('dmin', str(math.floor(int(dmin) * ratio)))
+                zone.set('dmax', str(math.floor(int(dmax) * ratio)))
+        with file_writing.f_open(pathlib.Path(directory, filename), mode='w') as f:
+            f.write(file_writing.convert_to_string(territory))
+
+
+def remove_zones_if_near_traders(territory, name):
+    count = 0
+    for zone in territory.findall('.//zone'):
+        raw = (zone.get('x'), zone.get('z'), zone.get('r'))
+        x = float(raw[0])
+        z = float(raw[1])
+        r = float(raw[2])
+        clean_traders = (mark[1] for mark in vpp_map.marks[:3])
+        for position in clean_traders:
+            if vpp_map.overlaps(position, 500, x, z, r):
+                find_string = './/zone[@x="{}"][@z="{}"][@r="{}"]...'.format(*raw)
+                parents = territory.findall(find_string)
+                for parent in parents:
+                    if zone in parent:
+                        count += 1
+                        parent.remove(zone)
+                        log.debug('removed zone {}, {}, {}'.format(*raw))
+                break
+    if count > 0:
+        log.info('removed {} zones from {}'.format(count, name))
 
 
 @mission
