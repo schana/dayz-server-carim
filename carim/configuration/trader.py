@@ -45,6 +45,7 @@ def trader_items(directory):
             new_category = trader.Category(category.get('category'))
             current_trader.categories.append(new_category)
             build_category(new_category, category)
+            log.info('added {} items to {}'.format(len(new_category.items), (trader_name, new_category.name)))
 
     add_dynamic(traders)
 
@@ -80,39 +81,42 @@ def add_dynamic(traders):
         trader_config = json.load(f)
     temp_traders = {}
     for entry in trader_config:
-        trader_name = entry.get('trader')
-        if trader_name not in temp_traders:
-            temp_traders[trader_name] = list()
-        category_name = entry.get('category')
-        categories = {}
-        temp_traders[trader_name].append(categories)
-        for item in entry.get('items'):
-            expanded = {}
-            matching = item.get('matching')
-            buy = item.get('buy')
-            sell = item.get('sell')
-            quantity = item.get('quantity', None)
-            item_type = get_item_type_for_name(item.get('item_class'))
-            match = modify_types.Match(matching)
-            for t in types.get().getroot():
-                result = match.match(t)
-                if result:
-                    items = expanded.get(result.groups.get('captured'), list())
-                    items.append(trader.Singular(t.get('name'), item.get('buy'), item.get('sell')))
-                    expanded[result.groups.get('captured')] = items
-            for key in expanded:
-                current_cat_name = category_name.format(captured=key)
-                current_cat = categories.get(current_cat_name, trader.Category(current_cat_name))
-                if quantity is not None:
-                    current_cat.items += [item_type(i.name, buy, sell, quantity) for i in expanded[key] if
-                                          i not in current_cat]
-                else:
-                    current_cat.items += [item_type(i.name, buy, sell) for i in expanded[key] if i not in current_cat]
-                categories[current_cat_name] = current_cat
+        current_traders = entry.get('trader')
+        if not isinstance(current_traders, list):
+            current_traders = [current_traders]
+        for trader_name in current_traders:
+            if trader_name not in temp_traders:
+                temp_traders[trader_name] = list()
+            category_name = entry.get('category')
+            categories = {}
+            temp_traders[trader_name].append(categories)
+            for item in entry.get('items'):
+                expanded = {}
+                matching = item.get('matching')
+                buy = item.get('buy')
+                sell = item.get('sell')
+                quantity = item.get('quantity', None)
+                item_type = get_item_type_for_name(item.get('item_class'))
+                match = modify_types.Match(matching)
+                for t in types.get().getroot():
+                    result = match.match(t)
+                    if result:
+                        items = expanded.get(result.groups.get('captured'), list())
+                        items.append(trader.Singular(t.get('name'), item.get('buy'), item.get('sell')))
+                        expanded[result.groups.get('captured')] = items
+                for key in expanded:
+                    current_cat_name = category_name.format(captured=key)
+                    current_cat = categories.get(current_cat_name, trader.Category(current_cat_name))
+                    if quantity is not None:
+                        current_cat.items += [item_type(i.name, buy, sell, quantity) for i in expanded[key] if
+                                              i not in current_cat]
+                    else:
+                        current_cat.items += [item_type(i.name, buy, sell) for i in expanded[key] if i not in current_cat]
+                    categories[current_cat_name] = current_cat
     for key in temp_traders:
         for cat_set in temp_traders[key]:
             for c in cat_set.values():
-                log.info('added {} items to {}'.format(len(c.items), (key, c.name)))
+                log.info('added {} dynamic items to {}'.format(len(c.items), (key, c.name)))
             traders[key].categories += cat_set.values()
 
 

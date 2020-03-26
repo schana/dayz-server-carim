@@ -1,5 +1,43 @@
 [
   {
+    "trader": "bm",
+    "category": "Black Market",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "category": {
+            "name": "weapons"
+          },
+          "value": [
+            {
+              "name": "Tier3"
+            }
+          ]
+        },
+        "buy": 2000,
+        "sell": 1000,
+        "item_class": "weapon"
+      },
+      {
+        "matching": {
+          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "category": {
+            "name": "weapons"
+          },
+          "value": [
+            {
+              "name": "Tier4"
+            }
+          ]
+        },
+        "buy": 10000,
+        "sell": 5000,
+        "item_class": "weapon"
+      }
+    ]
+  },
+  {
     "trader": "clothing",
     "category": "Basic clothes",
     "items": [
@@ -119,7 +157,10 @@
     ]
   },
   {
-    "trader": "accessories",
+    "trader": [
+      "accessories",
+      "bm"
+    ],
     "category": "Ammo stacks of 10",
     "items": [
       {
@@ -152,7 +193,10 @@
     ]
   },
   {
-    "trader": "accessories",
+    "trader": [
+      "accessories",
+      "bm"
+    ],
     "category": "Ammo singles",
     "items": [
       {
@@ -185,7 +229,10 @@
     ]
   },
   {
-    "trader": "accessories",
+    "trader": [
+      "accessories",
+      "bm"
+    ],
     "category": "Magazines",
     "items": [
       {
@@ -242,7 +289,10 @@
     ]
   },
   {
-    "trader": "accessories",
+    "trader": [
+      "accessories",
+      "bm"
+    ],
     "category": "Weapon accessories",
     "items": [
       {
@@ -500,221 +550,6 @@
         },
         "buy": 1000,
         "sell": 500,
-        "item_class": "max"
-      }
-    ]
-  },
-  {
-    "trader": "bm",
-    "category": "Black Market",
-    "items": [
-      {
-        "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
-          "category": {
-            "name": "weapons"
-          },
-          "value": [
-            {
-              "name": "Tier3"
-            }
-          ]
-        },
-        "buy": 2000,
-        "sell": 1000,
-        "item_class": "weapon"
-      },
-      {
-        "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
-          "category": {
-            "name": "weapons"
-          },
-          "value": [
-            {
-              "name": "Tier4"
-            }
-          ]
-        },
-        "buy": 10000,
-        "sell": 5000,
-        "item_class": "weapon"
-      }
-    ]
-  },
-  {
-    "trader": "bm",
-    "category": "Ammo stacks of 10",
-    "items": [
-      {
-        "matching": {
-          "name": ".*Ammo_(?!127x108|50BMG|408Chey|338|308Win.*|762x54.*).*"
-        },
-        "buy": 20,
-        "sell": 10,
-        "item_class": "quantity",
-        "quantity": 10
-      },
-      {
-        "matching": {
-          "name": ".*Ammo_(308Win|762x54).*"
-        },
-        "buy": 40,
-        "sell": 20,
-        "item_class": "quantity",
-        "quantity": 10
-      },
-      {
-        "matching": {
-          "name": ".*Ammo_(127x108|50BMG|408Chey|338).*"
-        },
-        "buy": 60,
-        "sell": 30,
-        "item_class": "quantity",
-        "quantity": 10
-      }
-    ]
-  },
-  {
-    "trader": "bm",
-    "category": "Ammo singles",
-    "items": [
-      {
-        "matching": {
-          "name": ".*Ammo_(308Win|762x54).*"
-        },
-        "buy": 4,
-        "sell": 2,
-        "item_class": "quantity",
-        "quantity": 1
-      },
-      {
-        "matching": {
-          "name": ".*Ammo_(127x108|50BMG|408Chey|338).*"
-        },
-        "buy": 6,
-        "sell": 3,
-        "item_class": "quantity",
-        "quantity": 1
-      },
-      {
-        "matching": {
-          "name": ".*Ammo_.*"
-        },
-        "buy": 2,
-        "sell": 1,
-        "item_class": "quantity",
-        "quantity": 1
-      }
-    ]
-  },
-  {
-    "trader": "bm",
-    "category": "Magazines",
-    "items": [
-      {
-        "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
-          "lifetime": "(?!^1$)",
-          "value": [
-            {
-              "name": "Tier4"
-            }
-          ]
-        },
-        "buy": 100,
-        "sell": 50,
-        "item_class": "magazine"
-      },
-      {
-        "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
-          "lifetime": "(?!^1$)",
-          "value": [
-            {
-              "name": "Tier3"
-            }
-          ]
-        },
-        "buy": 50,
-        "sell": 25,
-        "item_class": "magazine"
-      },
-      {
-        "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
-          "lifetime": "(?!^1$)",
-          "value": [
-            {
-              "name": "Tier2"
-            }
-          ]
-        },
-        "buy": 30,
-        "sell": 15,
-        "item_class": "magazine"
-      },
-      {
-        "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
-          "lifetime": "(?!^1$)"
-        },
-        "buy": 20,
-        "sell": 10,
-        "item_class": "magazine"
-      }
-    ]
-  },
-  {
-    "trader": "bm",
-    "category": "Weapon accessories",
-    "items": [
-      {
-        "matching": {
-          "name": ".*(Bu?ttsto?ck|Light|Hndgrd).*",
-          "lifetime": "(?!^1$)",
-          "category": {
-            "name": "weapons"
-          }
-        },
-        "buy": 20,
-        "sell": 10,
-        "item_class": "max"
-      },
-      {
-        "matching": {
-          "name": ".*(Optic|LRS|Scope|Holo).*",
-          "lifetime": "(?!^1$)",
-          "category": {
-            "name": "weapons"
-          }
-        },
-        "buy": 200,
-        "sell": 100,
-        "item_class": "max"
-      },
-      {
-        "matching": {
-          "name": ".*(Bayonet|Compensator|Muzzle).*",
-          "lifetime": "(?!^1$)",
-          "category": {
-            "name": "weapons"
-          }
-        },
-        "buy": 100,
-        "sell": 50,
-        "item_class": "max"
-      },
-      {
-        "matching": {
-          "name": ".*Suppressor.*",
-          "lifetime": "(?!^1$)",
-          "category": {
-            "name": "weapons"
-          }
-        },
-        "buy": 500,
-        "sell": 250,
         "item_class": "max"
       }
     ]
