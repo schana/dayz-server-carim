@@ -289,7 +289,7 @@
         }
       },
       {
-        "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle|BottlePouch).*"
+        "name": "MSFC.*(TacticalBeard|OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle|BottlePouch).*"
       }
     ]
   },
