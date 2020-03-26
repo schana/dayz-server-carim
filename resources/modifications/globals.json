@@ -1,0 +1,8 @@
+{
+  "TimeLogin": 5,
+  "AnimalMaxCount": 600,
+  "CleanupLifetimeDeadInfected": 180,
+  "CleanupLifetimeRuined": 60,
+  "ZombieMaxCount": 6000,
+  "ZoneSpawnDist": 600
+}

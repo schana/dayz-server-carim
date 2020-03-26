@@ -1,3 +1,4 @@
+import json
 import logging
 import pathlib
 import re
@@ -25,6 +26,19 @@ def types_config(directory):
     reparsed = minidom.parseString(rough_string)
     with file_writing.f_open(pathlib.Path(directory, 'types.xml'), mode='w') as f:
         f.write(reparsed.toprettyxml(indent='  ', newl=''))
+
+
+@mission(directory='db')
+def globals_config(directory):
+    globals_xml = ElementTree.parse(
+        pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/globals.xml'))
+    with open('resources/modifications/globals.json') as f:
+        globals_modifications = json.load(f)
+    for k, v in globals_modifications.items():
+        item = globals_xml.getroot().find('.//var[@name="{}"]'.format(k))
+        item.set('value', str(v))
+    with file_writing.f_open(pathlib.Path(directory, 'globals.xml'), mode='w') as f:
+        f.write(file_writing.convert_to_string(globals_xml.getroot()))
 
 
 @mission
