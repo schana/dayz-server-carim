@@ -1,5 +1,6 @@
 import json
 import logging
+import math
 import pathlib
 import re
 from xml.dom import minidom
@@ -39,6 +40,23 @@ def globals_config(directory):
         item.set('value', str(v))
     with file_writing.f_open(pathlib.Path(directory, 'globals.xml'), mode='w') as f:
         f.write(file_writing.convert_to_string(globals_xml.getroot()))
+
+
+@mission(directory='db')
+def events_config(directory):
+    events_xml = ElementTree.parse(
+        pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/events.xml'))
+    with open('resources/modifications/events.json') as f:
+        events_modifications = json.load(f)
+    for mod in events_modifications:
+        name_re = re.compile(mod.get('name'))
+        for event in events_xml.getroot():
+            if name_re.match(event.get('name')):
+                event.find('active').text = '1'
+                nominal = event.find('nominal')
+                nominal.text = str(math.floor(max(1, int(nominal.text)) * mod.get('ratio')))
+    with file_writing.f_open(pathlib.Path(directory, 'events.xml'), mode='w') as f:
+        f.write(file_writing.convert_to_string(events_xml.getroot()))
 
 
 @mission

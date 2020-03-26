@@ -88,6 +88,7 @@ def add_dynamic(traders):
             if trader_name not in temp_traders:
                 temp_traders[trader_name] = list()
             category_name = entry.get('category')
+            log.info('processing {}'.format((trader_name, category_name)))
             categories = {}
             temp_traders[trader_name].append(categories)
             for item in entry.get('items'):
