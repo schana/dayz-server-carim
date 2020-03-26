@@ -5,7 +5,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|Bu?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -21,7 +21,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|Bu?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -237,7 +237,7 @@
     "items": [
       {
         "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG|Tigr308_10_Rnd|Mass9x39Palm|Massppshbox).*",
           "lifetime": "(?!^1$)",
           "value": [
             {
@@ -251,7 +251,7 @@
       },
       {
         "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG|Tigr308_10_Rnd|Mass9x39Palm|Massppshbox).*",
           "lifetime": "(?!^1$)",
           "value": [
             {
@@ -265,7 +265,7 @@
       },
       {
         "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG|Tigr308_10_Rnd|Mass9x39Palm|Massppshbox).*",
           "lifetime": "(?!^1$)",
           "value": [
             {
@@ -279,7 +279,7 @@
       },
       {
         "matching": {
-          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG).*",
+          "name": ".*([Mm]ag(?!enta|s|lite)|[Dd]rum|STANAG|Tigr308_10_Rnd|Mass9x39Palm|Massppshbox).*",
           "lifetime": "(?!^1$)"
         },
         "buy": 20,
@@ -309,7 +309,7 @@
       },
       {
         "matching": {
-          "name": ".*(Optic|LRS|Scope|Holo).*",
+          "name": ".*(Optic|LRS|Scope|Holo|1P69).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"
