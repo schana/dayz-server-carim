@@ -111,7 +111,8 @@ def add_dynamic(traders):
                         current_cat.items += [item_type(i.name, buy, sell, quantity) for i in expanded[key] if
                                               i not in current_cat]
                     else:
-                        current_cat.items += [item_type(i.name, buy, sell) for i in expanded[key] if i not in current_cat]
+                        current_cat.items += [item_type(i.name, buy, sell) for i in expanded[key] if
+                                              i not in current_cat]
                     categories[current_cat_name] = current_cat
     for key in temp_traders:
         for cat_set in temp_traders[key]:

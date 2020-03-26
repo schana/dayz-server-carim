@@ -11,15 +11,80 @@ def get_functions_to_run():
         # describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
-        get_names_by_match,
+        # get_names_by_match,
         # convert_mass_weapon_names_to_regex
         # get_items_for_airdrop
+        get_stats,
+        lambda: print('vanilla'),
+        lambda: get_stats(
+            (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
     ]
 
 
 def main():
     for f in get_functions_to_run():
         f()
+
+
+def get_stats(types_et=None):
+    if types_et is None:
+        types_et = types.getroot()
+    sum_nominal = 0
+    count_items = 0
+    sum_min = 0
+    nominals = {}
+    mins = {}
+    restocks = {}
+    matching = [
+        {
+            "nominal": "^[^0]",
+            # "restock": "^0$",
+            "flags": [
+                {
+                    "name": "deloot",
+                    "value": False
+                }
+            ]
+        }
+    ]
+    for match in matching:
+        m = modify_types.Match(match)
+        for t in types_et:
+            if m.match(t) and t.find('nominal') is not None:
+                nominal = int(t.find('nominal').text)
+                min_value = int(t.find('min').text)
+                restock = int(t.find('restock').text)
+                # print(t.get('name'), nominal, min_value, restock)
+                sum_nominal += nominal
+                if nominal not in nominals:
+                    nominals[nominal] = 0
+                nominals[nominal] += 1
+                sum_min += min_value
+                if min_value not in mins:
+                    mins[min_value] = 0
+                mins[min_value] += 1
+                if restock not in restocks:
+                    restocks[restock] = 0
+                restocks[restock] += 1
+                count_items += 1
+    # print('''vanilla stats
+    # items 1285
+    # sum nominal 20128
+    # avg nominal 15.663813229571984
+    # sum min 12571
+    # avg min 9.782879377431907''')
+    print('items', count_items)
+    print('sum nominal', sum_nominal)
+    print('avg nominal', sum_nominal / max(1, count_items))
+    print('nominal values')
+    print(json.dumps([str((k, v)) for k, v in sorted(nominals.items())], indent=2))
+    print('sum min', sum_min)
+    print('avg min', sum_min / max(1, count_items))
+    print('min values')
+    print(json.dumps([str((k, v)) for k, v in sorted(mins.items())], indent=2))
+    print('restock values')
+    print(json.dumps([str((k, v)) for k, v in sorted(restocks.items())], indent=2))
+    print()
 
 
 def convert_mass_weapon_names_to_regex():
@@ -65,18 +130,22 @@ def get_items_for_airdrop():
 def get_names_by_match():
     matching = [
         {
-            "name": ".*[Mm]ung",
+            "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
             "category": {
-                "name": "tools"
-            }
+                "name": "weapons"
+            },
+            "value": [
+                {
+                    "name": "Tier3"
+                }
+            ]
         }
     ]
     for match in matching:
         m = modify_types.Match(match)
         for t in types.getroot():
-            if m.match(t) and t.find('nominal') is not None and t.find('flags').get('deloot') == '0':
-                print('"' + t.get('name') + '",')
-                #print(t.find('nominal').text, t.find('min').text, t.get('name'), sep='\t')
+            if m.match(t) and t.find('nominal') is not None:
+                print('"' + t.get('name') + '",' + '\t' + str(list(v.get('name') for v in t.findall('value'))))
 
 
 def get_names_by_cat():

@@ -19,14 +19,36 @@ def modify_types(directory):
         for m in matching:
             process_type(matching=m, modification=action.get('modification', dict()))
 
+    ratio_modifier = 2
+    matching = {
+        "nominal": "^[^0]",
+        "flags": [
+            {
+                "name": "deloot",
+                "value": False
+            }
+        ]
+    }
+    m = Match(matching)
+    count = 0
+    for t in types.get().getroot():
+        if m.match(t) and t.find('nominal') is not None:
+            count += 1
+            t.find('nominal').text = str(int(ratio_modifier * int(t.find('nominal').text)))
+            t.find('min').text = str(int(ratio_modifier * int(t.find('min').text)))
+    log.info('modified {} items with ratio {}'.format(count, ratio_modifier))
+
 
 class Fields:
     NAME = 'name'
+    LIFETIME = 'lifetime'
+    NOMINAL = 'nominal'
+    RESTOCK = 'restock'
+    MIN = 'min'
     CATEGORY = 'category'
     VALUE = 'value'
     FLAGS = 'flags'
     OPERATOR = 'operator'
-    LIFETIME = 'lifetime'
 
 
 class Match:
@@ -34,8 +56,9 @@ class Match:
         self.fields = {Fields.OPERATOR: all}
         if Fields.NAME in matching:
             self.fields[Fields.NAME] = re.compile(matching.get(Fields.NAME))
-        if Fields.LIFETIME in matching:
-            self.fields[Fields.LIFETIME] = re.compile(matching.get(Fields.LIFETIME))
+        for f in (Fields.LIFETIME, Fields.NOMINAL, Fields.RESTOCK, Fields.MIN):
+            if f in matching:
+                self.fields[f] = re.compile(matching.get(f))
         if Fields.CATEGORY in matching:
             self.fields[Fields.CATEGORY] = re.compile(matching.get(Fields.CATEGORY).get('name'))
         if Fields.VALUE in matching:
@@ -53,12 +76,13 @@ class Match:
         match_result = MatchResult(self.fields[Fields.OPERATOR])
         if Fields.NAME in self.fields:
             match_result.add_interim(self.fields[Fields.NAME].match(t.attrib.get(Fields.NAME)))
-        if Fields.LIFETIME in self.fields:
-            lifetime = t.find(Fields.LIFETIME)
-            if lifetime is None:
-                match_result.add_interim(False)
-            else:
-                match_result.add_interim(self.fields[Fields.LIFETIME].match(lifetime.text))
+        for f in (Fields.LIFETIME, Fields.NOMINAL, Fields.RESTOCK, Fields.MIN):
+            if f in self.fields:
+                field_value = t.find(f)
+                if field_value is None:
+                    match_result.add_interim(False)
+                else:
+                    match_result.add_interim(self.fields[f].match(field_value.text))
         if Fields.CATEGORY in self.fields:
             category = t.find(Fields.CATEGORY)
             if category is None:

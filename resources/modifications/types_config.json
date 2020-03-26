@@ -292,5 +292,24 @@
         "name": "MSFC.*(OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle|BottlePouch).*"
       }
     ]
+  },
+  {
+    "description": "Set restock time for items that don't have it",
+    "action": "modify",
+    "matching": [
+      {
+        "nominal": "^[^0]",
+        "restock": "^0$",
+        "flags": [
+          {
+            "name": "deloot",
+            "value": false
+          }
+        ]
+        }
+    ],
+    "modification": {
+      "restock": 600
+    }
   }
 ]
