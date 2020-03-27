@@ -2,8 +2,9 @@ import json
 import logging
 import pathlib
 
-from carim.configuration import profiles
-from carim.models import trader, types, trader_objects
+from carim.configuration import decorators
+from carim.configuration.mods.trader.models import config, objects
+from carim.global_resources import types
 from carim.util import file_writing, modify_types
 
 log = logging.getLogger(__name__)
@@ -19,12 +20,12 @@ class TraderName:
     BM = 'bm'
 
 
-@profiles.profile(directory='Trader', register=False)  # run after type modifications
+@decorators.profile(directory='Trader', register=False)  # run after type modifications
 def trader_items(directory):
     with open('resources/modifications/mods/trader/inventory.json') as f:
         inventory = json.load(f)
 
-    traders_config = trader.Config()
+    traders_config = config.Config()
     trader_names = [
         TraderName.AUTO,
         TraderName.CLOTHING,
@@ -38,11 +39,11 @@ def trader_items(directory):
 
     for trader_name in trader_names:
         categories = inventory.get(trader_name, list())
-        current_trader = trader.Trader(trader_name)
+        current_trader = config.Trader(trader_name)
         traders[trader_name] = current_trader
         traders_config.traders.append(current_trader)
         for category in categories:
-            new_category = trader.Category(category.get('category'))
+            new_category = config.Category(category.get('category'))
             current_trader.categories.append(new_category)
             build_category(new_category, category)
             log.info('added {} items to {}'.format(len(new_category.items), (trader_name, new_category.name)))
@@ -63,17 +64,17 @@ def build_category(new_category, category_config):
 
 def get_item_type_for_name(name):
     if name == "vehicle":
-        return trader.Vehicle
+        return config.Vehicle
     elif name == "magazine":
-        return trader.Magazine
+        return config.Magazine
     elif name == "weapon":
-        return trader.Weapon
+        return config.Weapon
     elif name == "steak":
-        return trader.Steak
+        return config.Steak
     elif name == "quantity":
-        return trader.Item
+        return config.Item
     else:
-        return trader.Singular
+        return config.Singular
 
 
 def add_dynamic(traders):
@@ -103,11 +104,11 @@ def add_dynamic(traders):
                     result = match.match(t)
                     if result:
                         items = expanded.get(result.groups.get('captured'), list())
-                        items.append(trader.Singular(t.get('name'), item.get('buy'), item.get('sell')))
+                        items.append(config.Singular(t.get('name'), item.get('buy'), item.get('sell')))
                         expanded[result.groups.get('captured')] = items
                 for key in expanded:
                     current_cat_name = category_name.format(captured=key)
-                    current_cat = categories.get(current_cat_name, trader.Category(current_cat_name))
+                    current_cat = categories.get(current_cat_name, config.Category(current_cat_name))
                     if quantity is not None:
                         current_cat.items += [item_type(i.name, buy, sell, quantity) for i in expanded[key] if
                                               i not in current_cat]
@@ -122,23 +123,23 @@ def add_dynamic(traders):
             traders[key].categories += cat_set.values()
 
 
-@profiles.profile(directory='Trader')
+@decorators.profile(directory='Trader')
 def trader_objects_config(directory):
-    to = trader_objects.Config()
+    to = objects.Config()
     with open('resources/modifications/mods/trader/locations.json') as f:
         locations = json.load(f)
     with open('resources/modifications/mods/trader/outfits.json') as f:
         outfits = json.load(f)
-    for name, config in locations.items():
+    for name, l_config in locations.items():
         log.info('processing {}'.format(name))
-        for trader_name, t in config.items():
-            new_trader = trader_objects.Trader(t.get('marker'), t.get('location'), t.get('safezone', 200))
-            new_object = trader_objects.Object(outfits.get(trader_name).get('class'), t.get('location'), t.get('o'))
+        for trader_name, t in l_config.items():
+            new_trader = objects.Trader(t.get('marker'), t.get('location'), t.get('safezone', 200))
+            new_object = objects.Object(outfits.get(trader_name).get('class'), t.get('location'), t.get('o'))
             for attachment in outfits.get(trader_name).get('attachments'):
-                new_object.attachments.append(trader_objects.Attachment(attachment))
+                new_object.attachments.append(objects.Attachment(attachment))
             if 'vehicle' in t:
                 raw_vehicle = t.get('vehicle')
-                new_trader.set_vehicle(trader_objects.Vehicle(raw_vehicle.get('location'), raw_vehicle.get('o')))
+                new_trader.set_vehicle(objects.Vehicle(raw_vehicle.get('location'), raw_vehicle.get('o')))
             to.traders.append(new_trader)
             to.objects.append(new_object)
 

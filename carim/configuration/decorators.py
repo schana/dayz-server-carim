@@ -3,8 +3,7 @@ import inspect
 import logging
 import pathlib
 
-from carim.models import outdir, configs
-from carim.util import file_writing
+from carim.global_resources import outdir, configs
 
 
 def config(_func=None, *, directory='.', register=True):
@@ -48,7 +47,10 @@ def server(_func=None, *, directory='.', register=True):
     return located_config(_func, directory=directory, dir_prefix='servers/0', register=register)
 
 
-@server
-def server_dz_config(directory):
-    file_writing.copy('resources/modifications/server/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg'))
-    file_writing.copy('resources/modifications/server/serverDZ.cfg', pathlib.Path(directory, 'serverDZ.cfg.active'))
+def mission(_func=None, *, directory='.', register=True):
+    return located_config(_func, directory=directory, dir_prefix='servers/0/mpmissions/dayzOffline.chernarusplus',
+                          register=register)
+
+
+def profile(_func=None, *, directory='.', register=True):
+    return located_config(_func, directory=directory, dir_prefix='servers/0/profiles', register=register)

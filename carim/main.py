@@ -6,8 +6,9 @@ import shutil
 from xml.etree import ElementTree
 
 from carim import configuration
-from carim.configuration import trader, missions
-from carim.models import auth, types, configs, outdir, errors, vpp_map, deploydir
+from carim.configuration.mods.trader import trader
+from carim.configuration.server import missions
+from carim.global_resources import auth, types, configs, outdir, errors, deploydir, locations
 from carim.util import modify_types
 
 
@@ -34,7 +35,7 @@ def main():
     deploydir.set(args.deploy)
     types.set(ElementTree.parse(pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/types.xml')))
     auth.set(json.load(open(args.auth)))
-    vpp_map.initialize()
+    locations.initialize()
     configuration.scan()
 
     for c in configs.get():
@@ -46,6 +47,7 @@ def main():
     log.info('errors {}'.format(len(errors.get())))
     for e in errors.get():
         log.error(e)
+    log.info('applied {} registered configurations'.format(len(configs.get())))
     log.info('complete')
 
 

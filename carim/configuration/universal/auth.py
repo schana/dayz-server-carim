@@ -2,14 +2,14 @@ import json
 import logging
 import pathlib
 
-from carim.configuration import base
-from carim.models import auth
+from carim.configuration import decorators
+from carim.global_resources import auth
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
 
-@base.server
+@decorators.server
 def omega_config(directory):
     cfg = None
     with open('resources/modifications/omega/omega.cfg') as f:
@@ -25,7 +25,7 @@ def omega_config(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.server(directory='profiles')
+@decorators.server(directory='profiles')
 def cf_tools_config(directory):
     cfg = {
         'service_api_key': auth.get()['cf']['service_api_key'],
@@ -35,7 +35,7 @@ def cf_tools_config(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.config
+@decorators.config
 def omega_manager(directory):
     cfg = None
     with file_writing.f_open('resources/modifications/omega/manager.cfg') as f:
@@ -50,7 +50,7 @@ def omega_manager(directory):
         json.dump(cfg, f, indent=2)
 
 
-@base.server
+@decorators.server
 def priority_queue(directory):
     users = []
     for priority_user in auth.get().get('priority', []):
