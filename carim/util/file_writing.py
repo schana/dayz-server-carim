@@ -6,7 +6,7 @@ import time
 from xml.dom import minidom
 from xml.etree import ElementTree
 
-from carim.models import errors
+from carim.global_resources import errors
 
 log = logging.getLogger(__name__)
 

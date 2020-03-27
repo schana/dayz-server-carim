@@ -1,38 +1,22 @@
 from collections import namedtuple
 
-_markers = []
-marks = list()
+from carim.global_resources import locations
 
 
-def initialize():
-    # TODO: move this to separate config file
-    global marks
-    marks = [
-        ('Green Mountain Trader', Position(3727, 6007)),
-        ('Kumyrna Trader', Position(8355, 5986)),
-        ('Altar Trader', Position(8164, 9113)),
-        ('Zabolotye Black Market Trader', Position(1602.85, 10413.2)),
-        ('NWAF', Position(4541, 10289)),
-        ('NEAF', Position(12121, 12521))
-    ]
-    for m in marks:
-        add(Marker(
-            name=m[0],
-            icon=Icon.DEFAULT,
-            color=WHITE,
-            position=m[1],
-            active=True,
-            active_3d=True
-        ))
-
-
-def add(marker):
-    _markers.append(marker)
+def get_markers():
+    return [Marker(
+        name=m[0],
+        icon=Icon.DEFAULT,
+        color=WHITE,
+        position=m[1],
+        active=True,
+        active_3d=True
+    ) for m in locations.marks]
 
 
 def get_config():
     return {
-        'M_STATIC_MARKER_ARRAY': [m.get_config() for m in _markers],
+        'M_STATIC_MARKER_ARRAY': [m.get_config() for m in get_markers()],
         'm_CanUse3DMarkers': 1,
         'm_OwnPositionMarkerDisabled': 0,
         'm_ForceMapItemOnly': 0
@@ -41,7 +25,7 @@ def get_config():
 
 def get_admin_teleport_config():
     return {
-        'm_TeleportLocations': [m.get_admin_teleport_config() for m in _markers]
+        'm_TeleportLocations': [m.get_admin_teleport_config() for m in get_markers()]
     }
 
 
@@ -73,13 +57,6 @@ class Marker:
                 self.position.z
             ]
         }
-
-
-Position = namedtuple('Position', ('x', 'z'))
-
-
-def overlaps(position, p_r, x, z, r):
-    return (x - position.x) ** 2 + (z - position.z) ** 2 <= (r + p_r) ** 2
 
 
 Color = namedtuple('Color', ('r', 'g', 'b'))
