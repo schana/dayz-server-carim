@@ -48,7 +48,7 @@ def main():
     for e in errors.get():
         log.error(e)
     log.info('applied {} registered configurations'.format(len(configs.get())))
-    log.info('order: {}'.format(json.dumps([f.__name__ for f in configs.get()], indent=2)))
+    log.debug('order: {}'.format(json.dumps([f.__name__ for f in configs.get()], indent=2)))
     log.info('complete')
 
 

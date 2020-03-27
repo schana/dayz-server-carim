@@ -2,28 +2,21 @@ from collections import namedtuple
 
 from carim.global_resources import locations
 
-_markers = []
 
-
-def initialize():
-    for m in locations.marks:
-        add(Marker(
-            name=m[0],
-            icon=Icon.DEFAULT,
-            color=WHITE,
-            position=m[1],
-            active=True,
-            active_3d=True
-        ))
-
-
-def add(marker):
-    _markers.append(marker)
+def get_markers():
+    return [Marker(
+        name=m[0],
+        icon=Icon.DEFAULT,
+        color=WHITE,
+        position=m[1],
+        active=True,
+        active_3d=True
+    ) for m in locations.marks]
 
 
 def get_config():
     return {
-        'M_STATIC_MARKER_ARRAY': [m.get_config() for m in _markers],
+        'M_STATIC_MARKER_ARRAY': [m.get_config() for m in get_markers()],
         'm_CanUse3DMarkers': 1,
         'm_OwnPositionMarkerDisabled': 0,
         'm_ForceMapItemOnly': 0
@@ -32,7 +25,7 @@ def get_config():
 
 def get_admin_teleport_config():
     return {
-        'm_TeleportLocations': [m.get_admin_teleport_config() for m in _markers]
+        'm_TeleportLocations': [m.get_admin_teleport_config() for m in get_markers()]
     }
 
 
