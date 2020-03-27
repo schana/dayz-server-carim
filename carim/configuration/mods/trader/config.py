@@ -1,4 +1,14 @@
-@profile(directory='Trader')
+import logging
+import pathlib
+
+from carim.configuration import decorators
+from carim.global_resources import auth
+from carim.util import file_writing
+
+log = logging.getLogger(__name__)
+
+
+@decorators.profile(directory='Trader')
 def trader_file_and_admins(directory):
     files = ['TraderVariables.txt', 'TraderVehicleParts.txt']
     for file in files:
