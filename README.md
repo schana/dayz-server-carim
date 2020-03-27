@@ -19,4 +19,4 @@ python3 -m carim.main -c -d <path to omega deploy directory> -a <path to your au
 
 Configuration is generated and output in a folder named `generated-<timestamp>`. The contents of this can be copied into your omega directory.
 
-![Carim](Carim.png "Carim Logo")
+<img src="Carim.png" width="400">
