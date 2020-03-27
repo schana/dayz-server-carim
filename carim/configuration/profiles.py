@@ -32,7 +32,7 @@ def trader_file_and_admins(directory):
 def airdrop(directory):
     with open('resources/original-mod-files/Airdrop/AirdropSettings.json') as f:
         airdrop_settings = json.load(f)
-    with open('resources/modifications/airdrop_setting_modifications.json') as f:
+    with open('resources/modifications/mods/airdrop/modifications.json') as f:
         airdrop_setting_modifications = json.load(f)
     # http://games.digiacom.com/Airdrop_Server_Guide.pdf
     for setting in ('Controls', 'Messages', 'Container'):
@@ -65,7 +65,7 @@ def simple_base_profile(directory):
         lines = f.readlines()
     config = simple_base.Config()
     config.parse_defaults(lines)
-    with open('resources/modifications/simple_base.json') as f:
+    with open('resources/modifications/mods/simple_base/config.json') as f:
         changes = json.load(f)
     for k, v in changes.items():
         config.set(k, v)
@@ -151,4 +151,4 @@ def vpp_teleports(directory):
 
 @profile(directory='ServerPanel')
 def server_panel_coniguration(directory):
-    file_writing.copy('resources/modifications/server_panel_config.json', pathlib.Path(directory, 'ServerPanel.json'))
+    file_writing.copy('resources/modifications/mods/server_panel/config.json', pathlib.Path(directory, 'ServerPanel.json'))

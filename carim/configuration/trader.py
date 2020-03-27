@@ -21,7 +21,7 @@ class TraderName:
 
 @profiles.profile(directory='Trader', register=False)  # run after type modifications
 def trader_items(directory):
-    with open('resources/modifications/trader_inventory.json') as f:
+    with open('resources/modifications/mods/trader/inventory.json') as f:
         inventory = json.load(f)
 
     traders_config = trader.Config()
@@ -77,7 +77,7 @@ def get_item_type_for_name(name):
 
 
 def add_dynamic(traders):
-    with open('resources/modifications/trader_inventory_dynamic.json') as f:
+    with open('resources/modifications/mods/trader/inventory_dynamic.json') as f:
         trader_config = json.load(f)
     temp_traders = {}
     for entry in trader_config:
@@ -125,9 +125,9 @@ def add_dynamic(traders):
 @profiles.profile(directory='Trader')
 def trader_objects_config(directory):
     to = trader_objects.Config()
-    with open('resources/modifications/trader_locations.json') as f:
+    with open('resources/modifications/mods/trader/locations.json') as f:
         locations = json.load(f)
-    with open('resources/modifications/trader_outfits.json') as f:
+    with open('resources/modifications/mods/trader/outfits.json') as f:
         outfits = json.load(f)
     for name, config in locations.items():
         log.info('processing {}'.format(name))

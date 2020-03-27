@@ -12,7 +12,7 @@ log = logging.getLogger(__name__)
 @base.server
 def omega_config(directory):
     cfg = None
-    with open('resources/omega/omega.cfg') as f:
+    with open('resources/modifications/omega/omega.cfg') as f:
         cfg = json.load(f)
     cfg['cftools']['service_api_key'] = auth.get()['cf']['service_api_key']
     cfg['cftools']['service_id'] = auth.get()['cf']['service_id']
@@ -38,7 +38,7 @@ def cf_tools_config(directory):
 @base.config
 def omega_manager(directory):
     cfg = None
-    with file_writing.f_open('resources/omega/manager.cfg') as f:
+    with file_writing.f_open('resources/modifications/omega/manager.cfg') as f:
         cfg = json.load(f)
     cfg['steam'] = {
         'username': auth.get()['steam']['username'],

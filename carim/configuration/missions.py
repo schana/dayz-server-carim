@@ -33,7 +33,7 @@ def types_config(directory):
 def globals_config(directory):
     globals_xml = ElementTree.parse(
         pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/globals.xml'))
-    with open('resources/modifications/globals.json') as f:
+    with open('resources/modifications/server/globals.json') as f:
         globals_modifications = json.load(f)
     for k, v in globals_modifications.items():
         item = globals_xml.getroot().find('.//var[@name="{}"]'.format(k))
@@ -46,7 +46,7 @@ def globals_config(directory):
 def events_config(directory):
     events_xml = ElementTree.parse(
         pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/events.xml'))
-    with open('resources/modifications/events.json') as f:
+    with open('resources/modifications/server/events.json') as f:
         events_modifications = json.load(f)
     for mod in events_modifications:
         name_re = re.compile(mod.get('name'))
@@ -62,13 +62,13 @@ def events_config(directory):
 
 @mission
 def map_config(directory):
-    file_writing.copy('resources/server/chernarusplus_tiers_have_traders_removed.map',
+    file_writing.copy('resources/modifications/server/chernarusplus_tiers_have_traders_removed.map',
                       pathlib.Path(directory, 'areaflags.map'))
 
 
 @mission(directory='env')
 def territory_config(directory):
-    with open('resources/modifications/territories.json') as f:
+    with open('resources/modifications/server/territories.json') as f:
         territories_modifications = json.load(f)
     for p in pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/env').glob('*.xml'):
         filename = p.name
