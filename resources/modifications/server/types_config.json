@@ -305,5 +305,17 @@
     "modification": {
       "restock": 600
     }
+  },
+  {
+    "description": "Set lifetime for vehicles",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "(CivilianSedan|OffroadHatchback|Hatchback_02|Sedan_02|CrSk_BMW_525i_E34)(?!.*(Door|Hood|Trunk|Wheel)).*"
+      }
+    ],
+    "modification": {
+      "lifetime": 3888000
+    }
   }
 ]
