@@ -513,10 +513,18 @@
       },
       {
         "matching": {
-          "name": "(KitchenKnife|Pliers|Screwdriver|LugWrench|Pipe|Wrench)"
+          "name": "(KitchenKnife|Pliers|Screwdriver|LugWrench|Pipe|Wrench|PersonalRadio)"
         },
         "buy": 10,
         "sell": 5,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "(PortableGas.*|.*GasCanister|^Pot$)"
+        },
+        "buy": 40,
+        "sell": 20,
         "item_class": "max"
       }
     ]
