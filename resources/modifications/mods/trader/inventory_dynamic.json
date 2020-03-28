@@ -381,17 +381,6 @@
       },
       {
         "matching": {
-          "name": "(?!.*(Human)).*Meat.*",
-          "category": {
-            "name": "food"
-          }
-        },
-        "buy": 20,
-        "sell": 10,
-        "item_class": "steak"
-      },
-      {
-        "matching": {
           "name": ".*Mushroom.*"
         },
         "buy": 40,
@@ -400,7 +389,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*(MSFC|Can_Opened|Seeds|Torch|Human|Canteen|Guts|TacticalBacon|PlantMaterial)).*",
+          "name": "(?!.*(MSFC|Can_Opened|Seeds|Torch|Human|Canteen|Guts|Meat|TacticalBacon|PlantMaterial)).*",
           "category": {
             "name": "food"
           }
@@ -417,27 +406,38 @@
     "items": [
       {
         "matching": {
-          "name": ".*Pelt.*"
+          "name": "^((?!.*(Human)).*Meat.*|Carp|Mackerel|Sardines)$",
+          "category": {
+            "name": "food"
+          }
         },
-        "buy": 100,
-        "sell": 50,
-        "item_class": "max"
+        "buy": 20,
+        "sell": 10,
+        "item_class": "steak"
       },
       {
         "matching": {
-          "name": "Guts"
+          "name": "(.*Pelt.*|Lard|bearhead_mung)"
         },
-        "buy": 10,
+        "buy": -1,
+        "sell": 100,
+        "item_class": "steak"
+      },
+      {
+        "matching": {
+          "name": "(Guts|SmallGuts)"
+        },
+        "buy": -1,
         "sell": 5,
-        "item_class": "max"
+        "item_class": "steak"
       },
       {
         "matching": {
           "name": "^Bone$"
         },
-        "buy": 20,
+        "buy": -1,
         "sell": 10,
-        "item_class": "max"
+        "item_class": "steak"
       }
     ]
   },
