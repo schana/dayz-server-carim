@@ -104,7 +104,7 @@ def add_dynamic(traders):
                     result = match.match(t)
                     if result:
                         items = expanded.get(result.groups.get('captured'), list())
-                        items.append(config.Singular(t.get('name'), item.get('buy'), item.get('sell')))
+                        items.append(item_type(t.get('name'), buy, sell, quantity))
                         expanded[result.groups.get('captured')] = items
                 for key in expanded:
                     current_cat_name = category_name.format(captured=key)
