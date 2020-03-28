@@ -447,7 +447,7 @@
     "items": [
       {
         "matching": {
-          "name": ".*(SeedsPack|Bear_|(cigar|joint|sherlockpipe).*mung).*"
+          "name": ".*(SeedsPack|Bear_).*"
         },
         "buy": 400,
         "sell": 200,

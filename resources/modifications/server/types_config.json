@@ -255,20 +255,6 @@
     }
   },
   {
-    "description": "make smoking spawns rare",
-    "action": "modify",
-    "matching": [
-      {
-        "name": "(cigar|joint|sherlockpipe).*mung"
-      }
-    ],
-    "modification": {
-      "nominal": 2,
-      "min": 1,
-      "restock": 600
-    }
-  },
-  {
     "description": "remove items that shouldn't spawn",
     "action": "remove",
     "matching": [
@@ -288,7 +274,7 @@
         "name": "Mass.*(Fedora|CatEars|Meth).*"
       },
       {
-        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe).*_[Mm]ung"
+        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe).*_[Mm]ung"
       },
       {
         "name": "MSFC(?!Canteen).*",
