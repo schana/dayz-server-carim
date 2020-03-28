@@ -5,7 +5,29 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|Bu?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "category": {
+            "name": "weapons"
+          },
+          "flags": [
+            {
+              "name": "deloot",
+              "value": true
+            }
+          ],
+          "value": [
+            {
+              "name": "Tier[34]"
+            }
+          ]
+        },
+        "buy": 20000,
+        "sell": 10000,
+        "item_class": "weapon"
+      },
+      {
+        "matching": {
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -21,7 +43,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|Bu?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -297,7 +319,7 @@
     "items": [
       {
         "matching": {
-          "name": ".*(Bu?ttsto?ck|Light|Hndgrd).*",
+          "name": ".*([Bb]u?ttsto?ck|Light|Hndgrd).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"
