@@ -11,6 +11,28 @@ Open source configuration and automation developed for the Carim DayZ Server, bu
 1. Run `preexec.bat`
 1. Your server should now be configured to automatically pull updates and apply them every time your server restarts
 
+## Included Mod Configuration
+
+```
+@Airdrop-Upgraded
+@Base Fortifications
+@Cl0uds Military Gear
+@Code Lock
+@DayzWeaponsPainting
+@Leather Crafting
+@MasssManyItemOverhaul
+@MunghardsItempack
+@Notes
+@OP_BaseItems
+@SQUAD MSF-C
+@Server_Information_Panel
+@Simple Base
+@Trader
+@VPPAdminTools
+@VanillaPlusPlusMap
+@WindstridesClothingPack
+```
+
 ## Development usage
 
 ```bash
