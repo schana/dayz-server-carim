@@ -1,4 +1,3 @@
-import itertools
 import json
 import pathlib
 from xml.etree import ElementTree
@@ -14,8 +13,8 @@ from carim.util import file_writing
 @decorators.profile(directory='SimpleBase')
 def simple_base_profile(directory):
     with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Simple Base/types.xml')) as f:
-        it = itertools.chain('<type>', f, '</type>')
-        new_types = ElementTree.fromstringlist(it)
+        raw = '<types>' + f.read() + '</types>'
+        new_types = ElementTree.fromstring(raw)
     types.get().getroot().extend(new_types)
     with open(pathlib.Path(resourcesdir.get(),
                            'original-mod-files/Simple Base/ServerProfileFolder/SimpleBase/config.txt')) as f:

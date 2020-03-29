@@ -1,4 +1,3 @@
-import itertools
 import pathlib
 from xml.etree import ElementTree
 
@@ -11,6 +10,6 @@ from carim.global_resources import types, resourcesdir
 @decorators.profile
 def items_clouds():
     with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Cl0uds/Types V9.1 - sorted by camos.xml')) as f:
-        it = itertools.chain('<type>', f, '</type>')
-        new_types = ElementTree.fromstringlist(it)
+        raw = '<types>' + f.read() + '</types>'
+        new_types = ElementTree.fromstring(raw)
     types.get().getroot().extend(new_types)
