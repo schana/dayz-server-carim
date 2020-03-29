@@ -1,5 +1,17 @@
 {
-  "zombie_territories.xml": 2,
-  "wolf_territories.xml": 2,
-  "bear_territories.xml": 2
+  "ratio": {
+    "zombie_territories.xml": 2,
+    "wolf_territories.xml": 2,
+    "bear_territories.xml": 2
+  },
+  "blanket": {
+    "zombie_territories.xml": {
+      "name": "InfectedSolitude",
+      "dmin": "1",
+      "dmax": "3"
+    }
+  },
+  "radius_ratio": {
+    "zombie_territories.xml": 2
+  }
 }

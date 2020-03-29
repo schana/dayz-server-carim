@@ -71,15 +71,45 @@ def territory_config(directory):
     for p in pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'env').glob('*.xml'):
         filename = p.name
         territory = ElementTree.parse(p).getroot()
-        remove_zones_if_near_traders(territory, filename)
-        if filename in territories_modifications:
-            ratio = territories_modifications.get(filename)
+
+        if filename in territories_modifications.get('ratio'):
+            ratio = territories_modifications.get('ratio').get(filename)
             log.info('applying ratio of {} to {}'.format(ratio, filename))
             for zone in territory.findall('.//zone'):
                 dmin = zone.get('dmin')
                 dmax = zone.get('dmax')
                 zone.set('dmin', str(math.floor(int(dmin) * ratio)))
                 zone.set('dmax', str(math.floor(int(dmax) * ratio)))
+
+        if filename in territories_modifications.get('radius_ratio'):
+            ratio = territories_modifications.get('radius_ratio').get(filename)
+            log.info('applying radius ratio of {} to {}'.format(ratio, filename))
+            for zone in territory.findall('.//zone'):
+                r = zone.get('r')
+                zone.set('r', str(math.floor(int(r) * ratio)))
+
+        if filename in territories_modifications.get('blanket'):
+            params = territories_modifications.get('blanket').get(filename)
+            new_territory = ElementTree.Element('territory', attrib=dict(color='1910952871'))
+            count = 0
+            for x in range(500, 12600, 1000):
+                for z in range(3750, 14850, 1000):
+                    count += 1
+                    ElementTree.SubElement(new_territory, 'zone', attrib={
+                        'name': params.get('name'),
+                        'smin': '0',
+                        'smax': '0',
+                        'dmin': params.get('dmin'),
+                        'dmax': params.get('dmax'),
+                        'x': str(x),
+                        'z': str(z),
+                        'r': '500'
+                    })
+            territory.append(new_territory)
+            log.info('added {} zones in a blanket to {}'.format(count, filename))
+
+        remove_zones_if_near_traders(territory, filename)
+
         with file_writing.f_open(pathlib.Path(directory, filename), mode='w') as f:
             f.write(file_writing.convert_to_string(territory))
 
