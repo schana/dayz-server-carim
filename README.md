@@ -35,7 +35,23 @@ Open source configuration and automation developed for the Carim DayZ Server, bu
 
 ## Development usage
 
-```bash
+```
+usage: main.py [-h] [-c] -d DEPLOY -a AUTH [-o OUTPUT] [-v] [-r RESOURCES]
+               [-m MISSION]
+
+Automate configuration
+
+optional arguments:
+  -h, --help    show this help message and exit
+  -c            clean generated
+  -d DEPLOY     deploy directory containing the original dayz server files
+  -a AUTH       auth config file
+  -o OUTPUT     output destination directory
+  -v            verbosity of the output
+  -r RESOURCES  resources directory to use
+  -m MISSION    mission name
+
+Example:
 python3 -m carim.main -c -d <path to omega deploy directory> -a <path to your auth config> -o <path to output config to>
 ```
 
