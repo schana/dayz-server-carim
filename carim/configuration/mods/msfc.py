@@ -6,6 +6,8 @@ from carim.configuration import decorators
 from carim.global_resources import types
 
 
+@decorators.register
+@decorators.mod('@SQUAD MSF-C')
 @decorators.profile
 def items_msfc():
     for p in pathlib.Path('resources/original-mod-files/MSF-C').glob('*.xml'):

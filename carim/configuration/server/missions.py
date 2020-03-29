@@ -13,17 +13,14 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
-@decorators.mission(directory='db', register=False)
-def types_config(directory):
+@decorators.mission(directory='db')
+def sort_and_write_types_config(directory):
     types.get().getroot()[:] = sorted(types.get().getroot(), key=lambda child: child.get('name').lower())
-    rough_string = ElementTree.tostring(types.get().getroot(), encoding='unicode')
-    spaces = re.compile(r'>\s*<', flags=re.DOTALL)
-    rough_string = re.sub(spaces, '>\n<', rough_string)
-    reparsed = minidom.parseString(rough_string)
     with file_writing.f_open(pathlib.Path(directory, 'types.xml'), mode='w') as f:
-        f.write(reparsed.toprettyxml(indent='  ', newl=''))
+        f.write(file_writing.convert_to_string(types.get().getroot()))
 
 
+@decorators.register
 @decorators.mission(directory='db')
 def globals_config(directory):
     globals_xml = ElementTree.parse(
@@ -37,6 +34,7 @@ def globals_config(directory):
         f.write(file_writing.convert_to_string(globals_xml.getroot()))
 
 
+@decorators.register
 @decorators.mission(directory='db')
 def events_config(directory):
     events_xml = ElementTree.parse(
@@ -55,6 +53,8 @@ def events_config(directory):
         f.write(file_writing.convert_to_string(events_xml.getroot()))
 
 
+@decorators.register
+@decorators.mod('@Trader')
 @decorators.mission
 def map_config(directory):
     file_writing.copy(
@@ -62,6 +62,8 @@ def map_config(directory):
         pathlib.Path(directory, 'areaflags.map'))
 
 
+@decorators.register
+@decorators.mod('@Trader')
 @decorators.mission(directory='env')
 def territory_config(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/territories.json')) as f:
@@ -104,6 +106,8 @@ def remove_zones_if_near_traders(territory, name):
         log.info('removed {} zones from {}'.format(count, name))
 
 
+@decorators.register
+@decorators.mod('@Trader')
 @decorators.mission
 def remove_building_spawns_near_traders(directory):
     p = pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/mapgrouppos.xml')

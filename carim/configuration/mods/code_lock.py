@@ -10,6 +10,8 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
+@decorators.register
+@decorators.mod('@Code Lock')
 @decorators.profile(directory='CodeLock')
 def code_lock(directory):
     new_type = ElementTree.parse(pathlib.Path(resourcesdir.get(), 'original-mod-files/Code lock/types.xml'))

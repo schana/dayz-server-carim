@@ -6,6 +6,8 @@ from carim.global_resources import resourcesdir
 from carim.util import file_writing
 
 
+@decorators.register
+@decorators.mod('@Airdrop-Upgraded')
 @decorators.profile(directory='Airdrop')
 def airdrop(directory):
     with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Airdrop/AirdropSettings.json')) as f:

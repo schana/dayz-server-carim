@@ -8,6 +8,8 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
+@decorators.register
+@decorators.mod('@Trader')
 @decorators.profile(directory='Trader')
 def trader_file_and_admins(directory):
     files = ['TraderVariables.txt', 'TraderVehicleParts.txt']

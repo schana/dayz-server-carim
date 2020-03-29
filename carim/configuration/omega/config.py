@@ -9,6 +9,7 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
+@decorators.register
 @decorators.server
 def omega_config(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/omega/omega.json')) as f:
@@ -27,6 +28,7 @@ def omega_config(directory):
         json.dump(cfg, f, indent=2)
 
 
+@decorators.register
 @decorators.server(directory='profiles')
 def cf_tools_config(directory):
     cfg = {
@@ -37,6 +39,7 @@ def cf_tools_config(directory):
         json.dump(cfg, f, indent=2)
 
 
+@decorators.register
 @decorators.config
 def omega_manager(directory):
     cfg = None

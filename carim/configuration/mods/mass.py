@@ -5,6 +5,8 @@ from carim.configuration import decorators
 from carim.global_resources import types, resourcesdir
 
 
+@decorators.register
+@decorators.mod('@MasssManyItemOverhaul')
 @decorators.profile
 def items_mass():
     new_types = ElementTree.parse(

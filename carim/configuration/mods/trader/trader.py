@@ -20,7 +20,8 @@ class TraderName:
     BM = 'bm'
 
 
-@decorators.profile(directory='Trader', register=False)  # run after type modifications
+@decorators.mod('@Trader')
+@decorators.profile(directory='Trader')  # run after type modifications
 def trader_items(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/trader/inventory.json')) as f:
         inventory = json.load(f)
@@ -123,6 +124,8 @@ def add_dynamic(traders):
             traders[key].categories += cat_set.values()
 
 
+@decorators.register
+@decorators.mod('@Trader')
 @decorators.profile(directory='Trader')
 def trader_objects_config(directory):
     to = objects.Config()

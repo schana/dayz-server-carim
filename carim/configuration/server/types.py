@@ -40,7 +40,7 @@ _REMOVE_MODIFICATION = {
 }
 
 
-@decorators.server(directory='mpmissions/dayzOffline.chernarusplus/db', register=False)
+@decorators.server(directory='mpmissions/dayzOffline.chernarusplus/db')
 def modify_types(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/types_config.json')) as f:
         type_config = json.load(f)

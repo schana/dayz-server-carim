@@ -10,6 +10,8 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
+@decorators.register
+@decorators.mod('@VPPAdminTools')
 @decorators.profile(directory='VPPAdminTools/Permissions/SuperAdmins')
 def vpp_admin_tools_permissions(directory):
     with file_writing.f_open(pathlib.Path(directory, 'SuperAdmins.txt'), mode='w') as f:
@@ -18,6 +20,8 @@ def vpp_admin_tools_permissions(directory):
             f.write(superuser['steam64'] + '\n')
 
 
+@decorators.register
+@decorators.mod('@VPPAdminTools')
 @decorators.profile(directory='VPPAdminTools/ConfigurablePlugins/TeleportManager')
 def vpp_teleports(directory):
     with file_writing.f_open(pathlib.Path(directory, 'TeleportLocation.json'), mode='w') as f:

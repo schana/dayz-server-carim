@@ -8,6 +8,7 @@ from carim.util import file_writing
 log = logging.getLogger(__name__)
 
 
+@decorators.register
 @decorators.server
 def priority_queue(directory):
     users = []

@@ -9,6 +9,8 @@ from carim.global_resources import types, resourcesdir
 from carim.util import file_writing
 
 
+@decorators.register
+@decorators.mod('@Simple Base')
 @decorators.profile(directory='SimpleBase')
 def simple_base_profile(directory):
     with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Simple Base/types.xml')) as f:

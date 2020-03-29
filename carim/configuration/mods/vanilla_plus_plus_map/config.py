@@ -6,6 +6,8 @@ from carim.configuration.mods.vanilla_plus_plus_map import model
 from carim.util import file_writing
 
 
+@decorators.register
+@decorators.mod('@VanillaPlusPlusMap')
 @decorators.profile
 def vanilla_plus_plus_map(directory):
     with file_writing.f_open(pathlib.Path(directory, 'VPPMapConfig.json'), mode='w') as f:

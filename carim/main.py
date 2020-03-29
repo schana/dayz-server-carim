@@ -50,13 +50,14 @@ def main():
         c()
     # Unregistered configurations that have a special order requirement
     modify_types.modify_types()
-    missions.types_config()
+    missions.sort_and_write_types_config()
     trader.trader_items()
 
     log.info('errors {}'.format(len(errors.get())))
     for e in errors.get():
         log.error(e)
-    log.info('applied {} registered configurations'.format(len(configs.get())))
+    log.info('processed {} registered configurations'.format(len(configs.get())))
+    log.info('skipped {} configurations'.format(configs.get_skipped()))
     log.debug('order: {}'.format(json.dumps([f.__name__ for f in configs.get()], indent=2)))
     log.info('complete')
 

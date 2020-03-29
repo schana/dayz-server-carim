@@ -5,6 +5,7 @@ from carim.global_resources import resourcesdir
 from carim.util import file_writing
 
 
+@decorators.register
 @decorators.server
 def server_dz_config(directory):
     file_writing.copy(pathlib.Path(resourcesdir.get(), 'modifications/server/serverDZ.cfg'),
