@@ -3,7 +3,7 @@ import logging
 import pathlib
 
 from carim.configuration import decorators
-from carim.global_resources import auth
+from carim.global_resources import auth, resourcesdir
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -11,8 +11,7 @@ log = logging.getLogger(__name__)
 
 @decorators.server
 def omega_config(directory):
-    cfg = None
-    with open('resources/modifications/omega/omega.cfg') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/omega/omega.json')) as f:
         cfg = json.load(f)
     cfg['cftools']['service_api_key'] = auth.get()['cf']['service_api_key']
     cfg['cftools']['service_id'] = auth.get()['cf']['service_id']
@@ -21,7 +20,10 @@ def omega_config(directory):
         'execution_time_limit': 10,
         'path': auth.get()['preexec']['path']
     }
-    with open(pathlib.Path(directory, 'omega.cfg'), mode='w') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/omega/mods.json')) as f:
+        mods_config = json.load(f)
+    cfg['mods'] = mods_config
+    with file_writing.f_open(pathlib.Path(directory, 'omega.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
 
 
@@ -38,7 +40,7 @@ def cf_tools_config(directory):
 @decorators.config
 def omega_manager(directory):
     cfg = None
-    with file_writing.f_open('resources/modifications/omega/manager.cfg') as f:
+    with file_writing.f_open(pathlib.Path(resourcesdir.get(), 'modifications/omega/manager.cfg')) as f:
         cfg = json.load(f)
     cfg['steam'] = {
         'username': auth.get()['steam']['username'],
@@ -48,13 +50,3 @@ def omega_manager(directory):
     }
     with file_writing.f_open(pathlib.Path(directory, 'manager.cfg'), mode='w') as f:
         json.dump(cfg, f, indent=2)
-
-
-@decorators.server
-def priority_queue(directory):
-    users = []
-    for priority_user in auth.get().get('priority', []):
-        users.append(priority_user['steam64'])
-        log.info('adding {} to priority queue'.format(priority_user['name']))
-    with file_writing.f_open(pathlib.Path(directory, 'priority.txt'), mode='w') as f:
-        f.writelines(user + ';' for user in users)

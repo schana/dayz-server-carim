@@ -1,1 +1,1 @@
-import carim.configuration.universal.auth
+import carim.configuration.universal.config

@@ -1,0 +1,62 @@
+{
+  "backup": {
+    "keep_time": 14,
+    "logs": "logs",
+    "path": "backups",
+    "scheduled": true,
+    "scheduled_interval": 10800,
+    "scheduled_interval_enforcement": true,
+    "startup": false
+  },
+  "cftools": {
+    "report_health": true,
+    "sync_qp_list": true,
+    "transmit_logs": true
+  },
+  "debug": {
+    "file_watcher": false,
+    "log": false
+  },
+  "general": {
+    "autostart": true,
+    "logrotate": true,
+    "pre_execution_script": {
+      "enabled": false,
+      "exectuion_time_limit": 10,
+      "path": ""
+    }
+  },
+  "process": {
+    "affinity": {
+      "enabled": false,
+      "mask": -1
+    },
+    "detection": {
+      "enabled": true,
+      "executable": "DayZServer_x64.exe",
+      "retries": 60
+    },
+    "elevate": true,
+    "elevate_level": 1,
+    "grace_period": 5,
+    "low_cpu_threshold": 5
+  },
+  "server": {
+    "always_recover": false,
+    "executable": "DayZServer_x64.exe",
+    "gameport": 2302,
+    "launch_parameters": [
+      "-adminlog",
+      "-freezecheck",
+      "-dologs"
+    ],
+    "profilespath": "profiles",
+    "recovery": true,
+    "shadow_interval": 90,
+    "use_modserver": false
+  },
+  "updater": {
+    "disable_mod_update_shutdown_trigger": false,
+    "disable_updates": false
+  }
+}

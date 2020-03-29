@@ -4,8 +4,8 @@ import pathlib
 
 from carim.configuration import decorators
 from carim.configuration.mods.trader.models import config, objects
-from carim.global_resources import types
-from carim.util import file_writing, modify_types
+from carim.global_resources import types, matching_model, resourcesdir
+from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class TraderName:
 
 @decorators.profile(directory='Trader', register=False)  # run after type modifications
 def trader_items(directory):
-    with open('resources/modifications/mods/trader/inventory.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/trader/inventory.json')) as f:
         inventory = json.load(f)
 
     traders_config = config.Config()
@@ -78,7 +78,7 @@ def get_item_type_for_name(name):
 
 
 def add_dynamic(traders):
-    with open('resources/modifications/mods/trader/inventory_dynamic.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/trader/inventory_dynamic.json')) as f:
         trader_config = json.load(f)
     temp_traders = {}
     for entry in trader_config:
@@ -99,7 +99,7 @@ def add_dynamic(traders):
                 sell = item.get('sell')
                 quantity = item.get('quantity', None)
                 item_type = get_item_type_for_name(item.get('item_class'))
-                match = modify_types.Match(matching)
+                match = matching_model.Match(matching)
                 for t in types.get().getroot():
                     result = match.match(t)
                     if result:
@@ -126,9 +126,9 @@ def add_dynamic(traders):
 @decorators.profile(directory='Trader')
 def trader_objects_config(directory):
     to = objects.Config()
-    with open('resources/modifications/mods/trader/locations.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/trader/locations.json')) as f:
         locations = json.load(f)
-    with open('resources/modifications/mods/trader/outfits.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/trader/outfits.json')) as f:
         outfits = json.load(f)
     for name, l_config in locations.items():
         log.info('processing {}'.format(name))

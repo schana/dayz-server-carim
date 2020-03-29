@@ -7,7 +7,7 @@ from xml.dom import minidom
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import types, deploydir, locations
+from carim.global_resources import types, deploydir, locations, resourcesdir
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -28,7 +28,7 @@ def types_config(directory):
 def globals_config(directory):
     globals_xml = ElementTree.parse(
         pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/globals.xml'))
-    with open('resources/modifications/server/globals.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/globals.json')) as f:
         globals_modifications = json.load(f)
     for k, v in globals_modifications.items():
         item = globals_xml.getroot().find('.//var[@name="{}"]'.format(k))
@@ -41,7 +41,7 @@ def globals_config(directory):
 def events_config(directory):
     events_xml = ElementTree.parse(
         pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/events.xml'))
-    with open('resources/modifications/server/events.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/events.json')) as f:
         events_modifications = json.load(f)
     for mod in events_modifications:
         name_re = re.compile(mod.get('name'))
@@ -57,13 +57,14 @@ def events_config(directory):
 
 @decorators.mission
 def map_config(directory):
-    file_writing.copy('resources/modifications/server/chernarusplus_tiers_have_traders_removed.map',
-                      pathlib.Path(directory, 'areaflags.map'))
+    file_writing.copy(
+        pathlib.Path(resourcesdir.get(), 'modifications/server/chernarusplus_tiers_have_traders_removed.map'),
+        pathlib.Path(directory, 'areaflags.map'))
 
 
 @decorators.mission(directory='env')
 def territory_config(directory):
-    with open('resources/modifications/server/territories.json') as f:
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/territories.json')) as f:
         territories_modifications = json.load(f)
     for p in pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/env').glob('*.xml'):
         filename = p.name
