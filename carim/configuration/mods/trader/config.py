@@ -2,7 +2,7 @@ import logging
 import pathlib
 
 from carim.configuration import decorators
-from carim.global_resources import auth, resourcesdir
+from carim.global_resources import auth
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 def trader_file_and_admins(directory):
     files = ['TraderVariables.txt', 'TraderVehicleParts.txt']
     for file in files:
-        p = pathlib.Path(resourcesdir.get(), 'original-mod-files/Trader', file)
+        p = pathlib.Path('resources/original-mod-files/Trader', file)
         file_writing.copy(p, directory)
     with file_writing.f_open(pathlib.Path(directory, 'TraderAdmins.txt'), mode='w') as f:
         for superuser in auth.get().get('superusers', []):

@@ -12,12 +12,11 @@ from carim.util import file_writing
 @decorators.mod('@Simple Base')
 @decorators.profile(directory='SimpleBase')
 def simple_base_profile(directory):
-    with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Simple Base/types.xml')) as f:
+    with open('resources/original-mod-files/Simple Base/types.xml') as f:
         raw = '<types>' + f.read() + '</types>'
         new_types = ElementTree.fromstring(raw)
     types.get().getroot().extend(new_types)
-    with open(pathlib.Path(resourcesdir.get(),
-                           'original-mod-files/Simple Base/ServerProfileFolder/SimpleBase/config.txt')) as f:
+    with open('resources/original-mod-files/Simple Base/ServerProfileFolder/SimpleBase/config.txt') as f:
         lines = f.readlines()
     config = model.Config()
     config.parse_defaults(lines)

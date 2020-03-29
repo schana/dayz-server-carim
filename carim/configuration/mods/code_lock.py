@@ -4,7 +4,7 @@ import pathlib
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import types, auth, resourcesdir
+from carim.global_resources import types, auth
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -14,10 +14,10 @@ log = logging.getLogger(__name__)
 @decorators.mod('@Code Lock')
 @decorators.profile(directory='CodeLock')
 def code_lock(directory):
-    new_type = ElementTree.parse(pathlib.Path(resourcesdir.get(), 'original-mod-files/Code lock/types.xml'))
+    new_type = ElementTree.parse('resources/original-mod-files/Code lock/types.xml')
     types.get().getroot().append(new_type.getroot())
 
-    with open(pathlib.Path(resourcesdir.get(), 'original-mod-files/Code lock/CodeLockConfig.json')) as f:
+    with open('resources/original-mod-files/Code lock/CodeLockConfig.json') as f:
         code_lock_config = json.load(f)
     code_lock_config['CanAttachToTents'] = 'true'
     code_lock_config['DestroyTool'] = 'true'
