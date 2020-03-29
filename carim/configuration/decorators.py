@@ -3,7 +3,7 @@ import inspect
 import logging
 import pathlib
 
-from carim.global_resources import outdir, configs, mods
+from carim.global_resources import outdir, configs, mods, mission as mission_name
 
 
 def register(func):
@@ -71,8 +71,7 @@ def server(_func=None, *, directory='.'):
 
 
 def mission(_func=None, *, directory='.'):
-    return located_config(_func, directory=directory, dir_prefix='servers/0/mpmissions/dayzOffline.chernarusplus',
-                          )
+    return located_config(_func, directory=directory, dir_prefix='servers/0/mpmissions/' + mission_name.get())
 
 
 def profile(_func=None, *, directory='.'):

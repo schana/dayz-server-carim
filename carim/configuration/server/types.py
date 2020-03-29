@@ -4,7 +4,7 @@ import pathlib
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import types, item_type, matching_model, resourcesdir
+from carim.global_resources import types, item_type, matching_model, resourcesdir, mission
 
 log = logging.getLogger(__name__)
 _MAX_TIME = 3888000
@@ -40,7 +40,7 @@ _REMOVE_MODIFICATION = {
 }
 
 
-@decorators.server(directory='mpmissions/dayzOffline.chernarusplus/db')
+@decorators.server(directory='mpmissions/' + mission.get() + '/db')
 def modify_types(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/types_config.json')) as f:
         type_config = json.load(f)

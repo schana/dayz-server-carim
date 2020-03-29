@@ -1,7 +1,7 @@
 import json
 from xml.etree import ElementTree
 
-from carim.util import modify_types
+from carim.global_resources import matching_model
 
 types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
 
@@ -48,7 +48,7 @@ def get_stats(types_et=None):
         }
     ]
     for match in matching:
-        m = modify_types.Match(match)
+        m = matching_model.Match(match)
         for t in types_et:
             if m.match(t) and t.find('nominal') is not None:
                 nominal = int(t.find('nominal').text)

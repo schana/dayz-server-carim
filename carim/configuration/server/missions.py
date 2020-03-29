@@ -7,7 +7,7 @@ from xml.dom import minidom
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import types, deploydir, locations, resourcesdir
+from carim.global_resources import types, deploydir, locations, resourcesdir, mission
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ def sort_and_write_types_config(directory):
 @decorators.mission(directory='db')
 def globals_config(directory):
     globals_xml = ElementTree.parse(
-        pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/globals.xml'))
+        pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'db/globals.xml'))
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/globals.json')) as f:
         globals_modifications = json.load(f)
     for k, v in globals_modifications.items():
@@ -38,7 +38,7 @@ def globals_config(directory):
 @decorators.mission(directory='db')
 def events_config(directory):
     events_xml = ElementTree.parse(
-        pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/events.xml'))
+        pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'db/events.xml'))
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/events.json')) as f:
         events_modifications = json.load(f)
     for mod in events_modifications:
@@ -68,7 +68,7 @@ def map_config(directory):
 def territory_config(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/territories.json')) as f:
         territories_modifications = json.load(f)
-    for p in pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/env').glob('*.xml'):
+    for p in pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'env').glob('*.xml'):
         filename = p.name
         territory = ElementTree.parse(p).getroot()
         remove_zones_if_near_traders(territory, filename)
@@ -110,7 +110,7 @@ def remove_zones_if_near_traders(territory, name):
 @decorators.mod('@Trader')
 @decorators.mission
 def remove_building_spawns_near_traders(directory):
-    p = pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/mapgrouppos.xml')
+    p = pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'mapgrouppos.xml')
     count = 0
     mapgroups = ElementTree.parse(p).getroot()
     for group in mapgroups.findall('.//group'):

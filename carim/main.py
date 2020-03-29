@@ -6,10 +6,8 @@ import shutil
 from xml.etree import ElementTree
 
 from carim import configuration
-from carim.configuration.mods.trader import trader
-from carim.configuration.server import missions
-from carim.configuration.server import types as modify_types
-from carim.global_resources import auth, types, configs, outdir, errors, deploydir, locations, mods, resourcesdir
+from carim.global_resources import auth, types, configs, outdir, errors, deploydir, locations, mods, resourcesdir, \
+    mission
 
 
 def main():
@@ -21,6 +19,7 @@ def main():
     parser.add_argument('-o', dest='output', help='output destination directory', default=outdir.get())
     parser.add_argument('-v', dest='verbosity', help='verbosity of the output', action='count', default=0)
     parser.add_argument('-r', dest='resources', help='resources directory to use', default=resourcesdir.get())
+    parser.add_argument('-m', dest='mission', help='mission name', default=mission.get())
     args = parser.parse_args()
 
     log_level = logging.INFO
@@ -36,7 +35,8 @@ def main():
     outdir.set(args.output)
     deploydir.set(args.deploy)
     resourcesdir.set(args.resources)
-    types.set(ElementTree.parse(pathlib.Path(deploydir.get(), 'mpmissions/dayzOffline.chernarusplus/db/types.xml')))
+    mission.set(args.mission)
+    types.set(ElementTree.parse(pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'db/types.xml')))
     auth.set(json.load(open(args.auth)))
     locations.initialize()
     with open(pathlib.Path(resourcesdir.get(), 'modifications/omega/mods.json')) as f:
@@ -49,6 +49,9 @@ def main():
     for c in configs.get():
         c()
     # Unregistered configurations that have a special order requirement
+    from carim.configuration.mods.trader import trader
+    from carim.configuration.server import missions
+    from carim.configuration.server import types as modify_types
     modify_types.modify_types()
     missions.sort_and_write_types_config()
     trader.trader_items()
