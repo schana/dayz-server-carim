@@ -9,3 +9,4 @@ import carim.configuration.mods.simple_base
 import carim.configuration.mods.trader
 import carim.configuration.mods.vanilla_plus_plus_map
 import carim.configuration.mods.vpp_admin_tools
+import carim.configuration.mods.windstrides
