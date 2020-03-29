@@ -1,0 +1,286 @@
+<type name="LeatherSack_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherBelt_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherGloves_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherHat_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+
+<type name="LeatherJacket_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherPants_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherShoes_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherStorageVest_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="ReinforcedLeatherVest">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="UpgradedLeatherSack_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="WaterPouch_Natural">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="TannedLeather">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="LeatherStrip">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="Reinforced_TannedLeather">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+//NEW
+
+<type name="BearSkin_Rug">
+<lifetime>3888000</lifetime>
+<flags count_in_cargo="1" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="1" deloot="0"/>
+</type>
+
+<type name="boneknife">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="stonepot">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="bearskin_rug">
+<nominal>0</nominal>
+<lifetime>1814400</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+<type name="WolfSkin_Rug">
+<nominal>0</nominal>
+<lifetime>1814400</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="bonehatchet">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
+
+<type name="StoneShovel">
+<nominal>0</nominal>
+<lifetime>5600</lifetime>
+<restock>0</restock>
+<min>0</min>
+<quantmin>-1</quantmin>
+<quantmax>-1</quantmax>
+<cost>100</cost>
+<flags count_in_cargo="0" count_in_hoarder="0" count_in_map="1" count_in_player="0" crafted="0" deloot="0"/>
+<category name="clothes"/>
+<usage name="Village"/>
+<usage name="Hunting"/>
+</type>
