@@ -24,7 +24,7 @@ def mod(mod_name):
             else:
                 configs.add_skipped()
                 log = logging.getLogger(func.__module__)
-                log.warning('skipping {} because {} is not enabled'.format(func.__name__, mod_name))
+                log.debug('skipping {} because {} is not enabled'.format(func.__name__, mod_name))
 
         return config_wrapper
 

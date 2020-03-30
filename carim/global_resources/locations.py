@@ -1,22 +1,19 @@
+import json
+import pathlib
 from collections import namedtuple
 
-_markers = []
+from carim.global_resources import resourcesdir
+
 marks = list()
 
 Position = namedtuple('Position', ('x', 'z'))
 
 
 def initialize():
-    # TODO: move this to separate config file
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/locations.json')) as f:
+        location_data = json.load(f)
     global marks
-    marks = [
-        ('Green Mountain Trader', Position(3727, 6007)),
-        ('Kumyrna Trader', Position(8355, 5986)),
-        ('Altar Trader', Position(8164, 9113)),
-        ('Zabolotye Black Market Trader', Position(1602.85, 10413.2)),
-        ('NWAF', Position(4541, 10289)),
-        ('NEAF', Position(12121, 12521))
-    ]
+    marks = [(l.get('name'), Position(l.get('x'), l.get('z'))) for l in location_data]
 
 
 def overlaps(position, p_r, x, z, r):

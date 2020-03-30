@@ -88,7 +88,7 @@ def get_stats(types_et=None):
 
 
 def convert_mass_weapon_names_to_regex():
-    with open('resources/modifications/mass_weapon_class_names.txt') as f:
+    with open('resources/original-mod-files/MasssManyItemOverhaul/mass_weapon_class_names.txt') as f:
         lines = f.readlines()
     result = '(' + '|'.join(l.strip() for l in lines) + ')'
     print(result)
