@@ -1,0 +1,20 @@
+[
+  {
+    "cargo": "exampleCargoName",
+    "items": [
+      {
+        "name": "exampleItemName",
+        "chance": "0.12"
+      }
+    ]
+  },
+  {
+    "attachments": "exampleAttachmentsName",
+    "items": [
+      {
+        "name": "exampleItemName",
+        "chance": "1.0"
+      }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "type": "MountainBag_Orange",
+    "cargo_presets": ["foodVillage", "mixVillage", "mixHunter"],
+    "attachments_presets": [],
+    "cargo_items": [
+      {
+        "chance": "0.1",
+        "items": [
+          {
+            "name": "BandageDressing",
+            "chance": "0.3"
+          }
+        ]
+      }
+    ],
+    "attachments": [
+      {
+        "chance": "0.1",
+        "items": [
+          {
+            "name": "Chemlight_Yellow",
+            "chance": "0.3"
+          }
+        ]
+      }
+    ]
+  }
+]
