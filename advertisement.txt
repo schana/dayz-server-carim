@@ -16,7 +16,7 @@ It is also the platform for developing the following open source mods:
 3. SchanaModAdminOmniTool
    * https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094
    * https://github.com/schana/dayz-mod-admin-omni-tool
-3. SchanaModSurvivorSelect
+4. SchanaModSurvivorSelect
    * https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580
    * https://github.com/schana/dayz-mod-survivor-select
 
