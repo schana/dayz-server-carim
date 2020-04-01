@@ -1,4 +1,4 @@
-**Carim PvP|Loot+|Guns+|Airdrops|Trader|SimpleBase|Autorun**
+**Carim Loot+|Guns+|NPCs+|Airdrops|Trader|SimpleBase|Autorun**
 91.66.218.249:2302
 
 Full mod list: https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973
@@ -16,5 +16,8 @@ It is also the platform for developing the following open source mods:
 3. SchanaModAdminOmniTool
    * https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094
    * https://github.com/schana/dayz-mod-admin-omni-tool
+3. SchanaModSurvivorSelect
+   * https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580
+   * https://github.com/schana/dayz-mod-survivor-select
 
 https://discord.gg/kdPnVu4

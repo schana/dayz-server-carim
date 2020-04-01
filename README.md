@@ -11,6 +11,18 @@ Open source configuration and automation developed for the Carim DayZ Server, bu
 1. Run `preexec.bat`
 1. Your server should now be configured to automatically pull updates and apply them every time your server restarts
 
+### Advanced Usage
+
+All the configurations are stored in the `resources` directory. It is encouraged to copy everything except `original-mod-files` into your own resources directory where you can individually manage your server's configuration.
+
+#### Useful files in resources
+
+* `auth.json` is where admins, priority, steam credentials, etc. are stored
+* `preexec.bat` is the script that runs the config utility with logging
+* `modifications/omega/mods.json` contains the mods enabled on the server
+* `modifications/server/types_config.json` is where `types.xml` is configured
+* `modifications/mods` is the folder containing all the mod specific configuration
+
 ## Included Mod Configuration
 
 ```
@@ -56,5 +68,45 @@ python3 -m carim.main -c -d <path to omega deploy directory> -a <path to your au
 ```
 
 Configuration is generated and output in a folder named `generated-<timestamp>`. The contents of this can be copied into your omega directory.
+
+### Adding a configuration
+
+Configurations are represented as functions. Decorators are added to specify how the application should treat them.
+
+#### Decorators `carim.configuration.decorators`
+
+Decorators for configs should always be applied in the following order
+
+* `@register` indicates that the configuration should be registered to be automatically applied at runtime
+  * If order of application is important, then this should be omitted. For example, the Trader config relies on Types config, so it is not registered so execution order can be manually managed.
+* `@mod` indicates that the config should only be applied if the specified mod is enabled
+* `@config` marks the function as a configuration and handles creating directories for the output as well as logging
+  * decorators that inherit from `config` can also be used
+  * they usually only add specific directory prefixes
+  * `located_config`, `server`, `mission`, `profile`
+
+Examples:
+
+```python
+from carim.configuration import decorators
+
+@decorators.register                # registers this config to be applied automatically
+@decorators.mod('@SQUAD MSF-C')     # only apply this config if this mod is enabled
+@decorators.profile                 # denotes the function as a configuration
+def items_msfc():
+    # do things
+```
+
+```python
+from carim.configuration import decorators
+
+@decorators.register
+@decorators.mod('@VPPAdminTools')
+@decorators.profile(directory='VPPAdminTools/ConfigurablePlugins/TeleportManager')  # relative path where configs should be placed
+# directory will be populated with the output path to where configs should be written
+def vpp_teleports(directory):
+    with file_writing.f_open(pathlib.Path(directory, 'TeleportLocation.json'), mode='w') as f:
+        # write the config
+```
 
 <img src="Carim.png" width="400">
