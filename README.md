@@ -1,6 +1,7 @@
 # DayZ Server Configuration
+
 Open source configuration and automation developed for the Carim DayZ Server, but usable by all.
-This is intended to be used in conjunction with [CFTools](cftools.de).
+This is intended to be used in conjunction with [CFTools](https://cftools.de).
 
 [Carim Server on Discord](https://discord.gg/kdPnVu4)
 
