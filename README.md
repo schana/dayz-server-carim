@@ -4,6 +4,15 @@ This is intended to be used in conjunction with [CFTools](cftools.de).
 
 [Carim Server on Discord](https://discord.gg/kdPnVu4)
 
+* [Usage](#usage)
+  + [Advanced Usage](#advanced-usage)
+    - [Useful files in resources](#useful-files-in-resources)
+* [Included Mod Configuration](#included-mod-configuration)
+* [Development usage](#development-usage)
+  + [Adding a configuration](#adding-a-configuration)
+    - [Decorators](#decorators)
+    - [Registering](#registering)
+
 ## Usage
 
 1. Perform initial setup of [CFTools OmegaManager](https://wiki.cftools.de/display/CFTOOL/OmegaManager)
@@ -76,7 +85,9 @@ Configuration is generated and output in a folder named `generated-<timestamp>`.
 
 Configurations are represented as functions. Decorators are added to specify how the application should treat them.
 
-#### Decorators `carim.configuration.decorators`
+#### Decorators
+
+`carim.configuration.decorators`
 
 Decorators for configs should always be applied in the following order
 
