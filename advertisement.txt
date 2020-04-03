@@ -1,23 +1,23 @@
 **Carim Loot+|Guns+|NPCs+|Airdrops|Trader|SimpleBase|Autorun**
 91.66.218.249:2302
 
-Full mod list: https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973
+Full mod list: <https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973>
 
 This server was created as a platform to develop an open source configuration tool for DayZ servers. Building a working economy and configuring mods takes time and effort, but with this tool, anyone should be able to stand up and modify a DayZ server with ease. All the configuration and utilities to generate it are available at https://github.com/schana/dayz-server-carim.
 
 It is also the platform for developing the following open source mods:
 
 1. SchanaModAutorun
-   * https://steamcommunity.com/sharedfiles/filedetails/?id=2031792120
-   * https://github.com/schana/dayz-mod-autorun
+   * <https://steamcommunity.com/sharedfiles/filedetails/?id=2031792120>
+   * <https://github.com/schana/dayz-mod-autorun>
 2. SchanaModNoVehicleDamage
-   * https://steamcommunity.com/sharedfiles/filedetails/?id=2022423344
-   * https://github.com/schana/dayz-mod-no-vehicle-damage
+   * <https://steamcommunity.com/sharedfiles/filedetails/?id=2022423344>
+   * <https://github.com/schana/dayz-mod-no-vehicle-damage>
 3. SchanaModAdminOmniTool
-   * https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094
-   * https://github.com/schana/dayz-mod-admin-omni-tool
+   * <https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094>
+   * <https://github.com/schana/dayz-mod-admin-omni-tool>
 4. SchanaModSurvivorSelect
-   * https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580
-   * https://github.com/schana/dayz-mod-survivor-select
+   * <https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580>
+   * <https://github.com/schana/dayz-mod-survivor-select>
 
 https://discord.gg/kdPnVu4

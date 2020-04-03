@@ -48,7 +48,8 @@
     "launch_parameters": [
       "-adminlog",
       "-freezecheck",
-      "-dologs"
+      "-dologs",
+      "-cpuCount=4"
     ],
     "profilespath": "profiles",
     "recovery": true,
