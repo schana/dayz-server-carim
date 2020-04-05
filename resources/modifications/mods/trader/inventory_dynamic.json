@@ -9,12 +9,7 @@
           "category": {
             "name": "weapons"
           },
-          "flags": [
-            {
-              "name": "deloot",
-              "value": true
-            }
-          ],
+          "nominal": "(?!(^0$)).*",
           "value": [
             {
               "name": "Tier[34]"
@@ -516,7 +511,7 @@
           },
           "value": [
             {
-              "name": "Tier2"
+              "name": "Tier[12]"
             }
           ]
         },
@@ -585,7 +580,7 @@
       },
       {
         "matching": {
-          "name": "(KitchenKnife|Pliers|Screwdriver|LugWrench|Pipe|Wrench|PersonalRadio)"
+          "name": "(SteakKnife|KitchenKnife|Pliers|Screwdriver|LugWrench|Pipe|Wrench|PersonalRadio)"
         },
         "buy": 10,
         "sell": 5,
@@ -632,7 +627,7 @@
       },
       {
         "matching": {
-          "name": "(DuctTape|EpoxyPutty|SewingKit|WeaponCleaningKit|Lockpick)"
+          "name": "(DuctTape|EpoxyPutty|.*SewingKit|WeaponCleaningKit|Lockpick)"
         },
         "buy": 50,
         "sell": 25,

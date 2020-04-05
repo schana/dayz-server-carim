@@ -274,7 +274,7 @@
         "name": "Mass.*(Fedora|CatEars|Meth).*"
       },
       {
-        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe).*_[Mm]ung"
+        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe|lebedev_PL15).*_[Mm]ung"
       },
       {
         "name": "MSFC(?!Canteen).*",
@@ -292,7 +292,7 @@
     "action": "modify",
     "matching": [
       {
-        "nominal": "^[^0]",
+        "nominal": "(?!(^0$)).*",
         "restock": "^0$",
         "flags": [
           {
