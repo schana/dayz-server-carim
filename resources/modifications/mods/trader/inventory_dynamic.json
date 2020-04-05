@@ -408,7 +408,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*(MSFC|Can_Opened|Seeds|Torch|Human|Canteen|Guts|Meat|TacticalBacon|PlantMaterial)).*",
+          "name": "(?!.*(MSFC|Can_Opened|Seeds|Torch|Human|Canteen|Guts|Meat|TacticalBacon|Plant.*)).*",
           "category": {
             "name": "food"
           }
