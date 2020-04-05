@@ -368,6 +368,25 @@
     ]
   },
   {
+    "trader": [
+      "accessories",
+      "bm"
+    ],
+    "category": "Explosives",
+    "items": [
+      {
+        "matching": {
+          "category": {
+            "name": "explosives"
+          }
+        },
+        "buy": -1,
+        "sell": 50,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
     "trader": "food",
     "category": "Food",
     "items": [
