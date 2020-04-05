@@ -461,7 +461,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!(Mass|Chopper|PersonalRadio|Defibrillator).*)",
+          "name": "(?!(Mass|Chopper|PersonalRadio|Defibrillator|Bandage$).*)",
           "usage": [
             {
               "name": "Medic"
