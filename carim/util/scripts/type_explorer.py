@@ -11,13 +11,13 @@ def get_functions_to_run():
         # describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
-        # get_names_by_match,
+        get_names_by_match,
         # convert_mass_weapon_names_to_regex
         # get_items_for_airdrop
-        get_stats,
-        lambda: print('vanilla'),
-        lambda: get_stats(
-            (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
+        # get_stats,
+        # lambda: print('vanilla'),
+        # lambda: get_stats(
+        #     (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
     ]
 
 
@@ -121,7 +121,7 @@ def get_items_for_airdrop():
         }
     ]
     for match in matching:
-        m = modify_types.Match(match)
+        m = matching_model.Match(match)
         for t in types.getroot():
             if m.match(t):
                 print('"' + t.get('name') + '",')
@@ -130,19 +130,22 @@ def get_items_for_airdrop():
 def get_names_by_match():
     matching = [
         {
-            "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
-            "category": {
-                "name": "weapons"
-            },
-            "value": [
+            "name": "(?!(Mass|Chopper|PersonalRadio|Defibrillator).*)",
+            "usage": [
                 {
-                    "name": "Tier3"
+                    "name": "Medic"
                 }
-            ]
+            ],
+            "category": {
+                "name": "tools"
+            }
+        },
+        {
+            "name": "StartKitIV"
         }
     ]
     for match in matching:
-        m = modify_types.Match(match)
+        m = matching_model.Match(match)
         for t in types.getroot():
             if m.match(t) and t.find('nominal') is not None:
                 print('"' + t.get('name') + '",' + '\t' + str(list(v.get('name') for v in t.findall('value'))))

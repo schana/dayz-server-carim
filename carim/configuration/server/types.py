@@ -30,10 +30,6 @@ _REMOVE_MODIFICATION = {
         {
             "name": "count_in_player",
             "value": True
-        },
-        {
-            "name": "deloot",
-            "value": True
         }
     ],
     "value": []
@@ -52,13 +48,7 @@ def modify_types(directory):
 
     ratio_modifier = 2
     matching = {
-        "nominal": "^[^0]",
-        "flags": [
-            {
-                "name": "deloot",
-                "value": False
-            }
-        ]
+        "nominal": "^[^0]"
     }
     m = matching_model.Match(matching)
     count = 0

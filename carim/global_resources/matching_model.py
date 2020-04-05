@@ -11,6 +11,7 @@ class Fields:
     VALUE = 'value'
     FLAGS = 'flags'
     OPERATOR = 'operator'
+    USAGE = 'usage'
 
 
 class Match:
@@ -27,6 +28,10 @@ class Match:
             self.fields[Fields.VALUE] = []
             for value in matching.get(Fields.VALUE):
                 self.fields[Fields.VALUE].append(re.compile(value.get('name')))
+        if Fields.USAGE in matching:
+            self.fields[Fields.USAGE] = []
+            for usage in matching.get(Fields.USAGE):
+                self.fields[Fields.USAGE].append(re.compile(usage.get('name')))
         if Fields.FLAGS in matching:
             self.fields[Fields.FLAGS] = {}
             for flag in matching.get(Fields.FLAGS):
@@ -61,6 +66,21 @@ class Match:
                 r = False
                 for value in t.findall(Fields.VALUE):
                     m = value_match.match(value.attrib.get('name'))
+                    if m:
+                        r = True
+                        match_result.add_interim(m)
+                if not r:
+                    match_result.add_interim(r)
+        if Fields.USAGE in self.fields:
+            if len(self.fields[Fields.USAGE]) == 0:
+                if t.find(Fields.USAGE) is None:
+                    match_result.add_interim(True)
+                else:
+                    match_result.add_interim(False)
+            for usage_match in self.fields[Fields.USAGE]:
+                r = False
+                for usage in t.findall(Fields.USAGE):
+                    m = usage_match.match(usage.attrib.get('name'))
                     if m:
                         r = True
                         match_result.add_interim(m)

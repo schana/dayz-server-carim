@@ -57,9 +57,15 @@ def trader_items(directory):
 
 def build_category(new_category, category_config):
     for item in category_config.get('items', list()):
-        item_class = item.get("class", "max")
-        item_type = get_item_type_for_name(item_class)
-        new_item = item_type(item.get('name'), item.get('buy'), item.get('sell'))
+        name = item.get('name')
+        buy = item.get('buy')
+        sell = item.get('sell')
+        quantity = item.get('quantity')
+        item_type = get_item_type_for_name(item.get('class', 'max'))
+        if quantity is not None:
+            new_item = item_type(name, buy, sell, quantity)
+        else:
+            new_item = item_type(name, buy, sell)
         new_category.items.append(new_item)
 
 
