@@ -462,6 +462,36 @@
   },
   {
     "trader": "food",
+    "category": "Medical",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!(Mass|Chopper|PersonalRadio|Defibrillator).*)",
+          "usage": [
+            {
+              "name": "Medic"
+            }
+          ],
+          "category": {
+            "name": "tools"
+          }
+        },
+        "buy": 20,
+        "sell": 10,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "StartKitIV"
+        },
+        "buy": 20,
+        "sell": 10,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "food",
     "category": "Keepsakes",
     "items": [
       {
