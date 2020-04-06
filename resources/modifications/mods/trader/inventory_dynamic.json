@@ -65,27 +65,107 @@
           },
           "value": [
             {
-              "name": "Tier2"
+              "name": "Tier[12]"
             }
           ]
         },
         "buy": 20,
-        "sell": 10,
+        "sell": 15,
         "item_class": "max"
-      },
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
+    "category": "Hats, Gloves, and Helmets",
+    "items": [
       {
         "matching": {
+          "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*(Cap|Hat|[Hh]elmet|strawhat|Beret|shawl|Gloves|Ushanka).*",
+          "nominal": "^[^0]",
+          "value": [],
           "category": {
             "name": "clothes"
-          },
-          "value": [
-            {
-              "name": "Tier1"
-            }
-          ]
+          }
         },
         "buy": 20,
-        "sell": 10,
+        "sell": 15,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
+    "category": "Glasses, Masks, and other face coverings",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*(Mask|Glasses|Balaclava|[Bb]andana|[Gg]oggles|Hood[^i]).*",
+          "nominal": "^[^0]",
+          "value": [],
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 20,
+        "sell": 15,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
+    "category": "Shirts",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised))(?!.*Mini).*([Cc]oat|Shirt|Jacket|[Mm]anSuit|Blouse|Hoodie|[Vv]est|Dress(?!Shoes)|Sweater|Chest).*",
+          "nominal": "^[^0]",
+          "value": [],
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 30,
+        "sell": 20,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
+    "category": "Pants",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*(Pants|Slacks|Jeans|Skirt|MiniDress|Breeches).*",
+          "nominal": "^[^0]",
+          "value": [],
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 40,
+        "sell": 30,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
+    "category": "Shoes",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*(Shoes|Boots|Wellies|Sneakers).*",
+          "nominal": "^[^0]",
+          "value": [],
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 50,
+        "sell": 40,
         "item_class": "max"
       }
     ]
@@ -314,7 +394,7 @@
     "items": [
       {
         "matching": {
-          "name": ".*([Bb]u?ttsto?ck|Light|Hndgrd).*",
+          "name": ".*([Bb]u?ttsto?ck|Light|Hndgrd|CarryHandleOptic).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"

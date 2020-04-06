@@ -1,4 +1,5 @@
 import json
+import re
 from xml.etree import ElementTree
 
 from carim.global_resources import matching_model
@@ -130,25 +131,41 @@ def get_items_for_airdrop():
 def get_names_by_match():
     matching = [
         {
-            "name": "(?!(Mass|Chopper|PersonalRadio|Defibrillator).*)",
-            "usage": [
-                {
-                    "name": "Medic"
-                }
-            ],
+            "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*",
+            "nominal": r"^[^0]",
+            "value": [],
             "category": {
-                "name": "tools"
+                "name": "clothes"
             }
-        },
-        {
-            "name": "StartKitIV"
         }
     ]
+    items = []
     for match in matching:
         m = matching_model.Match(match)
         for t in types.getroot():
             if m.match(t) and t.find('nominal') is not None:
-                print('"' + t.get('name') + '",' + '\t' + str(list(v.get('name') for v in t.findall('value'))))
+                items.append(t.get('name'))
+                # print('"' + t.get('name') + '",' + '\t' + str(list(v.get('name') for v in t.findall('value'))))
+    items = sorted(list(set(items)))
+    print(json.dumps(items, indent=2))
+    print(len(items))
+    shoes = r'.*(Shoes|Boots|Wellies|Sneakers).*'
+    hats = r'.*(Cap|Hat|[Hh]elmet|strawhat|Beret|shawl|Gloves|Ushanka).*'
+    masks = r'.*(Mask|Glasses|Balaclava|[Bb]andana|[Gg]oggles|Hood[^i]).*'
+    shirts = r'(?!.*Mini).*([Cc]oat|Shirt|Jacket|[Mm]anSuit|Blouse|Hoodie|[Vv]est|Dress(?!Shoes)|Sweater|Chest).*'
+    pants = r'.*(Pants|Slacks|Jeans|Skirt|MiniDress|Breeches).*'
+    groups = (shoes, hats, masks, shirts, pants)
+
+    new_items = []
+    for group in groups:
+        to_add = list(filter(lambda item: re.match(group, item), items))
+        print(group)
+        print('new', len(to_add))
+        print(sorted(list(set(to_add) & set(new_items))))
+        new_items += to_add
+        print('set', len(set(new_items)))
+    print(len(new_items))
+    print(json.dumps(sorted(list(set(items) - set(new_items))), indent=2))
 
 
 def get_names_by_cat():
