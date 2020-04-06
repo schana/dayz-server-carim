@@ -5,7 +5,9 @@ Full mod list: <https://steamcommunity.com/sharedfiles/filedetails/?id=203412197
 
 This server was created as a platform to develop an open source configuration tool for DayZ servers. Building a working economy and configuring mods takes time and effort, but with this tool, anyone should be able to stand up and modify a DayZ server with ease. All the configuration and utilities to generate it are available at https://github.com/schana/dayz-server-carim.
 
-It is also the platform for developing the following open source mods:
+The discord is home to CarimBot (<https://github.com/schana/carim-discord-bot>), a bot that provides cross chat between the game and discord along with admin RCon commands for server owners.
+
+Carim is also the platform for developing the following open source mods:
 
 1. SchanaModAutorun
    * <https://steamcommunity.com/sharedfiles/filedetails/?id=2031792120>
@@ -19,5 +21,8 @@ It is also the platform for developing the following open source mods:
 4. SchanaModSurvivorSelect
    * <https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580>
    * <https://github.com/schana/dayz-mod-survivor-select>
+
+Come support growing the community through open source!
+
 
 https://discord.gg/kdPnVu4
