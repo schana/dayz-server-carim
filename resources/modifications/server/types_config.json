@@ -255,6 +255,32 @@
     }
   },
   {
+    "description": "lower pot spawn rate",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "^Pot$"
+      }
+    ],
+    "modification": {
+      "nominal": 30,
+      "min": 20
+    }
+  },
+  {
+    "description": "lower hacksaw spawn rate",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "^Hacksaw$"
+      }
+    ],
+    "modification": {
+      "nominal": 5,
+      "min": 4
+    }
+  },
+  {
     "description": "remove items that shouldn't spawn",
     "action": "remove",
     "matching": [
@@ -265,7 +291,7 @@
         }
       },
       {
-        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas|Paper|Zippo|PumpkinHelmet).*"
+        "name": ".*(GiftBox|GreatHelm|Ghillie|Santas|Paper|Zippo|PumpkinHelmet|TruckBattery).*"
       },
       {
         "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden|hardigg|carrierrig).*[Mm]ung.*"
@@ -274,7 +300,7 @@
         "name": "Mass.*(Fedora|CatEars|Meth).*"
       },
       {
-        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe|lebedev_PL15).*_[Mm]ung"
+        "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe|lebedev_PL15|kv5).*_[Mm]ung"
       },
       {
         "name": "MSFC(?!Canteen).*",
