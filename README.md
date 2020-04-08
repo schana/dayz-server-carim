@@ -3,6 +3,8 @@
 Open source configuration and automation developed for the Carim DayZ Server, but usable by all.
 This is intended to be used in conjunction with [CFTools](https://cftools.de).
 
+To see sample output, visit <https://github.com/schana/dayz-server-carim-output>.
+
 [Carim Server on Discord](https://discord.gg/kdPnVu4)
 
 * [Usage](#usage)
