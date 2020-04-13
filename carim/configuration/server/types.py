@@ -41,6 +41,7 @@ def modify_types(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/types_config.json')) as f:
         type_config = json.load(f)
     for action in type_config:
+        log.info(action.get('description'))
         matching = action.get('matching')
         process_type = remove if action['action'] == 'remove' else modify
         for m in matching:

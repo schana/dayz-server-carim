@@ -2,6 +2,7 @@ import carim.configuration.mods.airdrop
 import carim.configuration.mods.base_fortifications
 import carim.configuration.mods.cl0uds
 import carim.configuration.mods.code_lock
+import carim.configuration.mods.crsk_bmw
 import carim.configuration.mods.dayz_weapons_painting
 import carim.configuration.mods.leather_crafting
 import carim.configuration.mods.mass

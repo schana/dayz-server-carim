@@ -17,7 +17,7 @@
       "category": "Vehicles",
       "items": [
         {
-          "name": "CrSk_BMW_525i_E34_black",
+          "name": "CrSk_BMW_525i_E34_beater",
           "class": "vehicle",
           "buy": 50000,
           "sell": 40000

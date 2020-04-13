@@ -197,18 +197,18 @@
 	Sedan_02_Wheel
 	Sedan_02_Wheel
 
-<VehicleParts> CrSk_BMW_525i_E34_black
+<VehicleParts> CrSk_BMW_525i_E34_beater
 	SparkPlug
 	CarBattery
 	CarRadiator
 	HeadlightH7
 	HeadlightH7
-	BMWE34_dver_1_1_black
-	BMWE34_dver_2_1_black
-	BMWE34_dver_1_2_black
-	BMWE34_dver_2_2_black
-	BMWE34_kapot_black
-	BMWE34_bagazhnik_black
+	BMWE34_dver_1_1_beater
+	BMWE34_dver_2_1_beater
+	BMWE34_dver_1_2_beater
+	BMWE34_dver_2_2_beater
+	BMWE34_kapot_beater
+	BMWE34_bagazhnik_beater
 	BMWE34_koleso_style5
 	BMWE34_koleso_style5
 	BMWE34_koleso_style5

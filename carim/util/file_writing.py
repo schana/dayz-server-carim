@@ -3,8 +3,9 @@ import logging
 import re
 import shutil
 import time
-from xml.dom import minidom
 from xml.etree import ElementTree
+
+from xml.dom import minidom
 
 from carim.global_resources import errors
 
