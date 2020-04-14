@@ -764,11 +764,20 @@
       },
       {
         "matching": {
-          "name": "(Binoculars|CableReel|Compass|DisinfectantAlcohol|DisinfectantSpray|OrienteeringCompass|Pot|Roadflare|Rope)$"
+          "name": "(Binoculars|CableReel|Compass|DisinfectantAlcohol|DisinfectantSpray|OrienteeringCompass|Roadflare|Rope)$"
         },
         "buy": 40,
         "sell": 20,
         "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "Pot$"
+        },
+        "buy": 40,
+        "sell": 20,
+        "item_class": "quantity",
+        "quantity": 0
       },
       {
         "matching": {
