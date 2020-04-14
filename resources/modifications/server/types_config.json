@@ -343,5 +343,34 @@
     "modification": {
       "lifetime": 3888000
     }
+  },
+  {
+    "description": "Simple Base remove item spawns",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "Chopper(?!.*(Kit|Bracket|Hinge)).*"
+      }
+    ],
+    "modification": {
+      "nominal": 0,
+      "min": 0,
+      "restock": 0,
+      "lifetime": 3888000
+    }
+  },
+  {
+    "description": "Simple Base remove kit spawns",
+    "action": "modify",
+    "matching": [
+      {
+        "name": "Chopper.*Kit"
+      }
+    ],
+    "modification": {
+      "nominal": 0,
+      "min": 0,
+      "restock": 0
+    }
   }
 ]
