@@ -1,1 +1,13 @@
-Gasmask no longer mutes the player when attached to the SurvivorBag Courtesy of Cleetus
+Changed Quantity of gum so it no longer weighs 100kg, It now weighs.. 2kg.... will look into a better fix for the weight just need more time.
+
+Hopefully fixed a crash in relation to MRE opening function Thanks to Cleetus
+
+The Shinigami Optic has lost its MRD Attachment slots, and replacing it is a new custom Green Dot Sight that comes with the scope by default, activating when a battery is placed inside the Shinigami.
+
+Ratnik Fixed, Can no longer sprint with it.
+
+The PKA Optic has been Added, It's a 1.5x Holographic for the Eastern Style rifles, AKs and such.
+
+Adjusted Holographic reticle.
+
+Classname : MassPKA

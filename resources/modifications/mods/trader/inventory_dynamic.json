@@ -5,7 +5,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -22,7 +22,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -38,7 +38,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -406,7 +406,7 @@
       },
       {
         "matching": {
-          "name": ".*(Optic|LRS|Scope|Holo|1P69).*",
+          "name": ".*(Optic|LRS|Scope|Holo|1P69|MassPKA).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"
@@ -607,7 +607,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },

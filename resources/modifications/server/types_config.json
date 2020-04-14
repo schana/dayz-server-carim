@@ -297,7 +297,7 @@
         "name": ".*(makeshifttent|victorian_glasses|sleepingbag|thermos|dutchoven|dapper|dynamitestick|shovel|Lennon_glasses|baseball|ballgrill|bowieknife|castiron|bat|guitar|mask|ketchup|knife|vinegar|Wood|wooden|hardigg|carrierrig).*[Mm]ung.*"
       },
       {
-        "name": "Mass.*(Fedora|CatEars|Meth).*"
+        "name": "Mass.*(Fedora|CatEars|Meth|MRE).*"
       },
       {
         "name": "(jesterhat|(melee|rifle)sling|SAK|Scythe|cigar|joint|sherlockpipe|lebedev_PL15|kv5).*_[Mm]ung"
