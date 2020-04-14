@@ -156,12 +156,6 @@
     "server_side": false
   },
   {
-    "directory": "@DayZ-Expansion-Chat",
-    "disable_updates": false,
-    "file_id": 1927567004,
-    "server_side": false
-  },
-  {
     "directory": "@SchanaModNoVehicleDamage",
     "disable_updates": false,
     "file_id": 2022423344,
