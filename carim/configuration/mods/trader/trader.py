@@ -1,5 +1,6 @@
 import json
 import logging
+import math
 import pathlib
 
 from carim.configuration import decorators
@@ -149,8 +150,32 @@ def trader_objects_config(directory):
             if 'vehicle' in t:
                 raw_vehicle = t.get('vehicle')
                 new_trader.set_vehicle(objects.Vehicle(raw_vehicle.get('location'), raw_vehicle.get('o')))
+                to.objects.extend(get_cones_for_vehicle(raw_vehicle.get('location'), raw_vehicle.get('o')))
             to.traders.append(new_trader)
             to.objects.append(new_object)
 
     with file_writing.f_open(pathlib.Path(directory, 'TraderObjects.txt'), mode='w') as f:
         f.write(to.generate())
+
+
+def get_cones_for_vehicle(location, orientation):
+    cones = list()
+    orientation_radians = -math.radians(orientation)
+    center_x = location[0]
+    center_y = location[1]
+    center_z = location[2]
+    xs = (-3, 3)
+    zs = (-4, 4)
+    for x in xs:
+        for z in zs:
+            new_x, new_z = get_rotated_point(x, z, orientation_radians)
+            new_x += center_x
+            new_z += center_z
+            cones.append(objects.Object('Land_RoadCone', [new_x, center_y, new_z], orientation))
+    return cones
+
+
+def get_rotated_point(x, z, radians):
+    new_x = x * math.cos(radians) - z * math.sin(radians)
+    new_z = x * math.sin(radians) + z * math.cos(radians)
+    return new_x, new_z

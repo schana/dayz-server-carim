@@ -45,13 +45,13 @@
   "Altar": {
     "auto": {
       "marker": 0,
-      "location": [8169.64, 475.594, 9129.45],
-      "o": -118,
-      "desc": "left of warehouse",
+      "location": [8158.39, 474.04, 9116.43],
+      "o": -114,
+      "desc": "side of road",
       "vehicle": {
-        "location": [8165.23, 475.589, 9126.95],
-        "o": -118,
-        "desc": "left of warehouse"
+        "location": [8154.09, 474.04, 9114.6],
+        "o": -24,
+        "desc": "on road"
       }
     },
     "clothing": {
@@ -92,7 +92,7 @@
       "o": 6,
       "desc": "left of church",
       "vehicle": {
-        "location": [8357.14, 292.854, 5982.84],
+        "location": [8357.14, 291.99, 5982.84],
         "o": 6,
         "desc": "left of church"
       }

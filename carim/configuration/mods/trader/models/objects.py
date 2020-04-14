@@ -49,8 +49,8 @@ class Object:
 
     def generate(self):
         result = '<Object> {}'.format(self.class_name)
-        result += '\n<ObjectPosition> ' + ','.join(str(p) for p in self.position)
-        result += '\n<ObjectOrientation> {},0,0\n'.format(self.orientation)
+        result += '\n<ObjectPosition> ' + ','.join(f'{p:0.4f}' for p in self.position)
+        result += f'\n<ObjectOrientation> {self.orientation:0.4f},0,0\n'
         result += '\n'.join(a.generate() for a in self.attachments)
         return result
 
