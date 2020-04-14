@@ -330,6 +330,71 @@
       "accessories",
       "bm"
     ],
+    "category": "Ammo boxes",
+    "items": [
+      {
+        "matching": {
+          "name": ".*AmmoBox_(308Win|762x54).*"
+        },
+        "buy": 80,
+        "sell": 60,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_(127x108|50BMG|408Chey|338).*"
+        },
+        "buy": 60,
+        "sell": 40,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_.*50[Rr]nd"
+        },
+        "buy": 100,
+        "sell": 80,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_.*35[Rr]nd"
+        },
+        "buy": 70,
+        "sell": 50,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_.*25[Rr]nd"
+        },
+        "buy": 50,
+        "sell": 40,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_.*20[Rr]nd"
+        },
+        "buy": 40,
+        "sell": 30,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": ".*AmmoBox_.*10[Rr]nd"
+        },
+        "buy": 20,
+        "sell": 15,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": [
+      "accessories",
+      "bm"
+    ],
     "category": "Magazines",
     "items": [
       {
