@@ -190,5 +190,11 @@
     "disable_updates": false,
     "file_id": 2037681580,
     "server_side": false
+  },
+  {
+    "directory": "@SchanaModLockPick",
+    "disable_updates": false,
+    "file_id": 2063133049,
+    "server_side": false
   }
 ]

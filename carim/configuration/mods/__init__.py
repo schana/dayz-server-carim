@@ -10,6 +10,7 @@ import carim.configuration.mods.msfc
 import carim.configuration.mods.munghards
 import carim.configuration.mods.notes
 import carim.configuration.mods.op_base_items
+import carim.configuration.mods.schana_mod_lock_pick
 import carim.configuration.mods.server_panel
 import carim.configuration.mods.simple_base
 import carim.configuration.mods.trader

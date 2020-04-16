@@ -51,6 +51,7 @@ individually manage your server's configuration.
 @MunghardsItempack
 @Notes
 @OP_BaseItems
+@SchanaModLockPick
 @SQUAD MSF-C
 @Server_Information_Panel
 @Simple Base
