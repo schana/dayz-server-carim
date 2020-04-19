@@ -567,7 +567,7 @@
       },
       {
         "matching": {
-          "name": ".*Mushroom.*"
+          "name": ".*(Mushroom|Apple|Berry|^GreenBellPepper$|Pear|Plum|^Potato$).*"
         },
         "buy": 40,
         "sell": 20,
