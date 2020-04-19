@@ -592,6 +592,22 @@
     "items": [
       {
         "matching": {
+          "name": "^(BearSteakMeat|bearhead_mung)$"
+        },
+        "buy": -1,
+        "sell": 1000,
+        "item_class": "steak"
+      },
+      {
+        "matching": {
+          "name": "^(Deer|Boar|Wildboar).*(Meat|Pelt)$"
+        },
+        "buy": -1,
+        "sell": 400,
+        "item_class": "steak"
+      },
+      {
+        "matching": {
           "name": "^((?!.*(Human)).*Meat.*|Carp|Mackerel|Sardines)$",
           "category": {
             "name": "food"
@@ -603,7 +619,7 @@
       },
       {
         "matching": {
-          "name": "(.*Pelt.*|Lard|bearhead_mung)"
+          "name": "(.*Pelt.*|Lard)"
         },
         "buy": -1,
         "sell": 100,
