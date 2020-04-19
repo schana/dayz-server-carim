@@ -135,6 +135,30 @@
           "sell": 20,
           "class": "quantity",
           "quantity": 0
+        },
+        {
+          "name": "HatchbackWheel",
+          "buy": 200,
+          "sell": 100,
+          "class": "max"
+        },
+        {
+          "name": "Hatchback_02_Wheel",
+          "buy": 200,
+          "sell": 100,
+          "class": "max"
+        },
+        {
+          "name": "CivSedanWheel",
+          "buy": 200,
+          "sell": 100,
+          "class": "max"
+        },
+        {
+          "name": "Sedan_02_Wheel",
+          "buy": 200,
+          "sell": 100,
+          "class": "max"
         }
       ]
     }
