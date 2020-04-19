@@ -455,11 +455,11 @@
       "accessories",
       "bm"
     ],
-    "category": "Weapon accessories",
+    "category": "Handguards and Buttstocks",
     "items": [
       {
         "matching": {
-          "name": ".*([Bb]u?ttsto?ck|Light|Hndgrd|CarryHandleOptic).*",
+          "name": ".*([Bb]u?ttsto?ck|Light|Ha?ndg(ua)?rd|CarryHandleOptic).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"
@@ -468,7 +468,16 @@
         "buy": 20,
         "sell": 10,
         "item_class": "max"
-      },
+      }
+    ]
+  },
+  {
+    "trader": [
+      "accessories",
+      "bm"
+    ],
+    "category": "Optics",
+    "items": [
       {
         "matching": {
           "name": ".*(Optic|LRS|Scope|Holo|1P69|MassPKA).*",
@@ -480,7 +489,16 @@
         "buy": 200,
         "sell": 100,
         "item_class": "max"
-      },
+      }
+    ]
+  },
+  {
+    "trader": [
+      "accessories",
+      "bm"
+    ],
+    "category": "Compensators",
+    "items": [
       {
         "matching": {
           "name": ".*(Bayonet|Compensator|Muzzle).*",
@@ -492,7 +510,16 @@
         "buy": 100,
         "sell": 50,
         "item_class": "max"
-      },
+      }
+    ]
+  },
+  {
+    "trader": [
+      "accessories",
+      "bm"
+    ],
+    "category": "Suppressors",
+    "items": [
       {
         "matching": {
           "name": ".*Suppressor.*",
