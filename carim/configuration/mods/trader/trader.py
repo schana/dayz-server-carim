@@ -107,13 +107,17 @@ def add_dynamic(traders):
                 sell = item.get('sell')
                 quantity = item.get('quantity', None)
                 item_type = get_item_type_for_name(item.get('item_class'))
-                match = matching_model.Match(matching)
-                for t in types.get().getroot():
-                    result = match.match(t)
-                    if result:
-                        items = expanded.get(result.groups.get('captured'), list())
-                        items.append(item_type(t.get('name'), buy, sell, quantity))
-                        expanded[result.groups.get('captured')] = items
+                if matching is not None:
+                    match = matching_model.Match(matching)
+                    for t in types.get().getroot():
+                        result = match.match(t)
+                        if result:
+                            items = expanded.get(result.groups.get('captured'), list())
+                            items.append(item_type(t.get('name'), buy, sell, quantity))
+                            expanded[result.groups.get('captured')] = items
+                else:
+                    name = item.get('name')
+                    expanded[None] = [item_type(name, buy, sell, quantity)]
                 for key in expanded:
                     current_cat_name = category_name.format(captured=key)
                     current_cat = categories.get(current_cat_name, config.Category(current_cat_name))
