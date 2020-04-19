@@ -804,5 +804,54 @@
         "item_class": "max"
       }
     ]
+  },
+  {
+    "trader": [
+      "auto",
+      "accessories",
+      "bm",
+      "food",
+      "tools",
+      "weapons",
+      "clothing"
+    ],
+    "category": "Money Exchange",
+    "items": [
+      {
+        "name": "MoneyRuble5",
+        "buy": -1,
+        "sell": 5,
+        "item_class": "quantity",
+        "quantity": 1
+      },
+      {
+        "name": "MoneyRuble10",
+        "buy": 10,
+        "sell": 10,
+        "item_class": "quantity",
+        "quantity": 1
+      },
+      {
+        "name": "MoneyRuble25",
+        "buy": -1,
+        "sell": 25,
+        "item_class": "quantity",
+        "quantity": 1
+      },
+      {
+        "name": "MoneyRuble50",
+        "buy": -1,
+        "sell": 50,
+        "item_class": "quantity",
+        "quantity": 1
+      },
+      {
+        "name": "MoneyRuble100",
+        "buy": 100,
+        "sell": 100,
+        "item_class": "quantity",
+        "quantity": 1
+      }
+    ]
   }
 ]

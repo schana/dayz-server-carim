@@ -4,7 +4,7 @@ class Config:
 
     def generate(self):
         result = '<CurrencyName> #tm_ruble\n'
-        result += '\n'.join('<Currency> MoneyRuble{i}, {i}'.format(i=i) for i in (1, 5, 10, 25, 50, 100))
+        result += '\n'.join('<Currency> MoneyRuble{i}, {i}'.format(i=i) for i in (1, 10, 100))
         result += '\n'
         result += '\n'.join(t.generate() for t in self.traders)
         result += '\n<FileEnd>'
