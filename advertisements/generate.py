@@ -2,9 +2,9 @@ advert = """
 {bold_open}Carim{bold_close} Loot+|Guns+|NPCs+|Airdrops|Trader|SimpleBase|Autorun
 178.63.43.16:2302
 
-{open_name}Full mod list{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973{close_link}
+Come join Carim, the server dedicated to serving the community through open source contributions. The server's configuration is automatically generated to be fun, fair, and balanced for whatever playstyle suits you. The server is managed by an IT professional, ensuring stability and responsiveness to issues.
 
-Come join the Carim, the server dedicated to serving the community through open source contributions. The server's configuration is automatically generated to be fun, fair, and balanced for whatever playstyle suits you. The server is managed by an IT professional, ensuring stability and responsiveness to issues.
+{open_name}Full mod list{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973{close_link}
 
 Open source tools:
 
