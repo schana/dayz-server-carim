@@ -228,7 +228,7 @@
       },
       {
         "matching": {
-          "name": "MilitaryGear(?!.*(Black|Brown|Olive|Tan))_[^_]*_(?P<captured>.*)",
+          "name": "MilitaryGear(?!.*(Black|Brown|Olive|Tan|TortillaBag_PartizanM))_[^_]*_(?P<captured>.*)",
           "category": {
             "name": "containers"
           }
