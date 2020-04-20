@@ -3,10 +3,16 @@
     "Interval": 30,
     "Mode": 3
   },
+  "Map": {
+    "Offset": 10000
+  },
+  "Aircraft": {
+    "AirSpeedKIAS": 90
+  },
   "Messages": {
     "Mode": 1,
     "Duration": 30,
-    "Proximity": 1000
+    "Proximity": 2000
   },
   "Container": {
     "FallRate": 1,

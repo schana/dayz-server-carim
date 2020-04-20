@@ -15,7 +15,7 @@ def airdrop(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/mods/airdrop/modifications.json')) as f:
         airdrop_setting_modifications = json.load(f)
     # http://games.digiacom.com/Airdrop_Server_Guide.pdf
-    for setting in ('Controls', 'Messages', 'Container'):
+    for setting in ('Controls', 'Map', 'Aircraft', 'Messages', 'Container'):
         for k, v in airdrop_setting_modifications.get(setting).items():
             airdrop_settings[setting][k] = v
 
