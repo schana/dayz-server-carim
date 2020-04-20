@@ -157,9 +157,9 @@
   },
   {
     "directory": "@DayZ-Expansion-Chat",
-	"disable_updates": false,
-	"file_id": 1927567004,
-	"server_side": false
+    "disable_updates": false,
+    "file_id": 1927567004,
+    "server_side": false
   },
   {
     "directory": "@SchanaModExpansionChatRCon",
@@ -195,6 +195,12 @@
     "directory": "@SchanaModLockPick",
     "disable_updates": false,
     "file_id": 2063133049,
+    "server_side": false
+  },
+  {
+    "directory": "@SchanaModCompass",
+    "disable_updates": false,
+    "file_id": 2067834152,
     "server_side": false
   }
 ]
