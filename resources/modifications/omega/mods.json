@@ -202,5 +202,11 @@
     "disable_updates": false,
     "file_id": 2067834152,
     "server_side": false
+  },
+  {
+    "directory": "@SchanaModTraderNametags",
+    "disable_updates": false,
+    "file_id": 2069143015,
+    "server_side": false
   }
 ]
