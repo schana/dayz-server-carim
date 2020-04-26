@@ -72,12 +72,6 @@
     "server_side": false
   },
   {
-    "directory": "@PartyMe",
-    "disable_updates": false,
-    "file_id": 1582671564,
-    "server_side": false
-  },
-  {
     "directory": "@VanillaPlusPlusMap",
     "disable_updates": false,
     "file_id": 1623711988,
@@ -207,6 +201,12 @@
     "directory": "@SchanaModTraderNametags",
     "disable_updates": false,
     "file_id": 2069143015,
+    "server_side": false
+  },
+  {
+    "directory": "@DEV_SchanaModParty",
+    "disable_updates": false,
+    "file_id": 2071036853,
     "server_side": false
   }
 ]

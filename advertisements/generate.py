@@ -14,11 +14,17 @@ Open source tools:
 Open source mods:
 
 1. {open_name}SchanaModAutorun{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2031792120{close_link}
-2. {open_name}SchanaModNoVehicleDamage{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2022423344{close_link}
-3. {open_name}SchanaModSurvivorSelect{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580{close_link}
+2. {open_name}SchanaModCompass{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973{close_link}
+3. {open_name}SchanaModTraderNametags{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973{close_link}
 4. {open_name}SchanaModLockPick{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2063133049{close_link}
-5. {open_name}SchanaModExpansionChatRCon{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2061823484{close_link}
-6. {open_name}SchanaModAdminOmniTool{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094{close_link}
+5. {open_name}SchanaModNoVehicleDamage{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2022423344{close_link}
+6. {open_name}SchanaModSurvivorSelect{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2037681580{close_link}
+7. {open_name}SchanaModExpansionChatRCon{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2061823484{close_link}
+8. {open_name}SchanaModAdminOmniTool{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2022600094{close_link}
+
+In Development:
+
+1. {open_name}SchanaModParty{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2071036853{close_link}
 
 Come support growing the community through open source!
 
