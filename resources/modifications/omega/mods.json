@@ -204,15 +204,9 @@
     "server_side": false
   },
   {
-    "directory": "@SchanaModParty",
+    "directory": "@SchanaPartyExp",
     "disable_updates": false,
-    "file_id": 2075831381,
-    "server_side": false
-  },
-  {
-    "directory": "@SchanaModPartyPluginVPPMap",
-    "disable_updates": false,
-    "file_id": 2077923897,
+    "file_id": 2080840725,
     "server_side": false
   }
 ]
