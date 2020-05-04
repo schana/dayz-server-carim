@@ -1,13 +1,32 @@
-Changed Quantity of gum so it no longer weighs 100kg, It now weighs.. 2kg.... will look into a better fix for the weight just need more time.
+The Day Has come.. I've finally Put in the MassBuildings PBO meaning a future of base building objects awaits.. What does it bring?.. well. 
+A MakeShift Dresser, Of course!.. What does that do? It's a craftable base item that allows you to store all those pesky clothing items you pick up on your journeys. no more are the days of you searching through your tents only to find your group members have just dropped t-shirts EVERYWHERE in the cargo!
 
-Hopefully fixed a crash in relation to MRE opening function Thanks to Cleetus
+You can Craft Them with 20 Planks and 50 Nails for the base dresser. It can take 5 drawers which give you 24 slots EACH entirely for clothing items (Will not allow anything not inheriting from Clothing_Base, Meaning everything you can equip can fit inside.)
 
-The Shinigami Optic has lost its MRD Attachment slots, and replacing it is a new custom Green Dot Sight that comes with the scope by default, activating when a battery is placed inside the Shinigami.
+The Drawers can be crafted with 10 Nails and 3 Planks.
 
-Ratnik Fixed, Can no longer sprint with it.
+The Base Dresser can attach a pistol, Some hats, A pair of Worker Gloves, Boots. And A Backpack (which can be accessed.)
+(Remember Clothing Items with cargo will not be accepted, Just like any other Cargo environment in Vanilla.)
 
-The PKA Optic has been Added, It's a 1.5x Holographic for the Eastern Style rifles, AKs and such.
+Another Update for MRES.
+New Menu 9 alternative added with new models and textures, Find it out in the field. looks much different than the other menus visually.
+Classname - MassMRE9Old, MassHeli_MRE9Old
 
-Adjusted Holographic reticle.
+Various food items have been shrunk to be at a more realistic scale when compared to the main MRE package sizes.
 
-Classname : MassPKA
+
+Kivaari Bullet selection Added to fix attachment rotation bug.
+
+Red and blue flags added for CTF Gamemodes or server events.
+Classnames : MassCTF_Blue, MassCTF_Red
+
+
+NBC Bag Functionality Adjustment.
+So There were a lot of people exploiting certain issues with the NBC bag and While I tried to combat bug abuse and exploits People kept finding ways to fit 100+ items inside them, It's my fault for publishing an item without figuring out all of the possible ways it could be exploited. So I regret to inform anyone who hasn't already been warned, Your players will most likely lose their NBC Gear inside of the bags with this update.
+
+With that said, What's new?
+
+The Attachment system for the NBC bags has been completely removed and replaced with a cargo system that only accepts items inheriting from the NBC Colorbase. Meaning you can only put NBC gear inside of the cargo of the bag. Eliminating any possible item stacking exploits completely
+
+New Item : The Waterproof Bag. The Waterproof bag is a new item that hangs off the back of your backpacks just like the NBC bag, except it takes all items that inherit from clothing_base, Meaning it can fit almost anything you can wear on your character as clothing inside. The downside is that it's significantly smaller than the NBC bag so you can only realistically fit a jacket and some pants inside. Or maybe 3 smaller items. as the name suggests it's waterproof so you have a change of clothes for when you get wet and are dying of the cold.
+classname : MassClothing_Bag
