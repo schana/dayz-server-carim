@@ -1,9 +1,17 @@
-advert = """{bold_open}Carim{bold_close} Loot+|Guns+|NPCs+|Airdrops|Trader|SimpleBase|Autorun
+advert = """\
+{bold_open}Carim{bold_close} Loot+|Guns+|NPCs+|Airdrops|Trader|SimpleBase|Autorun
 `178.63.43.16:2302`
+Classic PvP with bases, airdrops, traders, increased loot, and more
 
-Come join Carim, the server dedicated to serving the community through open source contributions. The server's configuration is automatically generated to be fun, fair, and balanced for whatever playstyle suits you. The server is managed by an IT professional, ensuring stability and responsiveness to issues.
+{bold_open}Carim{bold_close} Survival
+`178.63.43.16:2502`
+Difficult survival with some quality of life improvements like autorun, compass, and party system
 
-{open_name}Full mod list{close_name}{open_link}https://steamcommunity.com/sharedfiles/filedetails/?id=2034121973{close_link}
+{bold_open}Carim{bold_close} Deathmatch NWAF
+`178.63.43.16:2402`
+Spawn fully equipped with assault rifle and sniper around NWAF
+
+Come join Carim, the servers dedicated to serving the community through open source contributions. The servers' configurations are automatically generated to be fun, fair, and balanced for whatever playstyle suits you. The servers are managed by an IT professional, ensuring stability and responsiveness to issues.
 
 Come support growing the community through open source! More info can be found on {open_name}the website{close_name}{open_link}https://schana.github.io/carim/{close_link}.
 
