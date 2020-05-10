@@ -23,6 +23,9 @@ def random_presets_config(directory):
     for entry in presets_modifications:
         if 'cargo' in entry:
             cargo = entry.get('cargo')
+            if 'chance' in entry:
+                for preset in presets_xml.findall(f'.//cargo[@name="{cargo}"]'):
+                    preset.set('chance', entry.get('chance'))
             for item in entry.get('items'):
                 for preset in presets_xml.findall(
                         './/cargo[@name="{}"]//item[@name="{}"]'.format(cargo, item.get('name'))):

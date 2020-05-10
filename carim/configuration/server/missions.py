@@ -44,9 +44,13 @@ def events_config(directory):
         name_re = re.compile(mod.get('name'))
         for event in events_xml.getroot():
             if name_re.match(event.get('name')):
-                event.find('active').text = '1'
-                for item in ('nominal',):
-                    i = event.find(item)
-                    i.text = str(math.floor(max(1, int(i.text)) * mod.get('ratio')))
+                ratio = mod.get('ratio')
+                if ratio > 0:
+                    event.find('active').text = '1'
+                    for item in ('nominal',):
+                        i = event.find(item)
+                        i.text = str(math.floor(max(1, int(i.text)) * ratio))
+                else:
+                    event.find('active').text = '0'
     with file_writing.f_open(pathlib.Path(directory, 'events.xml'), mode='w') as f:
         f.write(file_writing.convert_to_string(events_xml.getroot()))

@@ -42,7 +42,7 @@ def territory_config(directory):
             log.info('applying radius ratio of {} to {}'.format(ratio, filename))
             for zone in territory.findall('.//zone'):
                 r = zone.get('r')
-                zone.set('r', str(math.floor(int(r) * ratio)))
+                zone.set('r', str(math.floor(float(r) * ratio)))
 
         if filename in territories_modifications.get('blanket', dict()):
             params = territories_modifications.get('blanket').get(filename)
