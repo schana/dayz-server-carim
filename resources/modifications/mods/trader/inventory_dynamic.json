@@ -707,7 +707,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*([Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -723,7 +723,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*(Bu?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*([Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
