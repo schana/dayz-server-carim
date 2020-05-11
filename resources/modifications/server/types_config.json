@@ -94,7 +94,7 @@
     }
   },
   {
-    "description": "fix msfc categories for weapons marked as clothes",
+    "description": "fix categories for weapons",
     "action": "modify",
     "matching": [
       {
@@ -102,6 +102,9 @@
         "category": {
           "name": "clothes"
         }
+      },
+      {
+        "name": "Massm300.*"
       }
     ],
     "modification": {
