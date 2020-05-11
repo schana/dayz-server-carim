@@ -761,7 +761,7 @@
   },
   {
     "trader": "tools",
-    "category": "Simple Base",
+    "category": "Base Building",
     "items": [
       {
         "matching": {
@@ -777,6 +777,14 @@
         },
         "buy": 50,
         "sell": 25,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "gunwall_.*kit_mung"
+        },
+        "buy": 2000,
+        "sell": 1000,
         "item_class": "max"
       }
     ]
