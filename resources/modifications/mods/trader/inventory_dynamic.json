@@ -94,6 +94,14 @@
         "buy": 20,
         "sell": 15,
         "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "(?!.*(OpsCore|Headstrap)).*NVG.*"
+        },
+        "buy": -1,
+        "sell": 200,
+        "item_class": "max"
       }
     ]
   },
@@ -533,6 +541,28 @@
         },
         "buy": -1,
         "sell": 50,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "bm",
+    "category": "Clothing",
+    "items": [
+      {
+        "matching": {
+          "name": "(?!.*(OpsCore|Headstrap)).*NVG.*"
+        },
+        "buy": 2000,
+        "sell": 400,
+        "item_class": "max"
+      },
+      {
+        "matching": {
+          "name": "MassHeavyPlateVest.*"
+        },
+        "buy": 4000,
+        "sell": 800,
         "item_class": "max"
       }
     ]
