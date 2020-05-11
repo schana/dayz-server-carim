@@ -47,7 +47,9 @@ def modify_types(directory):
         for m in matching:
             process_type(matching=m, modification=action.get('modification', dict()))
 
-    ratio_modifier = 2
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/types_universal.json')) as f:
+        type_universal_config = json.load(f)
+    ratio_modifier = type_universal_config.get('ratio', 1)
     matching = {
         "nominal": "^[^0]"
     }
