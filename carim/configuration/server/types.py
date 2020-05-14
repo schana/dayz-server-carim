@@ -43,7 +43,12 @@ def modify_types(directory):
     for action in type_config:
         log.info(action.get('description'))
         matching = action.get('matching')
-        process_type = remove if action['action'] == 'remove' else modify
+        if action['action'] == 'remove':
+            process_type = remove
+        elif action['action'] == 'ratio':
+            process_type = ratio
+        else:
+            process_type = modify
         for m in matching:
             process_type(matching=m, modification=action.get('modification', dict()))
 
@@ -58,8 +63,8 @@ def modify_types(directory):
     for t in types.get().getroot():
         if m.match(t) and t.find('nominal') is not None:
             count += 1
-            t.find('nominal').text = str(int(ratio_modifier * int(t.find('nominal').text)))
-            t.find('min').text = str(int(ratio_modifier * int(t.find('min').text)))
+            t.find('nominal').text = str(max(1, int(ratio_modifier * int(t.find('nominal').text))))
+            t.find('min').text = str(max(1, int(ratio_modifier * int(t.find('min').text))))
     log.info('modified {} items with ratio {}'.format(count, ratio_modifier))
 
 
@@ -85,6 +90,20 @@ def modify(matching=None, modification=None):
             log.debug('modifying ' + t.attrib.get('name'))
             apply_modification(t, modification)
     log.info('modified {} items matching {} with {}'.format(count, matching, json.dumps(modification)))
+
+
+def ratio(matching=None, modification=None):
+    match = matching_model.Match(matching)
+    count = 0
+    ratio_modifier = modification.get('ratio')
+    for t in types.get().getroot():
+        if match.match(t) and t.find('nominal') is not None:
+            count += 1
+            t.find('nominal').text = str(max(1, int(ratio_modifier * int(t.find('nominal').text))))
+            t.find('min').text = str(max(1, int(ratio_modifier * int(t.find('min').text))))
+            count += 1
+            log.debug('applying ratio to ' + t.attrib.get('name'))
+    log.info('modified {} items with ratio {}'.format(count, ratio_modifier))
 
 
 def apply_modification(item_element: ElementTree.Element, modification):

@@ -4,21 +4,22 @@ from xml.etree import ElementTree
 
 from carim.global_resources import matching_model
 
-types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
+types = ElementTree.parse('E:/programming/dayz-server-carim-survival/generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
+# types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
 
 
 def get_functions_to_run():
     return [
-        # describe_xml,
+        describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
-        get_names_by_match,
+        # get_names_by_match,
         # convert_mass_weapon_names_to_regex
         # get_items_for_airdrop
-        # get_stats,
-        # lambda: print('vanilla'),
-        # lambda: get_stats(
-        #     (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
+        get_stats,
+        lambda: print('vanilla'),
+        lambda: get_stats(
+            (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
     ]
 
 
@@ -49,43 +50,56 @@ def get_stats(types_et=None):
         }
     ]
     for match in matching:
-        m = matching_model.Match(match)
-        for t in types_et:
-            if m.match(t) and t.find('nominal') is not None:
-                nominal = int(t.find('nominal').text)
-                min_value = int(t.find('min').text)
-                restock = int(t.find('restock').text)
-                # print(t.get('name'), nominal, min_value, restock)
-                sum_nominal += nominal
-                if nominal not in nominals:
-                    nominals[nominal] = 0
-                nominals[nominal] += 1
-                sum_min += min_value
-                if min_value not in mins:
-                    mins[min_value] = 0
-                mins[min_value] += 1
-                if restock not in restocks:
-                    restocks[restock] = 0
-                restocks[restock] += 1
-                count_items += 1
-    # print('''vanilla stats
-    # items 1285
-    # sum nominal 20128
-    # avg nominal 15.663813229571984
-    # sum min 12571
-    # avg min 9.782879377431907''')
-    print('items', count_items)
-    print('sum nominal', sum_nominal)
-    print('avg nominal', sum_nominal / max(1, count_items))
-    print('nominal values')
-    print(json.dumps([str((k, v)) for k, v in sorted(nominals.items())], indent=2))
-    print('sum min', sum_min)
-    print('avg min', sum_min / max(1, count_items))
-    print('min values')
-    print(json.dumps([str((k, v)) for k, v in sorted(mins.items())], indent=2))
-    print('restock values')
-    print(json.dumps([str((k, v)) for k, v in sorted(restocks.items())], indent=2))
-    print()
+        for usage in ('Firefighter', 'Prison', 'Industrial', 'Hunting', 'Military', 'Police', 'Village', 'Coast', 'Medic', 'Farm', 'Town'):
+            match['usage'] = [
+                {
+                    "name": usage
+                }
+            ]
+            sum_nominal = 0
+            count_items = 0
+            sum_min = 0
+            nominals = {}
+            mins = {}
+            restocks = {}
+            m = matching_model.Match(match)
+            for t in types_et:
+                if m.match(t) and t.find('nominal') is not None:
+                    nominal = int(t.find('nominal').text)
+                    min_value = int(t.find('min').text)
+                    restock = int(t.find('restock').text)
+                    # print(t.get('name'), nominal, min_value, restock)
+                    sum_nominal += nominal
+                    if nominal not in nominals:
+                        nominals[nominal] = 0
+                    nominals[nominal] += 1
+                    sum_min += min_value
+                    if min_value not in mins:
+                        mins[min_value] = 0
+                    mins[min_value] += 1
+                    if restock not in restocks:
+                        restocks[restock] = 0
+                    restocks[restock] += 1
+                    count_items += 1
+            # print('''vanilla stats
+            # items 1285
+            # sum nominal 20128
+            # avg nominal 15.663813229571984
+            # sum min 12571
+            # avg min 9.782879377431907''')
+            print(usage)
+            print('items', count_items)
+            print('sum nominal', sum_nominal)
+            print('avg nominal', sum_nominal / max(1, count_items))
+            # print('nominal values')
+            # print(json.dumps([str((k, v)) for k, v in sorted(nominals.items())], indent=2))
+            print('sum min', sum_min)
+            print('avg min', sum_min / max(1, count_items))
+            # print('min values')
+            # print(json.dumps([str((k, v)) for k, v in sorted(mins.items())], indent=2))
+            # print('restock values')
+            # print(json.dumps([str((k, v)) for k, v in sorted(restocks.items())], indent=2))
+            print()
 
 
 def convert_mass_weapon_names_to_regex():
@@ -201,6 +215,7 @@ def get_class_names_by_tier():
 
 def describe_xml():
     cats = set()
+    usages = set()
     type_spec = {}
     for t in types.getroot():
         seen_tags = set()
@@ -217,9 +232,14 @@ def describe_xml():
         if c is not None:
             cats.add(c.get('name'))
         else:
+            continue
             print(t.get('name'))
+        u = t.find('usage')
+        if u is not None:
+            usages.add(u.get('name'))
     print(cats)
-    print(json.dumps(type_spec, indent=2))
+    print(usages)
+    # print(json.dumps(type_spec, indent=2))
 
 
 if __name__ == '__main__':
