@@ -4,7 +4,8 @@ import pathlib
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import types, item_type, matching_model, resourcesdir, mission
+from carim.global_resources import types, item_type, matching_model, resourcesdir, mission, deploydir, locations
+from carim.util import file_writing
 
 log = logging.getLogger(__name__)
 _MAX_TIME = 3888000
@@ -142,3 +143,34 @@ def apply_modification(item_element: ElementTree.Element, modification):
         for child in item_element.findall(field):
             for flag in modification.get(field):
                 child.set(flag.get('name'), "1" if flag.get('value') else "0")
+
+
+@decorators.register
+@decorators.mission
+def remove_spawns_outside_radius(directory):
+    with open(pathlib.Path(resourcesdir.get(), 'modifications/server/types_universal.json')) as f:
+        type_universal_config = json.load(f)
+    radius = type_universal_config.get('limit_spawn_locations_radius', 0)
+    if radius <= 0:
+        return
+    p = pathlib.Path(deploydir.get(), 'mpmissions', mission.get(), 'mapgrouppos.xml')
+    count = 0
+    areas = list(mark[1] for mark in locations.marks[:4])
+    mapgroups = ElementTree.parse(p).getroot()
+    for group in mapgroups.findall('.//group'):
+        raw = group.get('pos')
+        # log.info('{} {}'.format(group.get('name'), raw))
+        x, y, z = (float(i) for i in raw.split(' '))
+        is_good = False
+        for position in areas:
+            if locations.overlaps(position, radius, x, z, 1):
+                is_good = True
+        if not is_good:
+            mapgroups.remove(group)
+            count += 1
+            log.debug('removed group {}, {}, {}'.format(group.get('name'), x, z))
+
+    if count > 0:
+        log.info('removed {} groups from {}'.format(count, p.name))
+    with file_writing.f_open(pathlib.Path(directory, p.name), mode='w') as f:
+        f.write(file_writing.convert_to_string(mapgroups))
