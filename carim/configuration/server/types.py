@@ -71,11 +71,16 @@ def modify_types(directory):
 def remove(matching=None, modification=None):
     match = matching_model.Match(matching)
     count = 0
+    to_remove = list()
     for t in types.get().getroot():
         if match.match(t):
             count += 1
             log.debug('removing ' + t.attrib.get('name'))
-            apply_modification(t, _REMOVE_MODIFICATION)
+            to_remove.append(t)
+            # types.get().getroot().remove(t)
+            # apply_modification(t, _REMOVE_MODIFICATION)
+    for t in to_remove:
+        types.get().getroot().remove(t)
     log.info('removed {} items matching {}'.format(count, matching))
 
 
