@@ -2,6 +2,7 @@ import carim.configuration.mods.airdrop
 import carim.configuration.mods.base_fortifications
 import carim.configuration.mods.cl0uds
 import carim.configuration.mods.code_lock
+import carim.configuration.mods.cpb_weapons
 import carim.configuration.mods.crsk_bmw
 import carim.configuration.mods.dayz_weapons_painting
 import carim.configuration.mods.leather_crafting
@@ -10,6 +11,7 @@ import carim.configuration.mods.msfc
 import carim.configuration.mods.munghards
 import carim.configuration.mods.notes
 import carim.configuration.mods.op_base_items
+import carim.configuration.mods.remastered_arma_weapons
 import carim.configuration.mods.schana_mod_lock_pick
 import carim.configuration.mods.server_panel
 import carim.configuration.mods.simple_base
