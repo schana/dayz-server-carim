@@ -196,5 +196,11 @@
     "disable_updates": false,
     "file_id": 2080840725,
     "server_side": false
+  },
+  {
+    "directory": "@SchanaModGlobalChat",
+    "disable_updates": false,
+    "file_id": 2115602332,
+    "server_side": false
   }
 ]
