@@ -42,12 +42,6 @@
     "server_side": false
   },
   {
-    "directory": "@DayZ-Expansion-Notifications",
-    "disable_updates": false,
-    "file_id": 1585487785,
-    "server_side": false
-  },
-  {
     "directory": "@MasssManyItemOverhaul",
     "disable_updates": false,
     "file_id": 1566911166,
