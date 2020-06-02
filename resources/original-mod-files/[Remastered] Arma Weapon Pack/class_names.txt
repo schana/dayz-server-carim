@@ -20,7 +20,6 @@ A2MK48
 A2MK48_Magazine
 A2M107
 A2M107_Magazine
-Ammo_50Cal
 A2M40A3
 A2M40A3_Magazine
 A2AA12
