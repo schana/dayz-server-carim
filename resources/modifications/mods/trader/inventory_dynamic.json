@@ -5,7 +5,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA|Clothing_Bag))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA|Clothing_Bag))|Bipod|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM][aA][gG]|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom|Rail|grip).*)",
           "category": {
             "name": "weapons"
           },
@@ -22,7 +22,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA|Clothing_Bag))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA|Clothing_Bag))|Bipod|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM][aA][gG]|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom|Rail|grip).*)",
           "category": {
             "name": "weapons"
           },
@@ -233,6 +233,23 @@
   },
   {
     "trader": "clothing",
+    "category": "MSFC {captured}",
+    "items": [
+      {
+        "matching": {
+          "name": "MSFC_.*_(?P<captured>(ATACSAU|ATACSFG|Multicam|MulticamBlack|MulticamSnow|MulticamTropic|SURPAT|SURPATDesert|Black|Desert|EMR|Green))$",
+          "category": {
+            "name": "clothes"
+          }
+        },
+        "buy": 1000,
+        "sell": 50,
+        "item_class": "max"
+      }
+    ]
+  },
+  {
+    "trader": "clothing",
     "category": "Patches",
     "items": [
       {
@@ -278,6 +295,15 @@
         "sell": 30,
         "item_class": "quantity",
         "quantity": 10
+      },
+      {
+        "matching": {
+          "name": ".*Ammo_.*"
+        },
+        "buy": 40,
+        "sell": 20,
+        "item_class": "quantity",
+        "quantity": 10
       }
     ]
   },
@@ -288,6 +314,15 @@
     ],
     "category": "Ammo singles",
     "items": [
+      {
+        "matching": {
+          "name": ".*Ammo_(?!127x108|50BMG|408Chey|338|308Win.*|762x54.*).*"
+        },
+        "buy": 2,
+        "sell": 1,
+        "item_class": "quantity",
+        "quantity": 1
+      },
       {
         "matching": {
           "name": ".*Ammo_(308Win|762x54).*"
@@ -310,8 +345,8 @@
         "matching": {
           "name": ".*Ammo_.*"
         },
-        "buy": 2,
-        "sell": 1,
+        "buy": 4,
+        "sell": 2,
         "item_class": "quantity",
         "quantity": 1
       }
@@ -451,7 +486,7 @@
     "items": [
       {
         "matching": {
-          "name": ".*([Bb]u?ttsto?ck|Light|Ha?ndg(ua)?rd|CarryHandleOptic).*",
+          "name": ".*(Bipod|[Bb]u?ttsto?ck|Light|Ha?ndg(ua)?rd|CarryHandleOptic|Rail|grip).*",
           "lifetime": "(?!^1$)",
           "category": {
             "name": "weapons"
@@ -707,7 +742,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*([Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*(Bipod|[Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM][aA][gG]|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom|Rail|grip).*)",
           "category": {
             "name": "weapons"
           },
@@ -723,7 +758,7 @@
       },
       {
         "matching": {
-          "name": "(?!.*([Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM]ag|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*(Bipod|[Bb]u?ttsto?ck|Optic|Light|Suppressor|Goggles|Bayonet|[mM][aA][gG]|Hndgrd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },
@@ -742,7 +777,7 @@
     "items": [
       {
         "matching": {
-          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
+          "name": "(?!.*((Mass(9x39Palm|ppshbox|StockPouch|PKA))|Bipod|[Bb]u?ttsto?ck|Optic|1P69|Light|Suppressor|Goggles|Tomahawk|Bayonet|[mM]ag|Tigr308_10_Rnd|Ha?ndg(ua)?rd|Knife|Ammo|Compensator|LRS|Scope|Muzzle|drum|Holo|Binocs|STANAG|Mushroom).*)",
           "category": {
             "name": "weapons"
           },

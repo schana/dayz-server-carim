@@ -54,6 +54,12 @@
     "server_side": false
   },
   {
+    "directory": "@Airdrop-Upgraded",
+    "disable_updates": false,
+    "file_id": 1870524790,
+    "server_side": false
+  },
+  {
     "directory": "@Code Lock",
     "disable_updates": false,
     "file_id": 1646187754,
@@ -189,6 +195,18 @@
     "directory": "@SchanaModGlobalChat",
     "disable_updates": false,
     "file_id": 2115602332,
+    "server_side": false
+  },
+  {
+    "directory": "@CPBWeapons",
+    "disable_updates": false,
+    "file_id": 1705066179,
+    "server_side": false
+  },
+  {
+    "directory": "@[Remastered] Arma Weapon Pack",
+    "disable_updates": false,
+    "file_id": 1793351435,
     "server_side": false
   }
 ]

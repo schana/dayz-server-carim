@@ -310,27 +310,11 @@
       },
       {
         "name": "MSFC.*(TacticalBeard|OpsCore|Weapon_Tool_Box|FirstAidKit|Glasses|Snow|CombatHeadphones|PohuinBottle|BottlePouch).*"
+      },
+      {
+        "name": "(MSFCKryptekRaidCoyoteBag|MSFCKryptekNeptunePCU5Jacket|MSFCKryptekNeptunePlateVest|MSFCKryptekRaidPlateHolster|MSFCOFPResistancePants|MSFCKryptekRaidPlatePouches|MSFCKryptekWraithPlateHolster|MSFCKryptekNeptunePlatePouches|MSFCBalaclavaBlackPrizrak|MSFCKryptekNeptunePants|MassHeavyPlateVest_PartizanM|MSFC_JPC_Vest_MulticamBlack|MSFCKryptekWraithPlateVest|MSFCKryptekWraithCoyoteBag|MSFCKryptekNeptunePlateHolster|MSFCKryptekWraithPants|MSFCKryptekNeptuneCoyoteBag|MSFCKryptekWraithPCU5Jacket|MSFCKryptekRaidPlateVest|MSFCKryptekWraithPlatePouches|MSFCKryptekRaidPCU5Jacket|MSFCKryptekRaidPants)"
       }
     ]
-  },
-  {
-    "description": "Set restock time for items that don't have it",
-    "action": "modify",
-    "matching": [
-      {
-        "nominal": "(?!(^0$)).*",
-        "restock": "^0$",
-        "flags": [
-          {
-            "name": "deloot",
-            "value": false
-          }
-        ]
-        }
-    ],
-    "modification": {
-      "restock": 600
-    }
   },
   {
     "description": "Set lifetime for vehicles",
