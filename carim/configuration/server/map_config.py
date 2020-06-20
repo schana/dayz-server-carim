@@ -5,7 +5,7 @@ import pathlib
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import deploydir, locations, resourcesdir, mission
+from carim.global_resources import deploydir, locations, resourcesdir, mission, mods
 from carim.util import file_writing
 
 log = logging.getLogger(__name__)
@@ -64,13 +64,13 @@ def territory_config(directory):
             territory.append(new_territory)
             log.info('added {} zones in a blanket to {}'.format(count, filename))
 
-        remove_zones_if_near_traders(territory, filename)
+        if '@Trader' in mods.get():
+            remove_zones_if_near_traders(territory, filename)
 
         with file_writing.f_open(pathlib.Path(directory, filename), mode='w') as f:
             f.write(file_writing.convert_to_string(territory))
 
 
-@decorators.mod('@Trader')
 def remove_zones_if_near_traders(territory, name):
     count = 0
     for zone in territory.findall('.//zone'):

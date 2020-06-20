@@ -4,7 +4,7 @@ import re
 from xml.etree import ElementTree
 
 from carim.configuration import decorators
-from carim.global_resources import deploydir, mission, resourcesdir
+from carim.global_resources import deploydir, mission, resourcesdir, types as db_types
 from carim.util import file_writing
 
 
@@ -25,6 +25,8 @@ def spawnable_types_config(directory):
     with open(pathlib.Path(resourcesdir.get(), 'modifications/server/spawnable_types.json')) as f:
         spawnable_modifications = json.load(f)
     for type_config in spawnable_modifications:
+        if len(db_types.get().getroot().findall('.//type[@name="{}"]'.format(type_config.get('type')))) == 0:
+            continue
         types = spawnable_xml.findall('.//type[@name="{}"]'.format(type_config.get('type')))
         if len(types) == 0:
             new_type = ElementTree.SubElement(spawnable_xml, 'type', dict(name=type_config.get('type')))

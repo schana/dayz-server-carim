@@ -4,28 +4,40 @@ from xml.etree import ElementTree
 
 from carim.global_resources import matching_model
 
-types = ElementTree.parse('E:/programming/dayz-server-carim-survival/generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
+types = ElementTree.parse('E:/programming/dayz-server-carim-expansion/generated-output/servers/0/mpmissions/Expansion.ChernarusPlusGloom/db/types.xml')
 # types = ElementTree.parse('generated-output/servers/0/mpmissions/dayzOffline.chernarusplus/db/types.xml')
 
 
 def get_functions_to_run():
     return [
+        find_duplicates,
         describe_xml,
         # get_class_names_by_tier,
         # get_names_by_cat,
         # get_names_by_match,
         # convert_mass_weapon_names_to_regex
         # get_items_for_airdrop
-        get_stats,
-        lambda: print('vanilla'),
-        lambda: get_stats(
-            (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
+        # get_stats,
+        # lambda: print('vanilla'),
+        # lambda: get_stats(
+        #    (ElementTree.parse('D:/DayZServer/deploy/mpmissions/dayzOffline.chernarusplus/db/types.xml').getroot()))
     ]
 
 
 def main():
     for f in get_functions_to_run():
         f()
+
+
+def find_duplicates():
+    seen = set()
+    dupes = set()
+    for type_entry in types.getroot():
+        name = type_entry.attrib.get('name')
+        if name in seen:
+            dupes.add(name)
+        seen.add(name)
+    print('|'.join(dupes))
 
 
 def get_stats(types_et=None):
@@ -143,6 +155,51 @@ def get_items_for_airdrop():
 
 
 def get_names_by_match():
+    mag_pattern = "(Mag.*|.*_[Mm]agazine.*|.*[Mm]ag$|.*MAG$)"
+    matching = [
+        {
+            "name": ".*",
+            "nominal": r"^[^0]"
+        }
+    ]
+    items = []
+    for match in matching:
+        m = matching_model.Match(match)
+        for t in types.getroot():
+            if m.match(t) and t.find('nominal') is not None:
+                items.append(t.get('name'))
+                # print('"' + t.get('name') + '",' + '\t' + str(list(v.get('name') for v in t.findall('value'))))
+    items = sorted(list(set(items)))
+    print(json.dumps(items, indent=2))
+    print(len(items))
+    spawnables = [
+        {
+            'type': item,
+            'attachments': [
+                {
+                    'chance': '1.00',
+                    'items': [
+                        {
+                            'name': find_mag_name(item, items, mag_pattern),
+                            'chance': '1.00'
+                        }
+                    ]
+                }
+            ]
+        }
+        for item in items if not re.match(mag_pattern, item)
+    ]
+    print(json.dumps(spawnables, indent=2))
+
+
+def find_mag_name(item, items, mag_pattern):
+    for i in items:
+        if re.match(mag_pattern, i) and item in i:
+            return i
+    return 'NOTFOUND'
+
+
+def get_names_by_match_old():
     matching = [
         {
             "name": "(?!.*(Pelt|Firewood|katana|kv5|Belt|Seeds|Rag|teddyhead|TannedLeather|Wolf|CourierBag|PlateCarrier|Improvised)).*",
